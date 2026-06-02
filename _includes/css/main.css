@@ -8,6 +8,12 @@ body {
     overflow-x: hidden;
 }
 
+:root {
+    --navbar-brand-font-scale: 0.85;
+    --main-heading-font-scale: var(--navbar-brand-font-scale);
+    --hero-font-scale: 0.75;
+}
+
 p {
     font-size: 20px;
 }
@@ -114,12 +120,12 @@ header .intro-text .name {
     display: block;
     text-transform: uppercase;
     font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 2em;
+    font-size: calc(2em * var(--hero-font-scale));
     font-weight: 700;
 }
 
 header .intro-text .skills {
-    font-size: 1.25em;
+    font-size: calc(1.25em * var(--hero-font-scale));
     font-weight: 300;
 }
 
@@ -130,11 +136,11 @@ header .intro-text .skills {
     }
 
     header .intro-text .name {
-        font-size: 4.75em;
+        font-size: calc(4.75em * var(--hero-font-scale));
     }
 
     header .intro-text .skills {
-        font-size: 1.75em;
+        font-size: calc(1.75em * var(--hero-font-scale));
     }
 }
 
@@ -147,7 +153,7 @@ header .intro-text .skills {
     }
 
     .navbar-fixed-top .navbar-brand {
-        font-size: 2em;
+        font-size: calc(2em * var(--navbar-brand-font-scale));
         -webkit-transition: all .3s;
         -moz-transition: all .3s;
         transition: all .3s;
@@ -158,8 +164,12 @@ header .intro-text .skills {
     }
 
     .navbar-fixed-top.navbar-shrink .navbar-brand {
-        font-size: 1.5em;
+        font-size: calc(1.5em * var(--navbar-brand-font-scale));
     }
+}
+
+.navbar-brand {
+    font-size: calc(19px * var(--navbar-brand-font-scale));
 }
 
 .navbar {
@@ -191,7 +201,7 @@ section {
 
 section h2 {
     margin: 0;
-    font-size: 3em;
+    font-size: calc(3em * var(--main-heading-font-scale));
 }
 
 section.success {
