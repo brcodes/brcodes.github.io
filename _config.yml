@@ -1,5 +1,5 @@
 # Site settings
-title: Bryce E. Rogers, Ph.D
+title: Bryce Rogers, Ph.D
 email: b.ever.rogers@protonmail.com
 # Site URL settings for GitHub Pages
 # - url: https://<username>.github.io
@@ -8,7 +8,11 @@ url: "https://brcodes.github.io"
 baseurl: ""
 description: "Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description."
 keywords: "your keywords, separated by commas"
-skills: "Programmer - Web Developer - Research Scientist"
+skills: "Scientist - Programmer - Web Developer"
+profile_pic_width: 250  # pixels — tune this to resize the profile photo
+profile_pic_zoom: 1.42  # 1.0 = no zoom
+profile_pic_offset_x: 10  # px, positive moves crop right
+profile_pic_offset_y: 0   # px, positive moves crop down
 meta_author: Bryce Rogers
 
 # Google webmaster tools
@@ -37,7 +41,7 @@ footer:
   copyright: Bryce Rogers
   location: Location
   social: GitHub
-  credits: Site Theme
+  credits: Theme
 
 # Social networks usernames (many more available: google-plus, flickr, dribbble, pinterest, instagram, tumblr, linkedin, etc.)
 social:
@@ -46,10 +50,10 @@ social:
 
 # Postal address (add as many lines as necessary)
 address:
-  - line: North Carolina, USA
+  - line: USA
 
 # Credits content
-credits: 'Freelancer is a free to use, open source Bootstrap theme created by <a href="http://startbootstrap.com">Start Bootstrap</a>.'
+credits: '"Freelancer" is a free to use, open source Bootstrap theme created by <a href="http://startbootstrap.com">Start Bootstrap</a>.'
 
 # Build settings
 markdown: kramdown
