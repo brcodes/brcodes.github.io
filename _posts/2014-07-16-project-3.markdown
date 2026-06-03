@@ -8,8 +8,8 @@ thumb-img: /img/port_3_thumb_award.png
 thumb-fill: '#34363a'
 thumb-scale: 0.92
 alt: image-alt
-project-date: April 2014
-client: Start Bootstrap
-category: Web Development
-description: Use this area of the page to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.
+project-date: 2008-25
+client: Oregon State University; Colorado State University; University of Puget Sound
+category: Higher Education
+description: Ph.D. Bioengineering (Biological Data Sciences Minor), M.S. Chemistry (Ph.D. Candidacy), and B.S. Biochemistry, Spanish.
 ---

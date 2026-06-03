@@ -6,8 +6,8 @@ title: 'Web Application #1'
 img: /img/port_5_inner_mmm.png
 thumb-img: /img/port_5_thumb_webdev2.png
 alt: image-alt
-project-date: April 2014
-client: Start Bootstrap
-category: Web Development
-description: Use this area of the page to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.
+project-date: 2025-26
+client: Independent Developer
+category: Web Application Development
+description: "Created and developed a Bible learning app, \"Iron: Sharpen Bible Knowledge\" (www.iron-sharpen.com), in approximately 3 weeks from hand-made images and notes to a stable standalone web version with rich UI/UX."
 ---

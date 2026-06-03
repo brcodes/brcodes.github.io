@@ -8,8 +8,8 @@ thumb-img: /img/port_2_thumb_edu.png
 thumb-fill: '#1f3b2f'
 thumb-scale: 0.92
 alt: image-alt
-project-date: April 2014
-client: Start Bootstrap
-category: Web Development
-description: Use this area of the page to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.
+project-date: 2014
+client: Brian McNaughton Lab, Colorado State University
+category: Quantitative Molecular Biology
+description: Characterization of the Binding Interaction between the Oncoprotein Gankyrin and a Grafted S6 ATPase (Biochemistry, 2014).
 ---

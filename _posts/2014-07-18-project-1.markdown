@@ -10,8 +10,8 @@ modal-images:
   - /img/port_1_inner2_characterizing.png
 thumb-fill: '#f2f2f2'
 alt: image-alt
-project-date: April 2014
-client: Start Bootstrap
-category: Web Development
-description: Use this area of the page to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.
+project-date: 2025-26
+client: Kevin Brown Lab, Oregon State University
+category: Computational Modeling and Publication
+description: Extending a formal model of predictive coding to human spoken word recognition (Accepted in Neural Computation, 2026) and Predictive coding models in human spoken word recognition (OSU, 2025).
 ---
