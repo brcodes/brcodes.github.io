@@ -2,7 +2,11 @@
 layout: default
 modal-id: 2
 date: 2014-07-17
+title: Education
 img: /img/iron_screenshot.png
+thumb-img: /img/edu.png
+thumb-fill: '#1f3b2f'
+thumb-scale: 0.92
 alt: image-alt
 project-date: April 2014
 client: Start Bootstrap

@@ -2,7 +2,13 @@
 layout: default
 modal-id: 1
 date: 2014-07-18
+title: Scientific Publications
 img: /img/train_eval_schematic.png
+thumb-img: /img/sci-pub.png
+modal-images:
+  - /img/train_eval_schematic.png
+  - /img/characterizing.jpeg
+thumb-fill: '#f2f2f2'
 alt: image-alt
 project-date: April 2014
 client: Start Bootstrap

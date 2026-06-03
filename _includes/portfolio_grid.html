@@ -8,20 +8,22 @@
       </div>
     </div>
     <div class="portfolio-flex-row">
-      {% for post in site.posts limit: 4 %}
-      {% assign image_path = post.img %}
-      {% unless post.img contains '/' %}
-      {% assign image_path = '/img/portfolio/' | append: post.img %}
+      {% for post in site.posts %}
+      {% assign thumb_path = post['thumb-img'] | default: post.img %}
+      {% unless thumb_path contains '/' %}
+      {% assign thumb_path = '/img/portfolio/' | append: thumb_path %}
       {% endunless %}
       <div class="portfolio-flex-item portfolio-item">
         <a href="#portfolioModal-{{ post.modal-id }}" class="portfolio-link" data-toggle="modal">
+          <div class="portfolio-thumb" style="background-color: {{ post['thumb-fill'] | default: '#f3f3f3' }}; --thumb-scale: {{ post['thumb-scale'] | default: 1 }};">
+            <img src="{{ thumb_path | relative_url }}" class="img-responsive"
+              alt="{{ post.alt }}">
+          </div>
           <div class="caption">
             <div class="caption-content">
               <i class="fa fa-search-plus fa-3x"></i>
             </div>
           </div>
-          <img src="{{ image_path | relative_url }}" class="img-responsive"
-            alt="{{ post.alt }}">
         </a>
       </div>
       {% endfor %}

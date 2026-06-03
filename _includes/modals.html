@@ -15,11 +15,40 @@
           <div class="modal-body">
             <h2>{{ post.title }}</h2>
             <hr class="star-primary">
+            {% if post['modal-images'] %}
+            <div id="portfolioCarousel-{{ post.modal-id }}" class="carousel slide" data-ride="carousel" data-interval="false">
+              <ol class="carousel-indicators">
+                {% for modal_image in post['modal-images'] %}
+                <li data-target="#portfolioCarousel-{{ post.modal-id }}" data-slide-to="{{ forloop.index0 }}"{% if forloop.first %} class="active"{% endif %}></li>
+                {% endfor %}
+              </ol>
+              <div class="carousel-inner" role="listbox">
+                {% for modal_image in post['modal-images'] %}
+                {% assign modal_image_path = modal_image %}
+                {% unless modal_image contains '/' %}
+                {% assign modal_image_path = '/img/portfolio/' | append: modal_image %}
+                {% endunless %}
+                <div class="item{% if forloop.first %} active{% endif %}">
+                  <img src="{{ modal_image_path | relative_url }}" class="img-responsive img-centered" alt="{{ post.alt }}">
+                </div>
+                {% endfor %}
+              </div>
+              <a class="left carousel-control" href="#portfolioCarousel-{{ post.modal-id }}" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="right carousel-control" href="#portfolioCarousel-{{ post.modal-id }}" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
+            </div>
+            {% else %}
             {% assign image_path = post.img %}
             {% unless post.img contains '/' %}
             {% assign image_path = '/img/portfolio/' | append: post.img %}
             {% endunless %}
             <img src="{{ image_path | relative_url }}" class="img-responsive img-centered" alt="{{ post.alt }}">
+            {% endif %}
             {% if post.description %}
             <p>{{ post.description }}</p>
             {% endif %}
