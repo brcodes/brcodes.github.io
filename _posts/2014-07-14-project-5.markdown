@@ -5,6 +5,7 @@ date: 2014-07-14
 title: 'Web Application #1'
 img: /img/port_5_inner_mmm.png
 thumb-img: /img/port_5_thumb_webdev2.png
+thumb-fill: '#e6f3ff'
 alt: image-alt
 project-date: 2025-26
 client: Independent Developer, USA

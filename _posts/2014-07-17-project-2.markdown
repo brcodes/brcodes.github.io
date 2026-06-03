@@ -5,7 +5,7 @@ date: 2014-07-17
 title: M.S. Publication
 img: /img/port_2_thumb_edu.png
 thumb-img: /img/port_2_thumb_edu.png
-thumb-fill: '#1f3b2f'
+thumb-fill: '#f3f3f3'
 alt: image-alt
 project-date: 2014
 client: Graduate Research Assistant, Colorado State University

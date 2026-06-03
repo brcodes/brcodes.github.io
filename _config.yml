@@ -11,8 +11,8 @@ description: "Write an awesome description for your new site here. You can edit 
 keywords: "your keywords, separated by commas"
 skills: "Quantitative Scientist - Programmer - Web Developer"
 profile_pic_width: 250  # pixels — tune this to resize the profile photo
-profile_pic_zoom: 1.2  # 1.0 = no zoom
-profile_pic_offset_x: 10  # px, positive moves crop right
+profile_pic_zoom: 1.35  # 1.0 = no zoom
+profile_pic_offset_x: 11  # px, positive moves crop right
 profile_pic_offset_y: 0   # px, positive moves crop down
 meta_author: Bryce Rogers
 

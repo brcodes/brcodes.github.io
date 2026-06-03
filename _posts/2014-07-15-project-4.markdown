@@ -5,7 +5,7 @@ date: 2014-07-15
 title: Awards
 img: /img/port_4_inner_iron.png
 thumb-img: /img/port_4_thumb_webdev1.png
-thumb-fill: '#f2f2f2'
+thumb-fill: '#f3f3f3'
 alt: image-alt
 project-date: 2008, 2020, 2022
 client: Student, O.S.U., U.P.S.

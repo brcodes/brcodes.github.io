@@ -4,6 +4,7 @@ modal-id: 6
 date: 2014-07-13
 title: 'Web Application #2'
 img: submarine.png
+thumb-fill: '#f3f3f3'
 alt: image-alt
 project-date: 2025-26
 client: Independent Developer, USA

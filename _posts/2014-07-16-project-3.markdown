@@ -5,7 +5,7 @@ date: 2014-07-16
 title: Education
 img: /img/port_3_thumb_award.png
 thumb-img: /img/port_3_thumb_award.png
-thumb-fill: '#34363a'
+thumb-fill: '#e6f3ff'
 alt: image-alt
 project-date: 2008-25
 client: Student, O.S.U., C.S.U., U.P.S.

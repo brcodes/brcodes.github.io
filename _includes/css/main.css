@@ -44,11 +44,11 @@ h6 {
 
 hr.star-light,
 hr.star-primary {
-    margin: 25px auto 30px;
+    margin: 23px auto 28px;
     padding: 0;
-    max-width: 250px;
+    max-width: 230px;
     border: 0;
-    border-top: solid 5px;
+    border-top: solid 4.6px;
     text-align: center;
     overflow: visible;
 }
@@ -58,10 +58,10 @@ hr.star-primary:after {
     content: "\f005";
     display: inline-block;
     position: relative;
-    top: -.8em;
+    top: -.74em;
     padding: 0 .25em;
     font-family: FontAwesome;
-    font-size: 2em;
+    font-size: 1.84em;
 }
 
 hr.star-light {
@@ -93,8 +93,8 @@ header {
 }
 
 header .container {
-    padding-top: 50px;
-    padding-bottom: 0;
+    padding-top: 115px;
+    padding-bottom: 65px;
 }
 
 .profile-frame {
@@ -131,8 +131,8 @@ header .intro-text .skills {
 
 @media(min-width:768px) {
     header .container {
-        padding-top: 150px;
-        padding-bottom: 50px;
+        padding-top: 160px;
+        padding-bottom: 60px;
     }
 
     header .intro-text .name {
@@ -215,9 +215,17 @@ section.success {
     background: #{{ site.color.primary }};
 }
 
+#about {
+    padding: 75px 0;
+}
+
 @media(max-width:767px) {
     section {
         padding: 75px 0;
+    }
+
+    #about {
+        padding: 50px 0;
     }
 
     section.first {
@@ -250,7 +258,7 @@ section.success {
     width: calc(100% * var(--thumb-scale, 1));
     height: calc(100% * var(--thumb-scale, 1));
     object-fit: contain;
-    object-position: center;
+    object-position: var(--thumb-position, center center);
 }
 
 #portfolio .portfolio-item .portfolio-link .caption {
@@ -288,7 +296,7 @@ transition: all ease .5s;
 #portfolio .portfolio-item .portfolio-link .caption .caption-content .caption-title {
     max-width: 90%;
     font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 24px;
+    font-size: calc(3em * var(--main-heading-font-scale) * 0.93 * 0.9);
     font-weight: 700;
     letter-spacing: 0.03em;
     line-height: 1.2;

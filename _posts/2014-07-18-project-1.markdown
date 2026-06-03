@@ -5,10 +5,11 @@ date: 2014-07-18
 title: Ph.D Publications
 img: /img/port_1_inner1_trainevalschematic.png
 thumb-img: /img/port_1_thumb_scipub.png
+thumb-position: 46% center
 modal-images:
   - /img/port_1_inner1_trainevalschematic.png
   - /img/port_1_inner2_characterizing.png
-thumb-fill: '#f2f2f2'
+thumb-fill: '#e6f3ff'
 alt: image-alt
 project-date: 2025-26
 client: Graduate Research Assistant, Oregon State University
