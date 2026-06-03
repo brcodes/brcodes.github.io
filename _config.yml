@@ -9,7 +9,7 @@ url: "https://brcodes.github.io"
 baseurl: ""
 description: "Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description."
 keywords: "your keywords, separated by commas"
-skills: "Ph.D/M.S. Scientist - Programmer - Web Developer"
+skills: "Quantitative Scientist - Programmer - Web Developer"
 profile_pic_width: 250  # pixels — tune this to resize the profile photo
 profile_pic_zoom: 1.2  # 1.0 = no zoom
 profile_pic_offset_x: 10  # px, positive moves crop right
