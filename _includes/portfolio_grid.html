@@ -3,16 +3,23 @@
   <div class="container portfolio-flex-grid">
     <div class="row">
       <div class="col-lg-12 text-center">
-        <h2>Work Sample</h2>
+        <h2>Work Profile</h2>
         <hr class="star-primary">
       </div>
     </div>
     <div class="portfolio-flex-row">
       {% for post in site.posts %}
+      {% assign thumb_prefix = '/img/port_' | append: post.modal-id | append: '_thumb' %}
+      {% assign auto_thumb_matches = site.static_files | where_exp: "f", "f.path contains thumb_prefix" | sort: "path" %}
+      {% assign auto_thumb = auto_thumb_matches | first %}
+      {% if auto_thumb %}
+      {% assign thumb_path = auto_thumb.path %}
+      {% else %}
       {% assign thumb_path = post['thumb-img'] | default: post.img %}
       {% unless thumb_path contains '/' %}
       {% assign thumb_path = '/img/portfolio/' | append: thumb_path %}
       {% endunless %}
+      {% endif %}
       <div class="portfolio-flex-item portfolio-item">
         <a href="#portfolioModal-{{ post.modal-id }}" class="portfolio-link" data-toggle="modal">
           <div class="portfolio-thumb" style="background-color: {{ post['thumb-fill'] | default: '#f3f3f3' }}; --thumb-scale: {{ post['thumb-scale'] | default: 1 }};">
@@ -21,7 +28,7 @@
           </div>
           <div class="caption">
             <div class="caption-content">
-              <i class="fa fa-search-plus fa-3x"></i>
+              <span class="caption-title">{{ post.title }}</span>
             </div>
           </div>
         </a>

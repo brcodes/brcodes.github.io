@@ -2,8 +2,9 @@
 layout: default
 modal-id: 4
 date: 2014-07-15
-img: /img/characterizing.jpeg
-thumb-img: /img/web-dev-2.png
+title: Awards
+img: /img/port_4_inner_iron.png
+thumb-img: /img/port_4_thumb_webdev1.png
 thumb-fill: '#f2f2f2'
 alt: image-alt
 project-date: April 2014

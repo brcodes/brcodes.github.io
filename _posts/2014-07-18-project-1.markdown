@@ -2,12 +2,12 @@
 layout: default
 modal-id: 1
 date: 2014-07-18
-title: Scientific Publications
-img: /img/train_eval_schematic.png
-thumb-img: /img/sci-pub.png
+title: Ph.D Publications
+img: /img/port_1_inner1_trainevalschematic.png
+thumb-img: /img/port_1_thumb_scipub.png
 modal-images:
-  - /img/train_eval_schematic.png
-  - /img/characterizing.jpeg
+  - /img/port_1_inner1_trainevalschematic.png
+  - /img/port_1_inner2_characterizing.png
 thumb-fill: '#f2f2f2'
 alt: image-alt
 project-date: April 2014

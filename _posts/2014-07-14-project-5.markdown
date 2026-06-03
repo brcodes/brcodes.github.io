@@ -2,8 +2,9 @@
 layout: default
 modal-id: 5
 date: 2014-07-14
-title: Core Competencies
-img: safe.png
+title: 'Web Application #1'
+img: /img/port_5_inner_mmm.png
+thumb-img: /img/port_5_thumb_webdev2.png
 alt: image-alt
 project-date: April 2014
 client: Start Bootstrap
