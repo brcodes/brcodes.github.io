@@ -6,7 +6,6 @@ title: M.S. Publication
 img: /img/port_2_thumb_edu.png
 thumb-img: /img/port_2_thumb_edu.png
 thumb-fill: '#1f3b2f'
-thumb-scale: 0.92
 alt: image-alt
 project-date: 2014
 client: Brian McNaughton Lab, Colorado State University

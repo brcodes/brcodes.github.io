@@ -6,7 +6,6 @@ title: Education
 img: /img/port_3_thumb_award.png
 thumb-img: /img/port_3_thumb_award.png
 thumb-fill: '#34363a'
-thumb-scale: 0.92
 alt: image-alt
 project-date: 2008-25
 client: Oregon State University; Colorado State University; University of Puget Sound
