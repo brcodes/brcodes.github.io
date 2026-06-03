@@ -8,11 +8,11 @@ thumb-img: /img/port_1_thumb_scipub.png
 thumb-position: 46% center
 modal-images:
   - /img/port_1_inner1_trainevalschematic.png
-  - /img/port_1_inner2_characterizing.png
+  - /img/port_1_inner2_lexcompclean.png
 thumb-fill: '#e6f3ff'
 alt: image-alt
 project-date: 2025-26
 client: Graduate Research Assistant, Oregon State University
-category: Computational Modeling and Publication
+category: Computational Modeling (Python)
 description: Extending a formal model of predictive coding to human spoken word recognition (Accepted in Neural Computation, 2026) and Predictive coding models in human spoken word recognition (OSU, 2025).
 ---
