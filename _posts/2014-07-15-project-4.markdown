@@ -8,7 +8,7 @@ thumb-img: /img/port_4_thumb_webdev1.png
 thumb-fill: '#f2f2f2'
 alt: image-alt
 project-date: 2008, 2020, 2022
-client: Oregon State University; University of Puget Sound
+client: Student, O.S.U., U.P.S.
 category: Academic Financial Awards
 description: "> $105K earned in personal academic financial awards outside of graduate assistantships, including OSU CoE Dean's Award (2022), ARCS Foundation Scholar (2020), Provost Distinguished Graduate Scholar (2020), and UPS Trustee Scholarship (2008)."
 ---

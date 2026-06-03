@@ -8,7 +8,7 @@ thumb-img: /img/port_3_thumb_award.png
 thumb-fill: '#34363a'
 alt: image-alt
 project-date: 2008-25
-client: Oregon State University; Colorado State University; University of Puget Sound
+client: Student, O.S.U., C.S.U., U.P.S.
 category: Higher Education
 description: Ph.D. Bioengineering (Biological Data Sciences Minor), M.S. Chemistry (Ph.D. Candidacy), and B.S. Biochemistry, Spanish.
 ---

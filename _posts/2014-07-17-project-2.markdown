@@ -8,7 +8,7 @@ thumb-img: /img/port_2_thumb_edu.png
 thumb-fill: '#1f3b2f'
 alt: image-alt
 project-date: 2014
-client: Brian McNaughton Lab, Colorado State University
+client: Graduate Research Assistant, Colorado State University
 category: Quantitative Molecular Biology
 description: Characterization of the Binding Interaction between the Oncoprotein Gankyrin and a Grafted S6 ATPase (Biochemistry, 2014).
 ---
