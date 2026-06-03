@@ -48,5 +48,21 @@ Notes:
 - The default contact option in this theme is static form submission (`contact: static`), which works on GitHub Pages.
 - PHP mail handlers in `/mail` are not executed by GitHub Pages.
 
+## Local development with live reload
+Use Jekyll's built-in server and live reload support:
+
+```bash
+bundle install
+bundle exec rake serve
+```
+
+Then open:
+- Site: `http://127.0.0.1:4000`
+- LiveReload endpoint (script only): `http://127.0.0.1:35730`
+
+If you open the LiveReload endpoint directly, you will see a message like:
+`This port only serves livereload.js over HTTP.`
+That is expected. It is not the page URL.
+
 ---------
 For more details, read the [documentation](http://jekyllrb.com/)
