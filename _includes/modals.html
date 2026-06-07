@@ -83,7 +83,7 @@
             <img src="{{ image_path | relative_url }}" class="img-responsive img-centered" alt="{{ post.alt }}">
             {% endif %}
             {% if post.description %}
-            <p>{{ post.description }}</p>
+            <div class="project-description">{{ post.description | markdownify }}</div>
             {% endif %}
             <ul class="list-inline item-details">
               {% if post.client %}
@@ -97,7 +97,7 @@
               </li>
               {% endif %}
               {% if post.category %}
-              <li>Service:
+              <li>Field:
                 <strong>{{ post.category }}</strong>
               </li>
               {% endif %}

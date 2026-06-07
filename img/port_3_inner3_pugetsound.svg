@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2200" height="1400" viewBox="0 0 2200 1400" role="img" aria-labelledby="title desc">
+  <title id="title">University of Puget Sound</title>
+  <desc id="desc">University of Puget Sound Loggers education slide</desc>
+  <rect width="2200" height="1400" fill="#6b2b5c"/>
+  <text x="1100" y="560" fill="#ffffff" font-size="120" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-weight="700">UNIVERSITY OF PUGET SOUND</text>
+  <text x="1100" y="720" fill="#ffffff" font-size="82" text-anchor="middle" font-family="Arial, Helvetica, sans-serif">Loggers</text>
+  <text x="1100" y="860" fill="#ffffff" font-size="64" text-anchor="middle" font-family="Arial, Helvetica, sans-serif">Puget Sound</text>
+</svg>

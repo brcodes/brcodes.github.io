@@ -2,17 +2,23 @@
 layout: default
 modal-id: 1
 date: 2014-07-18
-title: Ph.D Publications
+title: Ph.D
 img: /img/port_1_inner1_trainevalschematic.png
 thumb-img: /img/port_1_thumb_scipub.png
 thumb-position: 46% center
 modal-images:
   - /img/port_1_inner1_trainevalschematic.png
-  - /img/port_1_inner2_lexcompclean.png
+  - /img/port_1_inner2_schematics.png
+  - /img/port_1_inner3_lexcompclean.png
 thumb-fill: '#e6f3ff'
 alt: image-alt
-project-date: 2025-26
-client: Graduate Research Assistant, Oregon State University
-category: Computational Modeling (Python)
-description: Extending a formal model of predictive coding to human spoken word recognition (Accepted in Neural Computation, 2026) and Predictive coding models in human spoken word recognition (OSU, 2025).
+project-date: 2020-25
+client: Scientist, Model Engineer/Developer, Writer, Figure Artist
+category: Computational Modeling
+description: |
+  - *Oregon State University*: Ph.D in Bioengineering (Biological Data Science Minor). GPA 3.95.
+  - Development and characterization of deterministic and neural-network-based predictive coding models of word recognition and vision (Python, Git ecosystems, remote/hybrid work).
+  - "Extending a formal model of predictive coding to human spoken word recognition." — B.R., M.Y.L., T.H., J.S.M., and K.B. Accepted in *Neural Computation*, 2026.
+  - "Predictive coding models in human spoken word recognition." — B.R. *Oregon State University*, 2025.
+  - "Amended prediction error and signal-sharpening models in word recognition." — (P.G., B.R.)\*, K.K., K.B., and J.S.M. (\*co-first authors). In preparation for *Plos Biology*. Estimated submission 2026.
 ---

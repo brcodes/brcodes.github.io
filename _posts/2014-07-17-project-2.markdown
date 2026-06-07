@@ -2,13 +2,16 @@
 layout: default
 modal-id: 2
 date: 2014-07-17
-title: M.S. Publication
+title: Master's
 img: /img/port_2_thumb_edu.png
 thumb-img: /img/port_2_thumb_edu.png
 thumb-fill: '#f3f3f3'
 alt: image-alt
-project-date: 2014
-client: Graduate Research Assistant, Colorado State University
-category: Quantitative Molecular Biology
-description: Characterization of the Binding Interaction between the Oncoprotein Gankyrin and a Grafted S6 ATPase (Biochemistry, 2014).
+project-date: 2013-2016
+client: Scientist
+category: Molecular Biology
+description: |
+  - *Colorado State University*: M.S. (Ph.D Candidacy) in Chemistry (Chemical Biology Program). GPA 3.52.
+  - Protein semi-design through quantitative molecular biology.
+  - "Characterization of the Binding Interaction between the Oncoprotein Gankyrin and a Grafted S6 ATPase." — A.C., B.R., and B.M. *Biochemistry*, 2014.
 ---

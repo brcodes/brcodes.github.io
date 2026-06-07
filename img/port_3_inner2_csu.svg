@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2200" height="1400" viewBox="0 0 2200 1400" role="img" aria-labelledby="title desc">
+  <title id="title">Colorado State University</title>
+  <desc id="desc">Colorado State Rams education slide</desc>
+  <rect width="2200" height="1400" fill="#1e4d2b"/>
+  <text x="1100" y="560" fill="#ffffff" font-size="120" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-weight="700">COLORADO STATE UNIVERSITY</text>
+  <text x="1100" y="720" fill="#ffffff" font-size="82" text-anchor="middle" font-family="Arial, Helvetica, sans-serif">Fort Collins Rams</text>
+  <text x="1100" y="860" fill="#ffffff" font-size="64" text-anchor="middle" font-family="Arial, Helvetica, sans-serif">CSU</text>
+</svg>

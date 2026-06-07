@@ -35,3 +35,19 @@ $('body').scrollspy({
 $('.navbar-collapse ul li a').click(function() {
     $('.navbar-toggle:visible').click();
 });
+
+// Portfolio modal close policy:
+// - Close on modal image click
+// - Close on explicit close button (X)
+// - Do not close on backdrop click or keyboard (Esc)
+$(function() {
+    $('.portfolio-modal').modal({
+        backdrop: 'static',
+        keyboard: false,
+        show: false
+    });
+
+    $(document).on('click', '.portfolio-modal .modal-body img', function() {
+        $(this).closest('.modal').modal('hide');
+    });
+});
