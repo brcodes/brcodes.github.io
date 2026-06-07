@@ -2,13 +2,13 @@
 layout: default
 modal-id: 5
 date: 2014-07-14
-title: 'Web Application #1'
+title: 'App Dev'
 img: /img/port_5_inner_mmm.png
 thumb-img: /img/port_5_thumb_webdev2.png
 thumb-fill: '#e6f3ff'
 alt: image-alt
 project-date: 2025-26
-client: Independent Developer, USA
-category: Web Application Development
+client: Independent Developer
+category: Web Development
 description: "Created and developed a Bible learning app, \"Iron: Sharpen Bible Knowledge\" (www.iron-sharpen.com), in approximately 3 weeks from hand-made images and notes to a stable standalone web version with rich UI/UX."
 ---

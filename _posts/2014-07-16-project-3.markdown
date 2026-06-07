@@ -13,13 +13,13 @@ category: Liberal Arts, Biochemistry, Chemistry, Bioengineering, Programming & D
 description: Ph.D. Bioengineering (Biological Data Sciences Minor), M.S. Chemistry (Ph.D. Candidacy), and B.S. Biochemistry, Spanish.
 
 description: |
-  - *Oregon State University*: Ph.D. Bioengineering (Biological Data Sciences Minor). 2020-2025. GPA 3.95
-    - Computational modeling, data science & machine learning in biology.
-    - Programming & Data Structures, Applied Machine Learning, Command Line Data Analysis (UNIX/Bash), Intro to UNIX/LINUX, Data Science Tools & Programming, Modern Statistical Methods for Large & Complex Datasets, Statistical Methods for Genomics Res., Foundations of Data Analytics (Python, R, Bash).
-  - *Colorado State University*: M.S. Chemistry (Chemical Biology Program; Ph.D. Candidacy). 2013-2016. GPA 3.52
-    - Study and development of macromolecular tools to control cellular biochemistry and treat human disease. 
-    - Biomolecular Engineering and Synthetic Biology, Chemical Separations, Molecular Genetics, Chemical Biology I/II.
-  - *University of Puget Sound*: B.S. Biochemistry, Spanish (Literary Studies). 2008-2012. GPA 3.05
-    - Liberal arts with a dual focus in biochemistry and Spanish.
-    - Multivariate Calculus, Genetics, Cell Biology, Physical Biochemistry, Metabolic Biochemistry, Organic Chemistry I/II, Natural Products, Analytical Chemistry, Inorganic Chemistry, Physical Chemistry, Physics I/II.
+  - __Ph.D. Bioengineering (Biological Data Sciences Minor)__. Oregon State University. 2020-2025. GPA 3.95
+    - Summary: computational modeling, data science & machine learning in biology.
+    - Courses: Programming & Data Structures, Applied Machine Learning, Command Line Data Analysis (UNIX/Bash), Intro to UNIX/LINUX, Data Science Tools & Programming, Modern Statistical Methods for Large & Complex Datasets, Statistical Methods for Genomics Res., Foundations of Data Analytics (Python, R, Bash).
+  - __M.S. Chemistry (Chemical Biology Program; Ph.D. Candidacy)__. Colorado State University. 2013-2016. GPA 3.52
+    - Summary: study and development of macromolecular tools to control cellular biochemistry and treat human disease. 
+    - Courses: Biomolecular Engineering and Synthetic Biology, Chemical Separations, Molecular Genetics, Chemical Biology I/II.
+  - __B.S. Biochemistry, Spanish (Literary Studies)__. University of Puget Sound. 2008-2012. GPA 3.05
+    - Summary: Liberal arts with a dual focus in biochemistry and Spanish.
+    - Courses: Multivariate Calculus, Genetics, Cell Biology, Physical Biochemistry, Metabolic Biochemistry, Organic Chemistry I/II, Natural Products, Analytical Chemistry, Inorganic Chemistry, Physical Chemistry, Physics I/II.
 ---

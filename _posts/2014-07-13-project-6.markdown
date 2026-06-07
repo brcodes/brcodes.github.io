@@ -2,12 +2,12 @@
 layout: default
 modal-id: 6
 date: 2014-07-13
-title: 'Web Application #2'
+title: 'App Dev'
 img: submarine.png
 thumb-fill: '#f3f3f3'
 alt: image-alt
 project-date: 2025-26
-client: Independent Developer, USA
-category: Web Application Development
+client: Independent Developer
+category: Web Development
 description: Created and developed an audio visualizer app based on human sound perception, the "Music Mix Mapper" (https://brcodes.github.io/music-mix-mapper/), in 1 week from hand-made images and notes to a stable standalone web version with robust full-size UI/UX.
 ---
