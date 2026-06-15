@@ -1,7 +1,7 @@
 ---
 layout: default
 modal-id: 6
-date: 2014-07-13
+date: 2014-07-17
 title: 'App Dev'
 img: submarine.png
 thumb-fill: '#f3f3f3'
