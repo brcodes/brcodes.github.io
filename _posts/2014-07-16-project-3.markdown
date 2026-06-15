@@ -12,9 +12,9 @@ modal-images:
   - /img/port_3_inner3_pugetsound.svg
 thumb-fill: '#f3f3f3'
 alt: Education and training summary across bioengineering, chemistry, and biochemistry
-project-date: 2008-25
-client: Student, Student Researcher, Research Assistant, Teaching Assistant
-category: Liberal Arts, Biochemistry, Chemistry, Bioengineering, Programming & Data Science
+date-range: 2008-25
+role: Student, Student Researcher, Research Assistant, Teaching Assistant
+field: Liberal Arts, Biochemistry, Chemistry, Bioengineering, Programming & Data Science
 description: Ph.D. Bioengineering (Biological Data Sciences Minor), M.S. Chemistry (Ph.D. Candidacy), and B.S. Biochemistry, Spanish.
 
 description: |

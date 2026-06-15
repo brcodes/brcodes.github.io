@@ -13,9 +13,9 @@ modal-images:
   - /img/port_1_inner3_lexcompclean.png
 thumb-fill: '#e6f3ff'
 alt: Computational modeling schematics for predictive coding in spoken word recognition
-project-date: 2020-25
-client: Scientist, Model Engineer/Developer, Writer, Figure Developer
-category: Computational Modeling
+date-range: 2020-25
+role: Scientist, Model Engineer/Developer, Writer, Figure Developer
+field: Computational Modeling
 description: |
   - Ph.D Student (*Oregon State University*): 
     - Computational modeling, data science & machine learning in biology: biologically plausible deterministic and neural-network models of human word recognition and vision (Python, Git; Remote/hybrid)

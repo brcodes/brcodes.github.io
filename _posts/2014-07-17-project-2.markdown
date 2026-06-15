@@ -8,9 +8,9 @@ modal-img: /img/port_2_inner_characterizing.png
 thumbnail-img: /img/port_2_thumb_scipub.png
 thumb-fill: '#f3f3f3'
 alt: Molecular biology project image focused on protein interaction characterization
-project-date: 2013-2016
-client: Scientist
-category: Molecular Biology & Biochemistry
+date-range: 2013-2016
+role: Scientist
+field: Molecular Biology & Biochemistry
 description: |
 
   - M.S. Student (*Colorado State University; Ph.D Candidacy*): 

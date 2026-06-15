@@ -61,20 +61,23 @@
             {% if post.description %}
             <div class="project-description">{{ post.description | markdownify }}</div>
             {% endif %}
+            {% assign role_value = post.role | default: post.client %}
+            {% assign date_value = post['date-range'] | default: post['project-date'] %}
+            {% assign field_value = post.field | default: post.category %}
             <ul class="list-inline item-details">
-              {% if post.client %}
+              {% if role_value %}
               <li>Role:
-                <strong>{{ post.client }}</strong>
+                <strong>{{ role_value }}</strong>
               </li>
               {% endif %}
-              {% if post.project-date %}
+              {% if date_value %}
               <li>Date:
-                <strong>{{ post.project-date }}</strong>
+                <strong>{{ date_value }}</strong>
               </li>
               {% endif %}
-              {% if post.category %}
+              {% if field_value %}
               <li>Field:
-                <strong>{{ post.category }}</strong>
+                <strong>{{ field_value }}</strong>
               </li>
               {% endif %}
             </ul>

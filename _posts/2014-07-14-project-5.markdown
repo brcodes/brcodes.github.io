@@ -8,9 +8,10 @@ modal-img: /img/port_6_inner_mmm.png
 thumbnail-img: /img/port_5_thumb_webdev1.png
 thumb-fill: '#e6f3ff'
 alt: Interface preview for Music Mix Mapper audio visualization web application
-project-date: 2025-26
-client: Developer
-category: Web Development
+date-range: 2025-26
+role: Developer
+field: Web Application Development
 description: |
-  - Created and developed an audio visualizer app based on human sound perception, the "Music Mix Mapper" (https://brcodes.github.io/music-mix-mapper/), in 1 week from hand-made images and notes to a stable standalone web version with robust full-size UI/UX.
+  - Created and developed an audio visualizer application based on human sound perception, the "Music Mix Mapper" (https://brcodes.github.io/music-mix-mapper/)
+    - 1 week from concept images and design notes to a stable, standalone web version with robust full-size UI/UX
 ---
