@@ -2,7 +2,8 @@
 layout: default
 grid-position: 6
 date: 2014-07-13
-title: Education
+card-title: Education
+modal-title: Higher Education (Degrees & Courses)
 modal-img: /img/port_3_inner1_osu.svg
 thumbnail-img: /img/port_3_thumb_edu.png
 modal-images:

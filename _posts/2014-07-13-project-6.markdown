@@ -2,7 +2,8 @@
 layout: default
 grid-position: 2
 date: 2014-07-17
-title: 'Web<br>App #1'
+modal-title: 'Bible Learning Game: Iron'
+card-title: 'Web<br>App #1'
 modal-img: /img/port_5_inner_iron.png
 thumbnail-img: /img/port_6_thumb_webdev2.png
 thumb-fill: '#f3f3f3'
