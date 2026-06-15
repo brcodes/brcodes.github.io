@@ -5,9 +5,9 @@ grid-position: 3
 date: 2014-07-16
 title: 'Web<br>App #2'
 modal-img: /img/port_6_inner_mmm.png
-thumbnail-img: /img/port_5_thumb_webdev2.png
+thumbnail-img: /img/port_5_thumb_webdev1.png
 thumb-fill: '#e6f3ff'
-alt: image-alt
+alt: Interface preview for Music Mix Mapper audio visualization web application
 project-date: 2025-26
 client: Independent Developer
 category: Web Development

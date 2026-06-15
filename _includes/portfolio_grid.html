@@ -10,17 +10,10 @@
     <div class="portfolio-flex-row">
       {% assign ordered_posts = site.posts | where_exp: "post", "post['grid-position'] != nil" | sort: 'grid-position' %}
       {% for post in ordered_posts %}
-      {% assign thumb_prefix = '/img/port_' | append: post.modal-id | append: '_thumb' %}
-      {% assign auto_thumb_matches = site.static_files | where_exp: "f", "f.path contains thumb_prefix" | sort: "path" %}
-      {% assign auto_thumb = auto_thumb_matches | first %}
-      {% if auto_thumb %}
-      {% assign thumb_path = auto_thumb.path %}
-      {% else %}
       {% assign thumb_path = post['thumbnail-img'] %}
       {% unless thumb_path contains '/' %}
       {% assign thumb_path = '/img/portfolio/' | append: thumb_path %}
       {% endunless %}
-      {% endif %}
       <div class="portfolio-flex-item portfolio-item">
         <a href="#portfolioModal-{{ post.modal-id }}" class="portfolio-link" data-toggle="modal">
           <div class="portfolio-thumb" style="background-color: {{ post['thumb-fill'] | default: '#f3f3f3' }}; --thumb-scale: {{ post['thumb-scale'] | default: 1 }}; --thumb-position: {{ post['thumb-position'] | default: 'center center' }};">

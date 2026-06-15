@@ -4,15 +4,16 @@ modal-id: 2
 grid-position: 4
 date: 2014-07-15
 title: Molecular Biology
-modal-img: /img/port_2_thumb_edu.png
-thumbnail-img: /img/port_2_thumb_edu.png
+modal-img: /img/port_2_inner_characterizing.png
+thumbnail-img: /img/port_2_thumb_scipub.png
 thumb-fill: '#f3f3f3'
-alt: image-alt
+alt: Molecular biology project image focused on protein interaction characterization
 project-date: 2013-2016
 client: Scientist
 category: Molecular Biology
 description: |
+
+  - M.S. Student at Protein semi-design through quantitative molecular biology.
+  - "Characterization of the Binding Interaction between the Oncoprotein Gankyrin and a Grafted S6 ATPase." — A.C., B.R., and B.M. *Biochemistry*, 2014.  
   - *Colorado State University*: M.S. (Ph.D Candidacy) in Chemistry (Chemical Biology Program). GPA 3.52.
-  - Protein semi-design through quantitative molecular biology.
-  - "Characterization of the Binding Interaction between the Oncoprotein Gankyrin and a Grafted S6 ATPase." — A.C., B.R., and B.M. *Biochemistry*, 2014.
 ---

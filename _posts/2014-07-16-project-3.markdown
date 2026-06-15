@@ -4,10 +4,14 @@ modal-id: 3
 grid-position: 6
 date: 2014-07-13
 title: Education
-modal-img: /img/port_3_thumb_award.png
-thumbnail-img: /img/port_3_thumb_award.png
+modal-img: /img/port_3_inner1_osu.svg
+thumbnail-img: /img/port_3_thumb_edu.png
+modal-images:
+  - /img/port_3_inner1_osu.svg
+  - /img/port_3_inner2_csu.svg
+  - /img/port_3_inner3_pugetsound.svg
 thumb-fill: '#f3f3f3'
-alt: image-alt
+alt: Education and training summary across bioengineering, chemistry, and biochemistry
 project-date: 2008-25
 client: Student, Student Researcher, Research Assistant, Teaching Assistant
 category: Liberal Arts, Biochemistry, Chemistry, Bioengineering, Programming & Data Science
