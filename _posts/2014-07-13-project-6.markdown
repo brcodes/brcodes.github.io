@@ -1,6 +1,7 @@
 ---
 layout: default
 modal-id: 6
+grid-position: 2
 date: 2014-07-17
 title: 'App Dev'
 img: submarine.png

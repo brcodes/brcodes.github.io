@@ -1,6 +1,7 @@
 ---
 layout: default
 modal-id: 2
+grid-position: 4
 date: 2014-07-15
 title: Master's
 img: /img/port_2_thumb_edu.png
