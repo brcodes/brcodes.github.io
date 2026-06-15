@@ -10,7 +10,7 @@ Jekyll theme based on [Freelancer bootstrap theme ](http://startbootstrap.com/te
 ```txt
 ---
 layout: default
-modal-id: 1
+grid-position: 1
 date: 2020-01-18
 img: cabin.png
 alt: image-alt

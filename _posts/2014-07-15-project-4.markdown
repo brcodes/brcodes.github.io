@@ -1,6 +1,5 @@
 ---
 layout: default
-modal-id: 4
 grid-position: 5
 date: 2014-07-14
 title: Awards

@@ -1,6 +1,5 @@
 ---
 layout: default
-modal-id: 5
 grid-position: 3
 date: 2014-07-16
 title: 'Web<br>App #2'

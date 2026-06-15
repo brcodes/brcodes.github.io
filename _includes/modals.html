@@ -1,7 +1,7 @@
 <!-- Portfolio Modals -->
 {% assign ordered_posts = site.posts | sort: 'grid-position' %}
 {% for post in ordered_posts %}
-<div class="portfolio-modal modal fade" id="portfolioModal-{{ post.modal-id }}" tabindex="-1" role="dialog"
+<div class="portfolio-modal modal fade" id="portfolioModal-{{ post['grid-position'] }}" tabindex="-1" role="dialog"
   aria-hidden="true">
   <div class="modal-content">
     <div class="close-modal" data-dismiss="modal">
@@ -18,10 +18,10 @@
             <hr class="star-primary">
             {% if post['modal-images'] %}
             {% if post['modal-images'].size > 1 %}
-            <div id="portfolioCarousel-{{ post.modal-id }}" class="carousel slide" data-ride="carousel" data-interval="false">
+            <div id="portfolioCarousel-{{ post['grid-position'] }}" class="carousel slide" data-ride="carousel" data-interval="false">
               <ol class="carousel-indicators">
                 {% for modal_image in post['modal-images'] %}
-                <li data-target="#portfolioCarousel-{{ post.modal-id }}" data-slide-to="{{ forloop.index0 }}"{% if forloop.first %} class="active"{% endif %}></li>
+                <li data-target="#portfolioCarousel-{{ post['grid-position'] }}" data-slide-to="{{ forloop.index0 }}"{% if forloop.first %} class="active"{% endif %}></li>
                 {% endfor %}
               </ol>
               <div class="carousel-inner" role="listbox">
@@ -35,11 +35,11 @@
                 </div>
                 {% endfor %}
               </div>
-              <a class="left carousel-control" href="#portfolioCarousel-{{ post.modal-id }}" role="button" data-slide="prev">
+              <a class="left carousel-control" href="#portfolioCarousel-{{ post['grid-position'] }}" role="button" data-slide="prev">
                 <span class="carousel-arrow" aria-hidden="true">&#10094;</span>
                 <span class="sr-only">Previous</span>
               </a>
-              <a class="right carousel-control" href="#portfolioCarousel-{{ post.modal-id }}" role="button" data-slide="next">
+              <a class="right carousel-control" href="#portfolioCarousel-{{ post['grid-position'] }}" role="button" data-slide="next">
                 <span class="carousel-arrow" aria-hidden="true">&#10095;</span>
                 <span class="sr-only">Next</span>
               </a>
