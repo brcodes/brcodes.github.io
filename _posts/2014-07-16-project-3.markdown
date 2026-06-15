@@ -4,8 +4,8 @@ modal-id: 3
 grid-position: 6
 date: 2014-07-13
 title: Education
-img: /img/port_3_thumb_award.png
-thumb-img: /img/port_3_thumb_award.png
+modal-img: /img/port_3_thumb_award.png
+thumbnail-img: /img/port_3_thumb_award.png
 thumb-fill: '#f3f3f3'
 alt: image-alt
 project-date: 2008-25

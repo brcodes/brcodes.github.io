@@ -4,8 +4,8 @@ modal-id: 1
 grid-position: 1
 date: 2014-07-18
 title: Computational Modeling
-img: /img/port_1_inner1_trainevalschematic.png
-thumb-img: /img/port_1_thumb_scipub.png
+modal-img: /img/port_1_inner1_trainevalschematic.png
+thumbnail-img: /img/port_1_thumb_scipub.png
 thumb-position: 46% center
 modal-images:
   - /img/port_1_inner1_trainevalschematic.png
@@ -17,12 +17,11 @@ project-date: 2020-25
 client: Scientist, Model Engineer/Developer, Writer, Figure Artist
 category: Computational Modeling
 description: |
-  - Ph.D in Bioengineering (*Oregon State University*): GPA 3.95.
-  - Development and characterization of deterministic and neural-network-based predictive coding models of word recognition and vision (Python, Git ecosystems, remote/hybrid work).
+  - Developed and characterized deterministic and neural-network-based predictive coding models of word recognition and vision (Python, Git ecosystems, remote/hybrid work).
   - "Extending a formal model of predictive coding to human spoken word recognition." — B.R., M.Y.L., T.H., J.S.M., and K.B. Accepted in *Neural Computation*, 2026.
     - [pyrpcc repository](https://github.com/kevinbrownlab/pyrpcc.git)
   - "Predictive coding models in human spoken word recognition." — B.R. *Oregon State University*, 2025.
-    - See above, below
   - "Amended prediction error and signal-sharpening models in word recognition." — (P.G., B.R.)\*, K.K., K.B., and J.S.M. (\*co-first authors). In preparation for *Plos Biology*. Estimated submission 2026.
     - Code still proprietary (Python ports of [SimulationPEvsSharp](https://github.com/predcommlab/SimulationPEvsSharp.git))
+  - Ph.D in Bioengineering (*Oregon State University*): GPA 3.95.
 ---

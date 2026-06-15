@@ -1,15 +1,15 @@
 ---
 layout: default
 modal-id: 5
-grid-position: 2
+grid-position: 3
 date: 2014-07-16
-title: 'Web<br>App #1'
-img: /img/port_5_inner_mmm.png
-thumb-img: /img/port_5_thumb_webdev2.png
+title: 'Web<br>App #2'
+modal-img: /img/port_6_inner_mmm.png
+thumbnail-img: /img/port_5_thumb_webdev2.png
 thumb-fill: '#e6f3ff'
 alt: image-alt
 project-date: 2025-26
 client: Independent Developer
 category: Web Development
-description: "Created and developed a Bible learning app, \"Iron: Sharpen Bible Knowledge\" (www.iron-sharpen.com), in approximately 3 weeks from hand-made images and notes to a stable standalone web version with rich UI/UX."
+description: Created and developed an audio visualizer app based on human sound perception, the "Music Mix Mapper" (https://brcodes.github.io/music-mix-mapper/), in 1 week from hand-made images and notes to a stable standalone web version with robust full-size UI/UX.
 ---

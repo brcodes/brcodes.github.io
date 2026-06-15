@@ -16,7 +16,7 @@
       {% if auto_thumb %}
       {% assign thumb_path = auto_thumb.path %}
       {% else %}
-      {% assign thumb_path = post['thumb-img'] | default: post.img %}
+      {% assign thumb_path = post['thumbnail-img'] %}
       {% unless thumb_path contains '/' %}
       {% assign thumb_path = '/img/portfolio/' | append: thumb_path %}
       {% endunless %}

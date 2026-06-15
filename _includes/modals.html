@@ -77,9 +77,9 @@
               </a>
             </div>
             {% else %}
-            {% assign image_path = post.img %}
-            {% unless post.img contains '/' %}
-            {% assign image_path = '/img/portfolio/' | append: post.img %}
+            {% assign image_path = post['modal-img'] %}
+            {% unless post['modal-img'] contains '/' %}
+            {% assign image_path = '/img/portfolio/' | append: post['modal-img'] %}
             {% endunless %}
             <img src="{{ image_path | relative_url }}" class="img-responsive img-centered" alt="{{ post.alt }}">
             {% endif %}
