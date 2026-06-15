@@ -1,9 +1,9 @@
 ---
 layout: default
 modal-id: 6
-grid-position: 2
+grid-position: 3
 date: 2014-07-17
-title: 'App Dev'
+title: 'Web<br>App #2'
 img: submarine.png
 thumb-fill: '#f3f3f3'
 alt: image-alt

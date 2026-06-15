@@ -1,9 +1,9 @@
 ---
 layout: default
 modal-id: 5
-grid-position: 3
+grid-position: 2
 date: 2014-07-16
-title: 'App Dev'
+title: 'Web<br>App #1'
 img: /img/port_5_inner_mmm.png
 thumb-img: /img/port_5_thumb_webdev2.png
 thumb-fill: '#e6f3ff'
