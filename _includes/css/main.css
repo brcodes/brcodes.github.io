@@ -16,10 +16,14 @@ body {
     --hero-font-scale: 0.75;
     --hero-skills-font-scale: 1.325;
     --bio-font-size: clamp(18px, 1vw + 12px, 22px);
-    --contact-section-padding-y: 72px;
-    --contact-section-padding-y-mobile: 52px;
-    --footer-above-boundary-y: 39px;
-    --footer-above-boundary-y-mobile: 31px;
+    --contact-section-padding-y: 41px;
+    --contact-section-padding-y-mobile: 40px;
+    --contact-form-group-padding-bottom: .28em;
+    --contact-form-control-padding-y: 3px;
+    --contact-form-control-font-size: 1.35em;
+    --contact-form-border-color: #e7e7e7;
+    --footer-above-boundary-y: 42px;
+    --footer-above-boundary-y-mobile: 34px;
     --footer-title-content-gap: 14px;
     --footer-location-font-size: calc(20px + 2pt);
     --footer-social-button-size: 60px;
@@ -102,8 +106,9 @@ background-color: #fff;
 }
 
 header {
+    --profile-name-color: #fff;
     text-align: center;
-    color: #fff;
+    color: var(--profile-name-color);
     background: #{{ site.color.primary }};
 }
 
@@ -117,7 +122,8 @@ header .container {
     margin: 0 auto 20px;
     border-radius: 50%;
     overflow: hidden;
-    border: 0 solid rgba(255, 255, 255, 0.5);
+    border: 0;
+    box-shadow: 0 0 0 3px var(--profile-name-color);
 }
 
 
@@ -133,6 +139,7 @@ header .container {
 
 header .intro-text .name {
     display: block;
+    color: var(--profile-name-color);
     text-transform: uppercase;
     font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: calc(2em * var(--hero-font-scale));
@@ -257,9 +264,20 @@ section.success {
 
 #about .resume-download-btn {
     margin-top: 25px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.65em;
     padding: 20px 34px;
     font-size: var(--bio-font-size);
     line-height: 1.35;
+}
+
+#about .resume-download-btn .resume-download-icon {
+    width: 1.25em;
+    height: 1.25em;
+    display: block;
+    transform: translateX(-0.3em);
 }
 
 @media(max-width:767px) {
@@ -606,19 +624,21 @@ background: #fff;
 .floating-label-form-group {
     position: relative;
     margin-bottom: 0;
-    padding-bottom: .5em;
-    border-bottom: 1px solid #eee;
+    padding-bottom: var(--contact-form-group-padding-bottom);
+    border-bottom: 1px solid var(--contact-form-border-color);
 }
 
 .floating-label-form-group input,
 .floating-label-form-group textarea {
     z-index: 1;
     position: relative;
+    padding-top: var(--contact-form-control-padding-y);
+    padding-bottom: var(--contact-form-control-padding-y);
     padding-right: 0;
     padding-left: 0;
     border: 0;
     border-radius: 0;
-    font-size: 1.5em;
+    font-size: var(--contact-form-control-font-size);
     background: 0 0;
     box-shadow: none !important;
     resize: none;
@@ -641,9 +661,9 @@ background: #fff;
     transition: top .3s ease, opacity .3s ease;
 }
 
-.floating-label-form-group::not(:first-child) {
+.floating-label-form-group:not(:first-child) {
     padding-left: 14px;
-    border-left: 1px solid #eee;
+    border-left: 1px solid var(--contact-form-border-color);
 }
 
 .floating-label-form-group-with-value label {
@@ -656,7 +676,7 @@ background: #fff;
 }
 
 form .row:first-child .floating-label-form-group {
-    border-top: 1px solid #eee;
+    border-top: 1px solid var(--contact-form-border-color);
 }
 
 footer {
