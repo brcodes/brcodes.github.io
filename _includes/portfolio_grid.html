@@ -17,7 +17,7 @@
       <div class="portfolio-flex-item portfolio-item">
         <a href="#portfolioModal-{{ post['grid-position'] }}" class="portfolio-link" data-toggle="modal">
           <div class="portfolio-thumb" style="background-color: {{ post['thumb-fill'] | default: '#f3f3f3' }}; --thumb-scale: {{ post['thumb-scale'] | default: 1 }}; --thumb-position: {{ post['thumb-position'] | default: 'center center' }};">
-            <img src="{{ thumb_path | relative_url }}" class="img-responsive"
+            <img src="{{ thumb_path | relative_url }}" class="img-responsive" loading="lazy" decoding="async"
               alt="{{ post.alt }}">
           </div>
           <div class="caption-persistent" aria-hidden="true">

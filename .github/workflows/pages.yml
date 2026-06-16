@@ -29,8 +29,8 @@ jobs:
           ruby-version: "3.1"
           bundler-cache: true
 
-      - name: Build site
-        run: bundle exec jekyll build
+      - name: Run test suite
+        run: bundle exec rake test
 
       - name: Setup Pages
         uses: actions/configure-pages@v5

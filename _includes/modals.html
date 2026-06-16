@@ -31,7 +31,7 @@
                 {% assign modal_image_path = '/img/portfolio/' | append: modal_image %}
                 {% endunless %}
                 <div class="item{% if forloop.first %} active{% endif %}">
-                  <img src="{{ modal_image_path | relative_url }}" class="img-responsive img-centered" alt="{{ post.alt }}">
+                  <img src="{{ modal_image_path | relative_url }}" class="img-responsive img-centered" loading="lazy" decoding="async" alt="{{ post.alt }}">
                 </div>
                 {% endfor %}
               </div>
@@ -49,14 +49,14 @@
             {% unless modal_image_path contains '/' %}
             {% assign modal_image_path = '/img/portfolio/' | append: modal_image_path %}
             {% endunless %}
-            <img src="{{ modal_image_path | relative_url }}" class="img-responsive img-centered" alt="{{ post.alt }}">
+            <img src="{{ modal_image_path | relative_url }}" class="img-responsive img-centered" loading="lazy" decoding="async" alt="{{ post.alt }}">
             {% endif %}
             {% else %}
             {% assign image_path = post['modal-img'] %}
             {% unless post['modal-img'] contains '/' %}
             {% assign image_path = '/img/portfolio/' | append: post['modal-img'] %}
             {% endunless %}
-            <img src="{{ image_path | relative_url }}" class="img-responsive img-centered" alt="{{ post.alt }}">
+            <img src="{{ image_path | relative_url }}" class="img-responsive img-centered" loading="lazy" decoding="async" alt="{{ post.alt }}">
             {% endif %}
             {% if post.description %}
             <div class="project-description">{{ post.description | markdownify }}</div>
@@ -81,7 +81,7 @@
               </li>
               {% endif %}
             </ul>
-            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i>
+            <button type="button" class="btn btn-default" data-dismiss="modal"><span aria-hidden="true">&#10005;</span>
               Close</button>
           </div>
         </div>

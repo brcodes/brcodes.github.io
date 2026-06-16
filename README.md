@@ -64,5 +64,17 @@ If you open the LiveReload endpoint directly, you will see a message like:
 `This port only serves livereload.js over HTTP.`
 That is expected. It is not the page URL.
 
+## Tests
+Run the full suite before deploying:
+
+```bash
+bundle exec rake test
+```
+
+This includes:
+- Jekyll build validation
+- HTML regression checks for core layout/features
+- Internal link and script checks with HTMLProofer
+
 ---------
 For more details, read the [documentation](http://jekyllrb.com/)

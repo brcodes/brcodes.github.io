@@ -22,6 +22,6 @@ description: |
   - Ph.D Student (*Oregon State University*): 
     - Computational modeling, data science & machine learning in biology: biologically plausible deterministic and neural-network models of human word recognition and vision (Python, Git; Remote/hybrid)
     - __Publication__: "Extending a formal model of predictive coding to human spoken word recognition." — B.R., M.Y.L., T.H., J.S.M., and K.B. *Neural Computation*, 2026 (in press; [Repository](https://github.com/kevinbrownlab/pyrpcc.git))
-    - __Publication__:"Predictive coding models in human spoken word recognition." — B.R. *Oregon State University*, 2025 ([Dissertation](ir.library.oregonstate.edu/concern/graduate_thesis_or_dissertations/765379094))
+    - __Publication__:"Predictive coding models in human spoken word recognition." — B.R. *Oregon State University*, 2025 ([Dissertation](https://ir.library.oregonstate.edu/concern/graduate_thesis_or_dissertations/765379094))
     - __Publication (in preparation)__: "Amended prediction error and signal-sharpening models in word recognition." — (P.G., B.R.)\*, K.K., K.B., and J.S.M. (\*co-first authors). In preparation for *Plos Biology*. Estimated submission 2026/7. Code proprietary, but based on Blank Lab [Code](https://github.com/predcommlab/SimulationPEvsSharp.git)
 ---

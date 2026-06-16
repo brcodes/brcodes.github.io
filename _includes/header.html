@@ -4,7 +4,7 @@
     <div class="row">
       <div class="col-lg-12">
         <div class="profile-frame" style="width: {{ site.profile_pic_width }}px; height: {{ site.profile_pic_width }}px; --profile-zoom: {{ site.profile_pic_zoom }}; --profile-offset-x: {{ site.profile_pic_offset_x }}px; --profile-offset-y: {{ site.profile_pic_offset_y }}px;">
-          <img src="{{ '/img/profile.jpg' | relative_url }}" alt="profile-pic" />
+          <img src="{{ '/img/profile.jpg' | relative_url }}" alt="profile-pic" width="{{ site.profile_pic_width }}" height="{{ site.profile_pic_width }}" loading="eager" decoding="async" fetchpriority="high" />
         </div>
         <div class="intro-text">
           <span class="name">{{ site.profile_name | default: site.title }}</span>
