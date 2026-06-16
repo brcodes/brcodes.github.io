@@ -690,6 +690,8 @@ footer .footer-col .footer-col-body > p {
 
 footer .footer-col-location .footer-col-body > p {
     font-size: var(--footer-location-font-size);
+    position: relative;
+    top: 8px;
 }
 
 footer .footer-col .footer-col-body > .list-inline {
@@ -720,6 +722,8 @@ footer .footer-below .col-lg-12 {
 
 .btn-social .fa-github {
     font-size: 1.35em;
+    position: relative;
+    top: 2px;
 }
 
 .btn:focus,
