@@ -18,11 +18,16 @@ body {
     --bio-font-size: clamp(18px, 1vw + 12px, 22px);
     --contact-section-padding-y: 72px;
     --contact-section-padding-y-mobile: 52px;
-    --footer-above-boundary-y: 36px;
-    --footer-above-boundary-y-mobile: 28px;
+    --footer-above-boundary-y: 39px;
+    --footer-above-boundary-y-mobile: 31px;
+    --footer-title-content-gap: 14px;
+    --footer-location-font-size: calc(20px + 2pt);
     --footer-social-button-size: 60px;
     --footer-social-icon-font-size: 24px;
     --footer-content-min-height: var(--footer-social-button-size);
+    --footer-below-padding-y: clamp(29px, 0.7vw + 23px, 38px);
+    --footer-below-font-size: 16px;
+    --footer-below-font-weight: 300;
 }
 
 p {
@@ -265,11 +270,7 @@ section.success {
     }
 
     footer .footer-above {
-        padding-top: var(--footer-above-boundary-y-mobile);
-    }
-
-    footer .footer-col {
-        margin-bottom: var(--footer-above-boundary-y-mobile);
+        padding: var(--footer-above-boundary-y-mobile) 0;
     }
 
     section.first {
@@ -657,16 +658,17 @@ footer {
 }
 
 footer h3 {
-    margin-bottom: 30px;
+    margin-top: 0;
+    margin-bottom: var(--footer-title-content-gap);
 }
 
 footer .footer-above {
-    padding-top: var(--footer-above-boundary-y);
+    padding: var(--footer-above-boundary-y) 0;
     background-color: #{{ site.color.secondary }};
 }
 
 footer .footer-col {
-    margin-bottom: var(--footer-above-boundary-y);
+    margin-bottom: 0;
 }
 
 footer .footer-col .footer-col-body {
@@ -686,13 +688,23 @@ footer .footer-col .footer-col-body > p {
     width: 100%;
 }
 
+footer .footer-col-location .footer-col-body > p {
+    font-size: var(--footer-location-font-size);
+}
+
 footer .footer-col .footer-col-body > .list-inline {
     width: 100%;
 }
 
 footer .footer-below {
-    padding: 25px 0;
+    padding: var(--footer-below-padding-y) 0;
+    font-size: var(--footer-below-font-size);
+    font-weight: var(--footer-below-font-weight);
     background-color: #{{ site.color.secondary-dark }};
+}
+
+footer .footer-below .col-lg-12 {
+    text-align: right;
 }
 
 .btn-social {
