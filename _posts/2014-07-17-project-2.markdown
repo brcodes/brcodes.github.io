@@ -7,7 +7,7 @@ card-title: Biochemistry
 modal-img: /img/port_2_inner_characterizing.png
 thumbnail-img: /img/port_2_thumb_scipub.png
 thumb-fill: '#f3f3f3'
-caption-matte-height: 150%
+caption-matte-height: 140%
 caption-fade-height: 230%
 alt: Molecular biology project image focused on protein interaction characterization
 date-range: 2013-2016

@@ -10,8 +10,12 @@ body {
 
 :root {
     --navbar-brand-font-scale: 0.85;
+    --navbar-brand-shrink-size: 23px;
+    --navbar-menu-font-size: clamp(17px, 0.4vw + 14px, 21px);
     --main-heading-font-scale: var(--navbar-brand-font-scale);
     --hero-font-scale: 0.75;
+    --hero-skills-font-scale: 1.325;
+    --bio-font-size: clamp(18px, 1vw + 12px, 22px);
 }
 
 p {
@@ -125,7 +129,7 @@ header .intro-text .name {
 }
 
 header .intro-text .skills {
-    font-size: calc(1.25em * var(--hero-font-scale));
+    font-size: calc(1.25em * var(--hero-font-scale) * var(--hero-skills-font-scale));
     font-weight: 300;
 }
 
@@ -140,7 +144,7 @@ header .intro-text .skills {
     }
 
     header .intro-text .skills {
-        font-size: calc(1.75em * var(--hero-font-scale));
+        font-size: calc(1.75em * var(--hero-font-scale) * var(--hero-skills-font-scale));
     }
 }
 
@@ -164,12 +168,17 @@ header .intro-text .skills {
     }
 
     .navbar-fixed-top.navbar-shrink .navbar-brand {
-        font-size: calc(1.5em * var(--navbar-brand-font-scale));
+        font-size: var(--navbar-brand-shrink-size);
     }
 }
 
 .navbar-brand {
     font-size: calc(19px * var(--navbar-brand-font-scale));
+}
+
+.navbar .navbar-brand:focus,
+.navbar .navbar-brand:active {
+    color: #fff;
 }
 
 .navbar {
@@ -184,6 +193,10 @@ header .intro-text .skills {
 
 .navbar .navbar-nav {
     letter-spacing: 1px;
+}
+
+.navbar .navbar-nav li a {
+    font-size: var(--navbar-menu-font-size);
 }
 
 .navbar .navbar-nav li a:focus {
@@ -217,6 +230,14 @@ section.success {
 
 #about {
     padding: 75px 0;
+}
+
+#about .bio-copy p {
+    font-size: var(--bio-font-size);
+    text-align: justify;
+    text-justify: inter-word;
+    text-align-last: left;
+    line-height: 1.6;
 }
 
 @media(max-width:767px) {
@@ -639,6 +660,10 @@ footer .footer-below {
     text-align: center;
     font-size: 20px;
     line-height: 45px;
+}
+
+.btn-social .fa-github {
+    font-size: 1.35em;
 }
 
 .btn:focus,

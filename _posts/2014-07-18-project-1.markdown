@@ -7,7 +7,7 @@ modal-title: Ph.D Computer Modeling (Python)
 modal-img: /img/port_1_inner1_trainevalschematic.png
 thumbnail-img: /img/port_1_thumb_scipub.png
 thumb-position: 46% center
-caption-matte-height: 140%
+caption-matte-height: 130%
 caption-fade-height: 230%
 modal-images:
   - /img/port_1_inner1_trainevalschematic.png
