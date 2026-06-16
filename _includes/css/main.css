@@ -123,7 +123,7 @@ header .container {
     border-radius: 50%;
     overflow: hidden;
     border: 0;
-    box-shadow: 0 0 0 3px var(--profile-name-color);
+    box-shadow: 0 0 0 6px var(--profile-name-color);
 }
 
 
@@ -175,7 +175,7 @@ header .intro-text .skills {
     }
 
     .navbar-fixed-top .navbar-brand {
-        font-size: calc(2em * var(--navbar-brand-font-scale));
+        font-size: calc(2.5em * var(--navbar-brand-font-scale));
         -webkit-transition: all .3s;
         -moz-transition: all .3s;
         transition: all .3s;
@@ -746,6 +746,10 @@ footer .footer-below .col-lg-12 {
     text-align: center;
     font-size: var(--footer-social-icon-font-size);
     line-height: 1;
+}
+
+.btn-social[href*="github.com"] {
+    border-width: 4px;
 }
 
 .btn-social .social-icon {

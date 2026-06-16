@@ -29,7 +29,39 @@ $(function() {
 // Highlight the top nav as scrolling occurs
 $('body').scrollspy({
     target: '.navbar-fixed-top'
-})
+});
+
+// Shrink navbar on scroll using a lightweight rAF-throttled handler.
+(function() {
+    var nav = document.querySelector('.navbar-fixed-top');
+    if (!nav) {
+        return;
+    }
+
+    var shrinkAt = 120;
+    var ticking = false;
+
+    function updateNavbarState() {
+        if ((window.pageYOffset || document.documentElement.scrollTop) >= shrinkAt) {
+            nav.classList.add('navbar-shrink');
+        } else {
+            nav.classList.remove('navbar-shrink');
+        }
+        ticking = false;
+    }
+
+    function onScroll() {
+        if (ticking) {
+            return;
+        }
+        ticking = true;
+        window.requestAnimationFrame(updateNavbarState);
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    updateNavbarState();
+})();
 
 // Closes the Responsive Menu on Menu Item Click
 $('.navbar-collapse ul li a').click(function() {

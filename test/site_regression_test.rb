@@ -98,8 +98,6 @@ class SiteRegressionTest < Minitest::Test
 			/js/jquery-1.11.0.js
 			/js/bootstrap.min.js
 			/js/jquery.easing.min.js
-			/js/classie.js
-			/js/cbpAnimatedHeader.min.js
 			/js/freelancer.js
 		]
 
