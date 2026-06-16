@@ -7,6 +7,8 @@ card-title: 'Web<br>App #2'
 modal-img: /img/port_6_inner_mmm.png
 thumbnail-img: /img/port_5_thumb_webdev1.png
 thumb-fill: '#e6f3ff'
+caption-matte-height: 150%
+caption-fade-height: 230%
 alt: Interface preview for Audio Perception Visualizer web application
 date-range: 2026
 role: Developer

@@ -11,6 +11,8 @@ modal-images:
   - /img/port_3_inner2_csu.svg
   - /img/port_3_inner3_pugetsound.svg
 thumb-fill: '#f3f3f3'
+caption-matte-height: 150%
+caption-fade-height: 230%
 alt: Education and training summary across bioengineering, chemistry, and biochemistry
 date-range: 2008-2025
 role: Student, Student Researcher, Research Assistant, Teaching Assistant

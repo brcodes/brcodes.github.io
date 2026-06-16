@@ -7,6 +7,8 @@ modal-title: Financial Academic Awards
 modal-img: /img/port_4_thumb_award.png
 thumbnail-img: /img/port_4_thumb_award.png
 thumb-fill: '#e6f3ff'
+caption-matte-height: 140%
+caption-fade-height: 230%
 alt: Academic awards and scholarship highlights across undergraduate and graduate study
 date-range: 2008-2022
 role: Scholar

@@ -22,12 +22,12 @@
           </div>
           <div class="caption-persistent" aria-hidden="true">
             <div class="caption-content">
-              <span class="caption-title">{{ post['card-title'] }}</span>
+              <span class="caption-title"{% if post['caption-matte-height'] or post['caption-fade-height'] %} style="{% if post['caption-matte-height'] %}--caption-matte-height: {{ post['caption-matte-height'] }};{% endif %}{% if post['caption-fade-height'] %} --caption-fade-height: {{ post['caption-fade-height'] }};{% endif %}"{% endif %}>{{ post['card-title'] }}</span>
             </div>
           </div>
           <div class="caption">
             <div class="caption-content">
-              <span class="caption-title">{{ post['card-title'] }}</span>
+              <span class="caption-title"{% if post['caption-matte-height'] or post['caption-fade-height'] %} style="{% if post['caption-matte-height'] %}--caption-matte-height: {{ post['caption-matte-height'] }};{% endif %}{% if post['caption-fade-height'] %} --caption-fade-height: {{ post['caption-fade-height'] }};{% endif %}"{% endif %}>{{ post['card-title'] }}</span>
             </div>
           </div>
         </a>

@@ -299,7 +299,22 @@ transition: all ease .5s;
 }
 
 #portfolio .portfolio-item .portfolio-link .caption-persistent .caption-content .caption-title {
-    --caption-outline-width: 1.85px;
+    --caption-outline-width: 0.7px;
+    --caption-halo-size-1: 7px;
+    --caption-halo-size-2: 14px;
+    --caption-halo-size-3: 26px;
+    --caption-matte-width: 132%;
+    --caption-matte-height: 186%;
+    --caption-matte-center-alpha: 0.74;
+    --caption-matte-mid-alpha: 0.42;
+    --caption-matte-edge-alpha: 0.16;
+    --caption-matte-blur: 5px;
+    --caption-fade-width: 190%;
+    --caption-fade-height: 280%;
+    --caption-fade-center-alpha: 0.24;
+    --caption-fade-mid-alpha: 0.12;
+    --caption-fade-edge-alpha: 0.04;
+    --caption-fade-blur: 18px;
     max-width: 90%;
     font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: calc(3em * var(--main-heading-font-scale) * 0.93 * 0.9);
@@ -308,6 +323,8 @@ transition: all ease .5s;
     line-height: 1;
     text-transform: uppercase;
     color: #111;
+    position: relative;
+    z-index: 0;
     display: inline-block;
     padding: 0;
     background: transparent;
@@ -321,7 +338,53 @@ transition: all ease .5s;
         var(--caption-outline-width) 0 0 #fff,
         calc(var(--caption-outline-width) * -1) var(--caption-outline-width) 0 #fff,
         0 var(--caption-outline-width) 0 #fff,
-        var(--caption-outline-width) var(--caption-outline-width) 0 #fff;
+        var(--caption-outline-width) var(--caption-outline-width) 0 #fff,
+        0 0 var(--caption-halo-size-1) rgba(255, 255, 255, 0.58),
+        0 0 var(--caption-halo-size-2) rgba(255, 255, 255, 0.34),
+        0 0 var(--caption-halo-size-3) rgba(255, 255, 255, 0.16);
+}
+
+#portfolio .portfolio-item .portfolio-link .caption-persistent .caption-content .caption-title::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: var(--caption-matte-width);
+    height: var(--caption-matte-height);
+    transform: translate(-50%, -50%);
+    border-radius: 999px;
+    background: radial-gradient(
+        circle at center,
+        rgba(255, 255, 255, var(--caption-matte-center-alpha)) 0%,
+        rgba(255, 255, 255, var(--caption-matte-center-alpha)) 26%,
+        rgba(255, 255, 255, var(--caption-matte-mid-alpha)) 56%,
+        rgba(255, 255, 255, var(--caption-matte-edge-alpha)) 82%,
+        rgba(255, 255, 255, 0) 100%
+    );
+    filter: blur(var(--caption-matte-blur));
+    z-index: -1;
+    pointer-events: none;
+}
+
+#portfolio .portfolio-item .portfolio-link .caption-persistent .caption-content .caption-title::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: var(--caption-fade-width);
+    height: var(--caption-fade-height);
+    transform: translate(-50%, -50%);
+    border-radius: 999px;
+    background: radial-gradient(
+        circle at center,
+        rgba(255, 255, 255, var(--caption-fade-center-alpha)) 0%,
+        rgba(255, 255, 255, var(--caption-fade-mid-alpha)) 54%,
+        rgba(255, 255, 255, var(--caption-fade-edge-alpha)) 80%,
+        rgba(255, 255, 255, 0) 100%
+    );
+    filter: blur(var(--caption-fade-blur));
+    z-index: -2;
+    pointer-events: none;
 }
 
 #portfolio .portfolio-item .portfolio-link .caption:hover {
