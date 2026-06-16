@@ -13,8 +13,8 @@ role: Scholar
 field: Financial Academic Awards
 description: |
   - \> $105K earned in personal academic financial awards exclusive of graduate assistantships:
-    -  OSU CoE Dean's Award, 2022 ($3,573)
+    -  OSU College of Engineering Dean's Award, 2022 ($3,573)
     -  ARCS Foundation Scholar, 2020 ($18,000)
-    -  Provost Distinguished Graduate Scholar, 2020 ($7,500)
+    -  OSU Provost Distinguished Graduate Scholar, 2020 ($7,500)
     -  UPS Trustee Scholarship, 2008 ($80,000)
 ---

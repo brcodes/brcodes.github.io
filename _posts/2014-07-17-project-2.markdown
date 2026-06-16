@@ -15,5 +15,5 @@ description: |
 
   - M.S. Student (*Colorado State University; Ph.D Candidacy*): 
     - Protein semi-design through quantitative molecular biology/biochemistry
-    - __Publication__: "Characterization of the Binding Interaction between the Oncoprotein Gankyrin and a Grafted S6 ATPase." - A.C., B.R., and B.M. [*Biochemistry*](https://pubs.acs.org/doi/10.1021/bi5012354), 2014
+    - __Publication__: "Characterization of the Binding Interaction between the Oncoprotein Gankyrin and a Grafted S6 ATPase." - A.C., B.R., and B.M. *Biochemistry*, 2014 ([Article](https://pubs.acs.org/doi/10.1021/bi5012354))
 ---

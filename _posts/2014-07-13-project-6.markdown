@@ -8,10 +8,11 @@ modal-img: /img/port_5_inner_iron.png
 thumbnail-img: /img/port_6_thumb_webdev2.png
 thumb-fill: '#f3f3f3'
 alt: Screenshot-style thumbnail for Iron Sharpen Bible Knowledge web application
-date-range: 2025-26
+date-range: 2026
 role: Developer
 field: Web Application Development
 description: |
-  - Created and developed a Bible learning game, "Iron: Sharpen Bible Knowledge" ([www.iron-sharpen.com](https://www.iron-sharpen.com))
-    - ~ 3 weeks from concept art and design notes to a stable, standalone web version with rich UI/UX
+  - Created and developed a Bible learning game, "Iron: Sharpen Bible Knowledge" 
+    - [iron-sharpen.com](https://www.iron-sharpen.com)
+    - Concept art / Design notes to stable, standalone web version with rich UI/UX in ~ 3 weeks (current version ~ 4 weeks)
 ---
