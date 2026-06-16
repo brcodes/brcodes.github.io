@@ -299,6 +299,7 @@ transition: all ease .5s;
 }
 
 #portfolio .portfolio-item .portfolio-link .caption-persistent .caption-content .caption-title {
+    --caption-outline-width: 1.85px;
     max-width: 90%;
     font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: calc(3em * var(--main-heading-font-scale) * 0.93 * 0.9);
@@ -313,10 +314,14 @@ transition: all ease .5s;
     border: 0;
     border-radius: 0;
     text-shadow:
-        -1px -1px 0 #fff,
-         1px -1px 0 #fff,
-        -1px  1px 0 #fff,
-         1px  1px 0 #fff;
+        calc(var(--caption-outline-width) * -1) calc(var(--caption-outline-width) * -1) 0 #fff,
+        0 calc(var(--caption-outline-width) * -1) 0 #fff,
+        var(--caption-outline-width) calc(var(--caption-outline-width) * -1) 0 #fff,
+        calc(var(--caption-outline-width) * -1) 0 0 #fff,
+        var(--caption-outline-width) 0 0 #fff,
+        calc(var(--caption-outline-width) * -1) var(--caption-outline-width) 0 #fff,
+        0 var(--caption-outline-width) 0 #fff,
+        var(--caption-outline-width) var(--caption-outline-width) 0 #fff;
 }
 
 #portfolio .portfolio-item .portfolio-link .caption:hover {
