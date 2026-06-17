@@ -22,13 +22,12 @@ body {
     --contact-form-control-padding-y: 3px;
     --contact-form-control-font-size: 1.35em;
     --contact-form-border-color: #e7e7e7;
-    --footer-above-boundary-y: 42px;
-    --footer-above-boundary-y-mobile: 34px;
+    --footer-above-boundary-y: var(--contact-section-padding-y);
+    --footer-above-boundary-y-mobile: var(--contact-section-padding-y-mobile);
     --footer-title-content-gap: 14px;
     --footer-location-font-size: calc(20px + 2pt);
     --footer-social-button-size: 60px;
     --footer-social-icon-font-size: 24px;
-    --footer-content-min-height: var(--footer-social-button-size);
     --footer-below-padding-y: clamp(29px, 0.7vw + 23px, 38px);
     --footer-below-font-size: 16px;
     --footer-below-font-weight: 300;
@@ -693,16 +692,21 @@ footer .footer-above {
     background-color: #{{ site.color.secondary }};
 }
 
+footer .footer-above.footer-equalized {
+    display: flex;
+    align-items: center;
+}
+
+footer .footer-above.footer-equalized .container {
+    width: 100%;
+}
+
 footer .footer-col {
     margin-bottom: 0;
 }
 
 footer .footer-col .footer-col-body {
-    min-height: var(--footer-content-min-height);
     margin: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 footer .footer-col .footer-col-body > p,
@@ -716,8 +720,6 @@ footer .footer-col .footer-col-body > p {
 
 footer .footer-col-location .footer-col-body > p {
     font-size: var(--footer-location-font-size);
-    position: relative;
-    top: 8px;
 }
 
 footer .footer-col .footer-col-body > .list-inline {
@@ -733,6 +735,12 @@ footer .footer-below {
 
 footer .footer-below .col-lg-12 {
     text-align: right;
+}
+
+@media(max-width:767px) {
+    footer .footer-above {
+        padding: var(--footer-above-boundary-y-mobile) 0;
+    }
 }
 
 .btn-social {
