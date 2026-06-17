@@ -54,7 +54,7 @@ address:
   - line: USA
 
 # Credits content
-credits: '<strong>Freelancer</strong> is a free to use, open source Bootstrap theme created by <a href="http://startbootstrap.com">Start Bootstrap</a>.'
+credits: '<a href="https://github.com/jeromelachaud/freelancer-theme/tree/master"><strong>Freelancer Jekyll</strong></a> is based on a free to use, open source Bootstrap theme <a href="https://startbootstrap.com/previews/freelancer">Freelancer</a>.'
 
 # Build settings
 markdown: kramdown

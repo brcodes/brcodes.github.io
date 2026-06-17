@@ -692,15 +692,6 @@ footer .footer-above {
     background-color: #{{ site.color.secondary }};
 }
 
-footer .footer-above.footer-equalized {
-    display: flex;
-    align-items: center;
-}
-
-footer .footer-above.footer-equalized .container {
-    width: 100%;
-}
-
 footer .footer-col {
     margin-bottom: 0;
 }
@@ -740,6 +731,24 @@ footer .footer-below .col-lg-12 {
 @media(max-width:767px) {
     footer .footer-above {
         padding: var(--footer-above-boundary-y-mobile) 0;
+    }
+
+    footer .footer-col {
+        margin-bottom: 28px;
+    }
+
+    footer .footer-col:last-child {
+        margin-bottom: 0;
+    }
+}
+
+@media(max-width:991px) {
+    footer .footer-col {
+        margin-bottom: 28px;
+    }
+
+    footer .footer-col:last-child {
+        margin-bottom: 0;
     }
 }
 
