@@ -195,9 +195,9 @@ header .intro-text .skills {
 
     .navbar-fixed-top .navbar-brand {
         font-size: calc(2.5em * var(--navbar-brand-font-scale));
-        -webkit-transition: all .3s;
-        -moz-transition: all .3s;
-        transition: all .3s;
+        -webkit-transition: font-size .3s;
+        -moz-transition: font-size .3s;
+        transition: font-size .3s;
     }
 
     .navbar-fixed-top.navbar-shrink {
@@ -205,6 +205,17 @@ header .intro-text .skills {
     }
 
     .navbar-fixed-top.navbar-shrink .navbar-brand {
+        font-size: var(--navbar-brand-shrink-size);
+    }
+}
+
+/* Keep tablet/small-desktop navbar compact without JS resize churn. */
+@media (min-width: 768px) and (max-width: 1199px) {
+    .navbar-fixed-top {
+        padding: 10px 0;
+    }
+
+    .navbar-fixed-top .navbar-brand {
         font-size: var(--navbar-brand-shrink-size);
     }
 }
@@ -385,6 +396,7 @@ section.success {
     margin: 0 auto;
     max-width: 400px;
     overflow: hidden;
+    contain: paint;
 }
 
 #portfolio .portfolio-item .portfolio-link .portfolio-thumb {
@@ -413,9 +425,10 @@ section.success {
     opacity: 0;
 
     background: rgba({{ site.color.primary-rgb }}, .5);
--webkit-transition: all ease .5s;
--moz-transition: all ease .5s;
-transition: all ease .5s;
+    will-change: opacity;
+    -webkit-transition: opacity ease .35s;
+    -moz-transition: opacity ease .35s;
+    transition: opacity ease .35s;
 }
 
 #portfolio .portfolio-item .portfolio-link .caption-persistent {
@@ -427,6 +440,7 @@ transition: all ease .5s;
     z-index: 2;
     pointer-events: none;
     opacity: 1;
+    will-change: opacity;
     -webkit-transition: opacity ease .25s;
     -moz-transition: opacity ease .25s;
     transition: opacity ease .25s;
@@ -732,7 +746,18 @@ transition: all ease .5s;
     font-size: 20px;
     color: #fff;
     background: 0 0;
-    transition: all .3s ease-in-out;
+    transition: color .3s ease-in-out, background-color .3s ease-in-out, border-color .3s ease-in-out;
+}
+
+/* During active window resizing, disable transitions/animations to prevent jitter. */
+body.is-resizing *,
+body.is-resizing *::before,
+body.is-resizing *::after {
+    -webkit-transition: none !important;
+    -moz-transition: none !important;
+    -ms-transition: none !important;
+    transition: none !important;
+    animation: none !important;
 }
 
 .btn-outline:hover,
@@ -945,6 +970,19 @@ footer .footer-below .col-lg-12 {
 
 .scroll-top .btn:focus {
     outline: 0;
+}
+
+/* Show the scroll-to-top button only while portfolio cards are in single-column mode. */
+@media (max-width: 639px) {
+    .scroll-top {
+        display: block !important;
+    }
+}
+
+@media (min-width: 640px) {
+    .scroll-top {
+        display: none !important;
+    }
 }
 
 .portfolio-modal .modal-content {
