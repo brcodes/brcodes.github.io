@@ -2,7 +2,7 @@
 layout: default
 grid-position: 1
 date: 2014-07-18
-card-title: Computational Modeling
+card-title: 'Computational<br>Modeling'
 modal-title: Ph.D Computer Modeling (Python)
 modal-img: /img/port_1_inner1_trainevalschematic.png
 thumbnail-img: /img/port_1_thumb_scipub.png

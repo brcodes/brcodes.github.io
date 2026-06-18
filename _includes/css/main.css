@@ -399,6 +399,7 @@ transition: all ease .5s;
     font-weight: 700;
     letter-spacing: 0.03em;
     line-height: 1;
+    white-space: nowrap;
     text-transform: uppercase;
     color: #111;
     position: relative;
@@ -505,6 +506,7 @@ transition: all ease .5s;
     font-weight: 700;
     letter-spacing: 0.03em;
     line-height: 1;
+    white-space: nowrap;
     text-transform: uppercase;
     position: relative;
     z-index: 0;
@@ -572,19 +574,37 @@ transition: all ease .5s;
 
 @media (min-width: 992px) and (max-width: 1199px) {
     :root {
-        --portfolio-caption-title-font-size: calc(3em * var(--main-heading-font-scale) * 0.93 * 0.9);
+        --portfolio-caption-title-font-size: calc(2.8em * var(--main-heading-font-scale) * 0.93 * 0.9);
     }
 }
 
-@media (min-width: 768px) and (max-width: 991px) {
+@media (min-width: 960px) and (max-width: 991px) {
     :root {
-        --portfolio-caption-title-font-size: calc(2.45em * var(--main-heading-font-scale) * 0.93 * 0.9);
+        --portfolio-caption-title-font-size: calc(2.6em * var(--main-heading-font-scale) * 0.93 * 0.9);
     }
 }
 
-@media (max-width: 767px) {
+@media (min-width: 768px) and (max-width: 959px) {
     :root {
-        --portfolio-caption-title-font-size: calc(3em * var(--main-heading-font-scale) * 0.93 * 0.9);
+        --portfolio-caption-title-font-size: calc(1.95em * var(--main-heading-font-scale) * 0.93 * 0.9);
+    }
+}
+
+@media (min-width: 640px) and (max-width: 767px) {
+    :root {
+        --portfolio-caption-title-font-size: calc(2.35em * var(--main-heading-font-scale) * 0.93 * 0.9);
+    }
+}
+
+@media (min-width: 480px) and (max-width: 639px) {
+    :root {
+        --portfolio-caption-title-font-size: calc(2.1em * var(--main-heading-font-scale) * 0.93 * 0.9);
+    }
+}
+
+@media (max-width: 479px) {
+    :root {
+        --portfolio-caption-title-font-size: calc(1.9em * var(--main-heading-font-scale) * 0.93 * 0.9);
     }
 }
 
