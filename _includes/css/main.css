@@ -13,7 +13,7 @@ body {
     --navbar-brand-shrink-size: 23px;
     --navbar-menu-font-size: clamp(17px, 0.4vw + 14px, 21px);
     --main-heading-font-scale: var(--navbar-brand-font-scale);
-    --hero-font-scale: 0.75;
+    --hero-font-scale: 0.72;
     --hero-skills-font-scale: 1.325;
     --bio-font-size: clamp(18px, 1vw + 12px, 22px);
     --contact-section-padding-y: 41px;
@@ -31,6 +31,7 @@ body {
     --footer-below-padding-y: clamp(29px, 0.7vw + 23px, 38px);
     --footer-below-font-size: 16px;
     --footer-below-font-weight: 300;
+    --portfolio-caption-title-font-size: calc(3em * var(--main-heading-font-scale) * 0.93 * 0.9);
 }
 
 p {
@@ -311,6 +312,7 @@ section.success {
     position: relative;
     margin: 0 auto;
     max-width: 400px;
+    overflow: hidden;
 }
 
 #portfolio .portfolio-item .portfolio-link .portfolio-thumb {
@@ -393,7 +395,7 @@ transition: all ease .5s;
     --caption-fade-blur: 18px;
     max-width: 90%;
     font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: calc(3em * var(--main-heading-font-scale) * 0.93 * 0.9);
+    font-size: var(--portfolio-caption-title-font-size);
     font-weight: 700;
     letter-spacing: 0.03em;
     line-height: 1;
@@ -499,7 +501,7 @@ transition: all ease .5s;
     --caption-hover-fade-blur: 18px;
     max-width: 90%;
     font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: calc(3em * var(--main-heading-font-scale) * 0.93 * 0.9);
+    font-size: var(--portfolio-caption-title-font-size);
     font-weight: 700;
     letter-spacing: 0.03em;
     line-height: 1;
@@ -560,6 +562,30 @@ transition: all ease .5s;
 #portfolio .portfolio-item .portfolio-link .caption .caption-content h3,
 #portfolio .portfolio-item .portfolio-link .caption .caption-content h4 {
     margin: 0;
+}
+
+@media (min-width: 1200px) {
+    :root {
+        --portfolio-caption-title-font-size: calc(3em * var(--main-heading-font-scale) * 0.93 * 0.9);
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+    :root {
+        --portfolio-caption-title-font-size: calc(3em * var(--main-heading-font-scale) * 0.93 * 0.9);
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    :root {
+        --portfolio-caption-title-font-size: calc(2.45em * var(--main-heading-font-scale) * 0.93 * 0.9);
+    }
+}
+
+@media (max-width: 767px) {
+    :root {
+        --portfolio-caption-title-font-size: calc(3em * var(--main-heading-font-scale) * 0.93 * 0.9);
+    }
 }
 
 #portfolio * {
