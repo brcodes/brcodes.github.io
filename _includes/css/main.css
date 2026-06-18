@@ -10,11 +10,23 @@ body {
 
 :root {
     --navbar-brand-font-scale: 0.85;
+    --navbar-brand-mobile-size: 21px;
     --navbar-brand-shrink-size: 23px;
     --navbar-menu-font-size: clamp(17px, 0.4vw + 14px, 21px);
     --main-heading-font-scale: var(--navbar-brand-font-scale);
-    --hero-font-scale: 0.72;
-    --hero-skills-font-scale: 1.325;
+    --portfolio-caption-title-scale: 0.85;
+    --hero-font-scale: 0.71;
+    --hero-skills-font-scale: 1.385;
+    --hero-name-mobile-size: calc(2em * var(--hero-font-scale) * 1.85);
+    --hero-skills-mobile-size: calc(1.25em * var(--hero-font-scale) * var(--hero-skills-font-scale) * 1.12);
+    --hero-bottom-gap-mobile: 48px;
+    --profile-pic-mobile-size: 230px;
+    --work-profile-title-mobile-size: 33.8px;
+    --bio-title-mobile-size: 33.8px;
+    --email-title-mobile-size: 33.8px;
+    --location-title-mobile-size: 24.7px;
+    --github-title-mobile-size: 24.7px;
+    --theme-title-mobile-size: 24.7px;
     --bio-font-size: clamp(18px, 1vw + 12px, 22px);
     --contact-section-padding-y: 41px;
     --contact-section-padding-y-mobile: 40px;
@@ -31,7 +43,7 @@ body {
     --footer-below-padding-y: clamp(38px, 1vw + 28px, 52px);
     --footer-below-font-size: 16px;
     --footer-below-font-weight: 300;
-    --portfolio-caption-title-font-size: calc(3em * var(--main-heading-font-scale) * 0.93 * 0.9);
+    --portfolio-caption-title-font-size: calc(3em * var(--portfolio-caption-title-scale) * 0.93 * 0.9);
 }
 
 p {
@@ -114,7 +126,7 @@ header {
 
 header .container {
     padding-top: 115px;
-    padding-bottom: 65px;
+    padding-bottom: var(--hero-bottom-gap-mobile);
 }
 
 .profile-frame {
@@ -137,17 +149,24 @@ header .container {
     transform-origin: center center;
 }
 
+@media (max-width: 767px) {
+    .profile-frame {
+        width: var(--profile-pic-mobile-size) !important;
+        height: var(--profile-pic-mobile-size) !important;
+    }
+}
+
 header .intro-text .name {
     display: block;
     color: var(--profile-name-color);
     text-transform: uppercase;
     font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: calc(2em * var(--hero-font-scale));
+    font-size: var(--hero-name-mobile-size);
     font-weight: 700;
 }
 
 header .intro-text .skills {
-    font-size: calc(1.25em * var(--hero-font-scale) * var(--hero-skills-font-scale));
+    font-size: var(--hero-skills-mobile-size);
     font-weight: 400;
 }
 
@@ -191,7 +210,7 @@ header .intro-text .skills {
 }
 
 .navbar-brand {
-    font-size: calc(19px * var(--navbar-brand-font-scale));
+    font-size: var(--navbar-brand-mobile-size);
 }
 
 .navbar .navbar-brand:focus,
@@ -300,6 +319,42 @@ section.success {
 @media(max-width:767px) {
     section {
         padding: 75px 0;
+    }
+
+    #contact p {
+        font-size: var(--bio-font-size);
+    }
+
+    footer .footer-col .footer-col-body > p {
+        font-size: var(--bio-font-size);
+    }
+
+    footer .footer-below {
+        font-size: var(--bio-font-size);
+    }
+
+    #portfolio h2 {
+        font-size: var(--work-profile-title-mobile-size);
+    }
+
+    #about h2 {
+        font-size: var(--bio-title-mobile-size);
+    }
+
+    #contact h2 {
+        font-size: var(--email-title-mobile-size);
+    }
+
+    footer .footer-col-location h3 {
+        font-size: var(--location-title-mobile-size);
+    }
+
+    footer .footer-col.col-md-4:nth-of-type(2) h3 {
+        font-size: var(--github-title-mobile-size);
+    }
+
+    footer .footer-col.col-md-4:nth-of-type(3) h3 {
+        font-size: var(--theme-title-mobile-size);
     }
 
     #about {
@@ -591,43 +646,43 @@ transition: all ease .5s;
 
 @media (min-width: 1200px) {
     :root {
-        --portfolio-caption-title-font-size: calc(2.88em * var(--main-heading-font-scale) * 0.93 * 0.9);
+        --portfolio-caption-title-font-size: calc(2.8em * var(--portfolio-caption-title-scale) * 0.93 * 0.9);
     }
 }
 
 @media (min-width: 992px) and (max-width: 1199px) {
     :root {
-        --portfolio-caption-title-font-size: calc(2.4em * var(--main-heading-font-scale) * 0.93 * 0.9);
+        --portfolio-caption-title-font-size: calc(2.33em * var(--portfolio-caption-title-scale) * 0.93 * 0.9);
     }
 }
 
 @media (min-width: 960px) and (max-width: 991px) {
     :root {
-        --portfolio-caption-title-font-size: calc(2.35em * var(--main-heading-font-scale) * 0.93 * 0.9);
+        --portfolio-caption-title-font-size: calc(2.28em * var(--portfolio-caption-title-scale) * 0.93 * 0.9);
     }
 }
 
 @media (min-width: 768px) and (max-width: 959px) {
     :root {
-        --portfolio-caption-title-font-size: calc(2.74em * var(--main-heading-font-scale) * 0.93 * 0.9);
+        --portfolio-caption-title-font-size: calc(2.66em * var(--portfolio-caption-title-scale) * 0.93 * 0.9);
     }
 }
 
 @media (min-width: 640px) and (max-width: 767px) {
     :root {
-        --portfolio-caption-title-font-size: calc(2.4em * var(--main-heading-font-scale) * 0.93 * 0.9);
+        --portfolio-caption-title-font-size: calc(2.33em * var(--portfolio-caption-title-scale) * 0.93 * 0.9);
     }
 }
 
 @media (min-width: 480px) and (max-width: 639px) {
     :root {
-        --portfolio-caption-title-font-size: calc(2.4em * var(--main-heading-font-scale) * 0.93 * 0.9);
+        --portfolio-caption-title-font-size: calc(2.59em * var(--portfolio-caption-title-scale) * 0.93 * 0.9);
     }
 }
 
 @media (max-width: 479px) {
     :root {
-        --portfolio-caption-title-font-size: calc(2.3em * var(--main-heading-font-scale) * 0.93 * 0.9);
+        --portfolio-caption-title-font-size: calc(2.48em * var(--portfolio-caption-title-scale) * 0.93 * 0.9);
     }
 }
 
@@ -794,10 +849,20 @@ footer .footer-below {
 }
 
 footer .footer-below .col-lg-12 {
-    text-align: right;
+    text-align: center;
 }
 
 @media(max-width:767px) {
+    footer .footer-col .footer-col-body > p,
+    footer .footer-col-location .footer-col-body > p {
+        font-size: var(--bio-font-size);
+    }
+
+    footer .footer-below,
+    footer .footer-below .col-lg-12 {
+        font-size: var(--bio-font-size);
+    }
+
     footer .footer-above {
         padding: var(--footer-above-boundary-y-mobile) 0;
     }
