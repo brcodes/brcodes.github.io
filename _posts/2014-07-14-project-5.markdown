@@ -14,7 +14,7 @@ date-range: 2026
 role: Developer
 field: Web Application Development
 description: |
-  - Created and developed an audio visualizer designed to mimic human sound perception using studied scientific principles ("Audio Perception Visualizer")
+  Created and developed an audio visualizer designed to mimic human sound perception using studied scientific principles ("Audio Perception Visualizer")
     - [brcodes.github.io/audio-perception-visualizer](https://brcodes.github.io/audio-perception-vizualizer/)
     - Concept art / Design notes to stable, standalone web version with robust full-size UI/UX in 1 week
 ---
