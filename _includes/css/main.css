@@ -939,3 +939,72 @@ transform: rotate(90deg);
     transform: translateZ(0);
     -webkit-transform: translateZ(0);
 }
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        color-scheme: dark;
+        --contact-form-border-color: #30363d;
+    }
+
+    body,
+    section,
+    #portfolio,
+    #contact {
+        color: #d0d7de;
+        background-color: #0d1117;
+    }
+
+    a,
+    a:hover,
+    a:focus,
+    a:active,
+    a.active {
+        color: #79c0ff;
+    }
+
+    hr.star-primary {
+        border-color: #d0d7de;
+    }
+
+    hr.star-primary:after {
+        color: #d0d7de;
+        background-color: #0d1117;
+    }
+
+    .navbar-default,
+    .navbar-inverse,
+    footer .footer-above {
+        background-color: #161b22;
+    }
+
+    .navbar-nav>.active>a,
+    footer .footer-below {
+        background-color: #21262d !important;
+    }
+
+    .floating-label-form-group input,
+    .floating-label-form-group textarea,
+    .portfolio-modal .modal-content {
+        color: #d0d7de;
+    }
+
+    .portfolio-modal .modal-content {
+        background-color: #0d1117;
+    }
+
+    .portfolio-modal .carousel-control {
+        background: rgba(33, 38, 45, 0.92);
+        color: #d0d7de;
+    }
+
+    .portfolio-modal .carousel-control:hover,
+    .portfolio-modal .carousel-control:focus {
+        background: rgba(33, 38, 45, 1);
+        color: #f0f6fc;
+    }
+
+    .portfolio-modal .close-modal .lr,
+    .portfolio-modal .close-modal .lr .rl {
+        background-color: #d0d7de;
+    }
+}

@@ -6,6 +6,7 @@ class SiteRegressionTest < Minitest::Test
 	ROOT = File.expand_path('..', __dir__)
 	SITE_DIR = File.join(ROOT, '_site')
 	INDEX_PATH = File.join(SITE_DIR, 'index.html')
+	STYLE_PATH = File.join(SITE_DIR, 'style.css')
 	CONFIG_PATH = File.join(ROOT, '_config.yml')
 
 	def self.build_site_once
@@ -29,6 +30,10 @@ class SiteRegressionTest < Minitest::Test
 
 	def config
 		self.class.instance_variable_get(:@config)
+	end
+
+	def style_css
+		File.read(STYLE_PATH)
 	end
 
 	def test_index_is_generated
@@ -117,5 +122,12 @@ class SiteRegressionTest < Minitest::Test
 		hrefs = index_doc.css('link[rel="stylesheet"]').map { |l| l['href'] }
 		refute hrefs.any? { |href| href.include?('font-awesome') },
 					 'Font Awesome stylesheet should not be loaded'
+	end
+
+	def test_dark_theme_styles_are_present
+		assert File.exist?(STYLE_PATH), '_site/style.css should be generated'
+		assert_includes style_css, '@media (prefers-color-scheme: dark)'
+		assert_includes style_css, 'color-scheme: dark;'
+		assert_includes style_css, 'background-color: #0d1117;'
 	end
 end
