@@ -22,13 +22,13 @@ body {
     --contact-form-control-padding-y: 3px;
     --contact-form-control-font-size: 1.35em;
     --contact-form-border-color: #e7e7e7;
-    --footer-above-boundary-y: var(--contact-section-padding-y);
-    --footer-above-boundary-y-mobile: var(--contact-section-padding-y-mobile);
+    --footer-above-boundary-y: calc(var(--contact-section-padding-y) + 23px); /* 23 to match email */
+    --footer-above-boundary-y-mobile: calc(var(--contact-section-padding-y-mobile) + 16px);
     --footer-title-content-gap: 14px;
     --footer-location-font-size: calc(20px + 2pt);
     --footer-social-button-size: 60px;
     --footer-social-icon-font-size: 24px;
-    --footer-below-padding-y: clamp(29px, 0.7vw + 23px, 38px);
+    --footer-below-padding-y: clamp(38px, 1vw + 28px, 52px);
     --footer-below-font-size: 16px;
     --footer-below-font-weight: 300;
     --portfolio-caption-title-font-size: calc(3em * var(--main-heading-font-scale) * 0.93 * 0.9);
@@ -769,6 +769,10 @@ footer .footer-below .col-lg-12 {
 }
 
 @media(max-width:991px) {
+    footer .footer-above {
+        padding: var(--footer-above-boundary-y-mobile) 0;
+    }
+
     footer .footer-col {
         margin-bottom: 28px;
     }

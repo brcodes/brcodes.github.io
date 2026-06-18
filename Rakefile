@@ -1,23 +1,33 @@
 require 'html-proofer'
 require 'socket'
 
-desc 'Serve site locally with Jekyll live reload enabled'
-task :serve do
-  # Keep LiveReload on a non-default port to avoid conflicts with editor extensions.
-  # If that port is busy, choose the next available port in a small fallback range.
-  livereload_port = [35730, 35731, 35732, 35733].find do |port|
+def first_available_port(host, ports)
+  ports.find do |port|
     begin
-      server = TCPServer.new('127.0.0.1', port)
+      server = TCPServer.new(host, port)
       server.close
       true
     rescue Errno::EADDRINUSE, Errno::EACCES
       false
     end
   end
+end
+
+desc 'Serve site locally with Jekyll live reload enabled'
+task :serve do
+  host = '127.0.0.1'
+
+  site_port = first_available_port(host, [4000, 4001, 4002, 4003, 4004, 4005])
+  raise 'No available site port found in 4000-4005' unless site_port
+
+  # Keep LiveReload on a non-default port to avoid conflicts with editor extensions.
+  # If that port is busy, choose the next available port in a small fallback range.
+  livereload_port = first_available_port(host, [35730, 35731, 35732, 35733])
 
   raise 'No available livereload port found in 35730-35733' unless livereload_port
 
-  sh "bundle exec jekyll serve --livereload --livereload-port #{livereload_port} --host 127.0.0.1 --port 4000"
+  puts "Serving on http://#{host}:#{site_port} (LiveReload: #{livereload_port})"
+  sh "bundle exec jekyll serve --livereload --livereload-port #{livereload_port} --host #{host} --port #{site_port}"
 end
 
 desc 'Build site output into _site'
