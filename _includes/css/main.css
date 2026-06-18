@@ -226,6 +226,23 @@ header .intro-text .skills {
     border: 0;
 }
 
+/* Keep desktop-mid (state 3) navbar items pushed toward edges instead of center-crunched. */
+@media (min-width: 768px) and (max-width: 991px) {
+    .navbar > .container {
+        width: auto;
+        padding-left: 11px;
+        padding-right: 11px;
+    }
+
+    .navbar > .container .navbar-brand {
+        margin-left: 0;
+    }
+
+    .navbar-nav.navbar-right:last-child {
+        margin-right: 0;
+    }
+}
+
 section {
     padding: 100px 0;
 }

@@ -39,10 +39,19 @@ $('body').scrollspy({
     }
 
     var shrinkAt = 120;
+    var desktopMinWidth = 768;
+    var desktopWideMinWidth = 1200;
     var ticking = false;
 
+    function shouldShrinkForWidth() {
+        var width = window.innerWidth || document.documentElement.clientWidth;
+        return width >= desktopMinWidth && width < desktopWideMinWidth;
+    }
+
     function updateNavbarState() {
-        if ((window.pageYOffset || document.documentElement.scrollTop) >= shrinkAt) {
+        var scrolledPastThreshold = (window.pageYOffset || document.documentElement.scrollTop) >= shrinkAt;
+
+        if (scrolledPastThreshold || shouldShrinkForWidth()) {
             nav.classList.add('navbar-shrink');
         } else {
             nav.classList.remove('navbar-shrink');
