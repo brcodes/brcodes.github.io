@@ -10,14 +10,14 @@ body {
 
 :root {
     --navbar-brand-font-scale: 0.85;
-    --navbar-brand-mobile-size: 21px;
+    --navbar-brand-mobile-size: 18.5px;
     --navbar-brand-shrink-size: 23px;
     --navbar-menu-font-size: clamp(17px, 0.4vw + 14px, 21px);
     --main-heading-font-scale: var(--navbar-brand-font-scale);
     --portfolio-caption-title-scale: 0.85;
     --hero-font-scale: 0.71;
     --hero-skills-font-scale: 1.385;
-    --hero-name-mobile-size: calc(2em * var(--hero-font-scale) * 1.85);
+    --hero-name-mobile-size: calc(2em * var(--hero-font-scale) * 1.813);
     --hero-skills-mobile-size: calc(1.25em * var(--hero-font-scale) * var(--hero-skills-font-scale) * 1.12);
     --hero-bottom-gap-mobile: 48px;
     --profile-pic-mobile-size: 230px;
