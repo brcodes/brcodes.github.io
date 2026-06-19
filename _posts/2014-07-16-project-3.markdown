@@ -20,20 +20,20 @@ role: Student, Student Researcher, Research Assistant, Teaching Assistant
 field: Liberal Arts, Biochemistry, Chemistry, Bioengineering, Programming & Data Science
 
 description: |
-  __Ph.D. Bioengineering (Biological Data Sciences Minor)__. *Oregon State University*, 2020-2025; GPA 3.95
+  __Ph.D. Bioengineering (Biological Data Sciences Minor)__. *<span style="color:orange">Oregon State University</span>*, 2020-2025; GPA 3.95
     - Computational modeling, data science & machine learning in biology
     - *Course sample*: Data Science Tools & Programming, Modern Statistical Methods for Large & Complex Datasets, Applied Machine Learning, Command Line Data Analysis (UNIX/Bash) (Languages: Python, Bash, R) 
   
-  __M.S. Chemistry (Ph.D. Candidacy)__. *Colorado State University*, 2013-2016; GPA 3.52
+  __M.S. Chemistry (Ph.D. Candidacy)__. *<span style="color:green">Colorado State University</span>*, 2013-2016; GPA 3.52
     - Study and development of macromolecular tools to control cellular biochemistry and treat human disease
     - *Course sample*: Biomolecular Engineering and Synthetic Biology, Molecular Genetics
   
-  __B.S. Double Major: Biochemistry, Spanish__. *University of Puget Sound*, 2008-2012; GPA 3.05
+  __B.S. Double Major: Biochemistry, Spanish__. *<span style="color:purple">University of Puget Sound</span>*, 2008-2012; GPA 3.05
     - Liberal arts, biochemistry, Spanish (literary studies)
     - *Course sample*: Genetics, Physical Biochemistry, Organic Chemistry I/II, Inorganic Chemistry, Multivariate Calculus 
   
   Image credits:  
-  Oregon State U. (orange): Photo by <a href="https://unsplash.com/@porterraab?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Porter Raab</a>     
-  Colorado State U. Fort Collins (green): Photo by <a href="https://unsplash.com/@acton_crawford?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Acton Crawford</a>  
-  Tacoma, WA (purple): Photo by <a href="https://unsplash.com/@fotowei?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Wei Zeng</a>  
+  <span style="color:orange">Oregon State U.</span> photo by <a href="https://unsplash.com/@porterraab?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Porter Raab</a>     
+  <span style="color:green">Colorado State U. Fort Collins</span> photo by <a href="https://unsplash.com/@acton_crawford?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Acton Crawford</a>  
+  <span style="color:purple">Tacoma, WA</span> photo by <a href="https://unsplash.com/@fotowei?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Wei Zeng</a>  
 ---

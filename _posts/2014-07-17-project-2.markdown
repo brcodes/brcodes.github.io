@@ -15,7 +15,7 @@ role: Scientist
 field: Molecular Biology & Biochemistry
 description: |
 
-  M.S. Student (*Colorado State University; Ph.D Candidacy*): 
+  M.S. Student (*<span style="color:green">Colorado State University</span>; Ph.D Candidacy*): 
     - Protein semi-design through quantitative molecular biology/biochemistry
     - __Publication__: "Characterization of the Binding Interaction between the Oncoprotein Gankyrin and a Grafted S6 ATPase." - A.C., B.R., and B.M. *Biochemistry*, 2014 ([Article](https://pubs.acs.org/doi/10.1021/bi5012354))
 ---
