@@ -8,10 +8,28 @@
 $(function() {
     $('.page-scroll a').bind('click', function(event) {
         var $anchor = $(this);
-        var navbarHeight = $('.navbar-fixed-top').outerHeight() || 0;
-        $('html, body').stop().animate({
-            scrollTop: $($anchor.attr('href')).offset().top - navbarHeight
-        }, 700, 'easeInOutExpo');
+        var $collapse = $('#bs-example-navbar-collapse-1');
+
+        function doScroll() {
+            var navbarHeight = $('.navbar-fixed-top').outerHeight() || 0;
+            $('html, body').stop().animate({
+                scrollTop: $($anchor.attr('href')).offset().top - navbarHeight
+            }, 700, 'easeInOutExpo');
+        }
+
+        if ($collapse.hasClass('in')) {
+            // Menu fully open — collapse it first, then scroll.
+            $collapse.one('hidden.bs.collapse', doScroll);
+            $collapse.collapse('hide');
+        } else if ($collapse.hasClass('collapsing')) {
+            // Bootstrap already started collapsing (removed 'in' before our
+            // handler ran) — just wait for it to finish, then scroll.
+            $collapse.one('hidden.bs.collapse', doScroll);
+        } else {
+            // Menu is closed — scroll immediately.
+            doScroll();
+        }
+
         event.preventDefault();
     });
 });
