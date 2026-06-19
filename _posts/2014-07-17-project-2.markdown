@@ -4,7 +4,7 @@ grid-position: 4
 date: 2014-07-15
 modal-title: M.S. Biochemical Research
 card-title: Biochemistry
-modal-img: /img/port_2_inner_characterizing.png
+modal-img: /img/port_2_inner_characterizing_norm.png
 thumbnail-img: /img/port_2_thumb_scipub.png
 thumb-fill: '#f3f3f3'
 caption-matte-height: 140%

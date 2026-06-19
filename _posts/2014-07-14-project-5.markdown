@@ -4,7 +4,7 @@ grid-position: 3
 date: 2014-07-16
 modal-title: 'Audio Perception Visualizer'
 card-title: 'Web<br>App #2'
-modal-img: /img/port_6_inner_mmm.png
+modal-img: /img/port_6_inner_mmm_norm.png
 thumbnail-img: /img/port_5_thumb_webdev1.png
 thumb-fill: '#e6f3ff'
 caption-matte-height: 140%
