@@ -16,6 +16,48 @@
 <!-- Custom Theme JavaScript -->
 <script defer src="{{ '/js/freelancer.js' | relative_url }}"></script>
 
+<!-- Slideshow carousel: custom timer bypasses Bootstrap slide transitions -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  $('.portfolio-modal').each(function() {
+    var $modal = $(this);
+
+    $modal.on('shown.bs.modal', function() {
+      var $carousel = $modal.find('.carousel.carousel-fade');
+      if (!$carousel.length) return;
+      var $items = $carousel.find('.carousel-inner .item');
+      if ($items.length < 2) return;
+
+      // Stop Bootstrap's own cycling
+      $carousel.carousel({ interval: false });
+
+      var idx = 0;
+      $items.each(function(i) { if ($(this).hasClass('active')) idx = i; });
+      var dur = parseInt($carousel.data('interval'), 10) || 5000;
+
+      var timer = setInterval(function() {
+        $items.eq(idx).removeClass('active');
+        idx = (idx + 1) % $items.length;
+        $items.eq(idx).addClass('active');
+      }, dur);
+
+      $carousel.data('slideshow-timer', timer);
+    });
+
+    $modal.on('hide.bs.modal', function() {
+      var $carousel = $modal.find('.carousel.carousel-fade');
+      if (!$carousel.length) return;
+      var timer = $carousel.data('slideshow-timer');
+      if (timer) { clearInterval(timer); $carousel.removeData('slideshow-timer'); }
+      // Reset to first image for next open
+      var $items = $carousel.find('.carousel-inner .item');
+      $items.removeClass('active');
+      $items.first().addClass('active');
+    });
+  });
+});
+</script>
+
 {% if site.contact == "disqus" %}
 <!-- Disqus Stuff -->
 {% include js_disqus.html %}

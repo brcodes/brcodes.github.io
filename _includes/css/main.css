@@ -1097,6 +1097,26 @@ footer .footer-below .col-lg-12 {
     color: #{{ site.color.secondary-dark }};
 }
 
+/* Slideshow (fade) carousel mode — items are absolutely stacked;
+   a custom JS timer toggles .active so only CSS opacity transitions fire,
+   bypassing Bootstrap's slide mechanism entirely. */
+.portfolio-modal .carousel-fade .carousel-inner .item {
+    display: block !important;      /* always in DOM, never hidden by Bootstrap */
+    position: absolute;
+    top: 0;
+    left: 0 !important;             /* suppress Bootstrap's slide offset */
+    width: 100%;
+    opacity: 0;
+    -webkit-transform: none !important;
+    transform: none !important;
+    -webkit-transition: opacity 1s ease-in-out;
+    transition: opacity 1s ease-in-out;
+}
+.portfolio-modal .carousel-fade .carousel-inner .item.active {
+    position: relative;             /* anchors container height to visible image */
+    opacity: 1;
+}
+
 .portfolio-modal .close-modal {
     position: absolute;
     top: 25px;

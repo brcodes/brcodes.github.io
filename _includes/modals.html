@@ -18,6 +18,22 @@
             <hr class="star-primary">
             {% if post['modal-images'] %}
             {% if post['modal-images'].size > 1 %}
+            {% assign carousel_mode = post['carousel-mode'] | default: 'click-through' %}
+            {% if carousel_mode == 'slideshow' %}
+            <div id="portfolioCarousel-{{ post['grid-position'] }}" class="carousel carousel-fade" data-ride="carousel" data-interval="5000" data-pause="false" data-wrap="true">
+              <div class="carousel-inner" role="listbox">
+                {% for modal_image in post['modal-images'] %}
+                {% assign modal_image_path = modal_image %}
+                {% unless modal_image contains '/' %}
+                {% assign modal_image_path = '/img/portfolio/' | append: modal_image %}
+                {% endunless %}
+                <div class="item{% if forloop.first %} active{% endif %}">
+                  <img src="{{ modal_image_path | relative_url }}" class="img-responsive img-centered" loading="lazy" decoding="async" alt="{{ post.alt }}">
+                </div>
+                {% endfor %}
+              </div>
+            </div>
+            {% else %}
             <div id="portfolioCarousel-{{ post['grid-position'] }}" class="carousel slide" data-ride="carousel" data-interval="false">
               <ol class="carousel-indicators">
                 {% for modal_image in post['modal-images'] %}
@@ -44,6 +60,7 @@
                 <span class="sr-only">Next</span>
               </a>
             </div>
+            {% endif %}
             {% else %}
             {% assign modal_image_path = post['modal-images'] | first %}
             {% unless modal_image_path contains '/' %}

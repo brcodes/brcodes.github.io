@@ -9,6 +9,7 @@ thumbnail-img: /img/port_1_thumb_scipub.png
 thumb-position: 46% center
 caption-matte-height: 130%
 caption-fade-height: 230%
+carousel-mode: slideshow
 modal-images:
   - /img/port_1_inner1_trainevalschematic.png
   - /img/port_1_inner2_schematics_norm.png

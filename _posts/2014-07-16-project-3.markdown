@@ -6,6 +6,7 @@ card-title: Education
 modal-title: Higher Education (Degrees & Courses)
 modal-img: /img/port_3_inner1_osu_norm.png
 thumbnail-img: /img/port_3_thumb_edu.png
+carousel-mode: slideshow
 modal-images:
   - /img/port_3_inner1_osu_norm.png
   - /img/port_3_inner2_csu_norm.png
