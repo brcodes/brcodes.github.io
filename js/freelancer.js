@@ -8,8 +8,9 @@
 $(function() {
     $('.page-scroll a').bind('click', function(event) {
         var $anchor = $(this);
+        var navbarHeight = $('.navbar-fixed-top').outerHeight() || 0;
         $('html, body').stop().animate({
-            scrollTop: $($anchor.attr('href')).offset().top
+            scrollTop: $($anchor.attr('href')).offset().top - navbarHeight
         }, 700, 'easeInOutExpo');
         event.preventDefault();
     });
