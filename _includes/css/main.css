@@ -694,21 +694,27 @@ section.success {
     }
 }
 
-@media (min-width: 640px) and (max-width: 767px) {
+@media (min-width: 700px) and (max-width: 767px) {
     :root {
         --portfolio-caption-title-font-size: calc(2.33em * var(--portfolio-caption-title-scale) * 0.93 * 0.9);
     }
 }
 
+@media (min-width: 640px) and (max-width: 699px) {
+    :root {
+        --portfolio-caption-title-font-size: calc(2.18em * var(--portfolio-caption-title-scale) * 0.93 * 0.9);
+    }
+}
+
 @media (min-width: 480px) and (max-width: 639px) {
     :root {
-        --portfolio-caption-title-font-size: calc(2.59em * var(--portfolio-caption-title-scale) * 0.93 * 0.9);
+        --portfolio-caption-title-font-size: calc(2.33em * var(--portfolio-caption-title-scale) * 0.93 * 0.9);
     }
 }
 
 @media (max-width: 479px) {
     :root {
-        --portfolio-caption-title-font-size: calc(2.48em * var(--portfolio-caption-title-scale) * 0.93 * 0.9);
+        --portfolio-caption-title-font-size: calc(2.23em * var(--portfolio-caption-title-scale) * 0.93 * 0.9);
     }
 }
 
