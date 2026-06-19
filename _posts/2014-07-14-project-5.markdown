@@ -14,7 +14,7 @@ date-range: 2026
 role: Developer
 field: Web Application Development
 description: |
-  Created and developed an audio visualizer designed to mimic human sound perception using studied scientific principles, "<span style="color:#FF6666;background-color:#8899AA">Audi</span><span style="color:orange;background-color:#8899AA">o Per</span><span style="color:#FFB300;background-color:#8899AA">cep</span><span style="color:#73E600;background-color:#8899AA">tion</span><span style="color:#87CEEB;background-color:#8899AA"> Vis</span><span style="color:#0066FF;background-color:#8899AA">uali</span><span style="color:#811AFF;background-color:#8899AA">zer</span>"
+  Created and developed an audio visualizer designed to mimic human sound perception using studied scientific principles, "<span style="color:#FF3333;background-color:#000000">Audi</span><span style="color:#FF8800;background-color:#000000">o Per</span><span style="color:#FFD700;background-color:#000000">cep</span><span style="color:#AAFF00;background-color:#000000">tion</span><span style="color:#00CCFF;background-color:#000000"> Vis</span><span style="color:#4477FF;background-color:#000000">uali</span><span style="color:#7722CC;background-color:#000000">zer</span>"
     - [brcodes.github.io/audio-perception-visualizer](https://brcodes.github.io/audio-perception-vizualizer/)
     - Concept art / Design notes to stable, standalone web version with robust full-size UI/UX in 1 week
 ---

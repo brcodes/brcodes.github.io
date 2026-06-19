@@ -4,7 +4,7 @@ grid-position: 5
 date: 2014-07-14
 card-title: Awards
 modal-title: Financial Academic Awards
-modal-img: /img/port_4_thumb_award_norm.png
+modal-img: /img/port_4_thumb_award.png
 thumbnail-img: /img/port_4_thumb_award.png
 thumb-fill: '#e6f3ff'
 caption-matte-height: 130%
