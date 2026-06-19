@@ -1177,7 +1177,7 @@ transform: rotate(90deg);
 .navbar-nav>.active>a,
 .navbar-nav>.active>a:hover,
 .navbar-nav>.active>a:focus {
-    background-color: #{{ site.color.primary }} !important;
+    background-color: rgba(24, 188, 165, 0.3) !important;
     color: #fff !important;
     border-radius: 6px;
 }
