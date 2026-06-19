@@ -1032,6 +1032,12 @@ footer .footer-below .col-lg-12 {
 
 @media (min-width: 992px) and (max-width: 1199px) {
     .portfolio-modal .modal-content h2 { font-size: 2.6em; }
+    .portfolio-modal .col-lg-8 {
+        width: 780px;
+        margin-left: auto;
+        margin-right: auto;
+        float: none;
+    }
 }
 
 @media (min-width: 768px) and (max-width: 991px) {

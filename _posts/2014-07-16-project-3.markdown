@@ -31,4 +31,9 @@ description: |
   __B.S. Double Major: Biochemistry, Spanish__. *University of Puget Sound*, 2008-2012; GPA 3.05
     - Liberal arts, biochemistry, Spanish (literary studies)
     - *Course sample*: Genetics, Physical Biochemistry, Organic Chemistry I/II, Inorganic Chemistry, Multivariate Calculus 
+  
+  Image credits:  
+  Oregon State U. (orange): Photo by <a href="https://unsplash.com/@porterraab?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Porter Raab</a>     
+  Colorado State U. Fort Collins (green): Photo by <a href="https://unsplash.com/@acton_crawford?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Acton Crawford</a>  
+  Tacoma, WA (purple): Photo by <a href="https://unsplash.com/@fotowei?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Wei Zeng</a>  
 ---
