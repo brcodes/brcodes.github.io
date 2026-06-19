@@ -36,7 +36,7 @@ task :'test:build' do
 end
 
 desc 'Run HTML regression tests against generated site output'
-task :'test:site' do
+task :'test:site' => :'test:build' do
   sh 'bundle exec ruby -Itest test/site_regression_test.rb'
 end
 
