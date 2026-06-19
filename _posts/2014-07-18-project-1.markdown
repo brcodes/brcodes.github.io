@@ -11,8 +11,8 @@ caption-matte-height: 130%
 caption-fade-height: 230%
 modal-images:
   - /img/port_1_inner1_trainevalschematic.png
-  - /img/port_1_inner2_schematics.png
-  - /img/port_1_inner3_lexcompclean.png
+  - /img/port_1_inner2_schematics_norm.png
+  - /img/port_1_inner3_lexcompclean_norm.png
 thumb-fill: '#e6f3ff'
 alt: Computational modeling schematics for predictive coding in spoken word recognition
 date-range: 2020-2025
