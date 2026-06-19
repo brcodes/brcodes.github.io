@@ -45,9 +45,21 @@ $(function() {
     });
 });
 
-// Highlight the top nav as scrolling occurs
-$('body').scrollspy({
-    target: '.navbar-fixed-top'
+// Highlight the top nav as scrolling occurs.
+// offset matches the live navbar height so the active item switches exactly
+// when a section reaches the bottom edge of the navbar.
+function applyScrollspy() {
+    $('body').scrollspy({
+        target: '.navbar-fixed-top',
+        offset: ($('.navbar-fixed-top').outerHeight() || 60) + 1
+    });
+}
+applyScrollspy();
+
+// Re-apply on resize so the offset stays accurate when the navbar shrinks/grows.
+$(window).on('resize', function() {
+    applyScrollspy();
+    $('body').scrollspy('refresh');
 });
 
 // Shrink navbar on scroll using a lightweight rAF-throttled handler.

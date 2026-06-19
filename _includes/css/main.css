@@ -1174,8 +1174,12 @@ transform: rotate(45deg);
 transform: rotate(90deg);
 }
 
-.navbar-nav>.active>a {
-    background-color: #{{ site.color.secondary-dark }} !important;
+.navbar-nav>.active>a,
+.navbar-nav>.active>a:hover,
+.navbar-nav>.active>a:focus {
+    background-color: #{{ site.color.primary }} !important;
+    color: #fff !important;
+    border-radius: 6px;
 }
 
 /* Fix modal mouse wheel issues */
