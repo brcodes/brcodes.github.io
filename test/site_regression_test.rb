@@ -2,6 +2,7 @@ require 'minitest/autorun'
 require 'nokogiri'
 require 'yaml'
 require 'rexml/document'
+require 'date'
 
 class SiteRegressionTest < Minitest::Test
   ROOT        = File.expand_path('..', __dir__)
@@ -39,6 +40,21 @@ class SiteRegressionTest < Minitest::Test
     self.class.instance_variable_get(:@config)
   end
 
+  def all_post_front_matters
+    @all_post_front_matters ||= Dir.glob(File.join(ROOT, '_posts', '*.markdown')).map do |path|
+      body = File.read(path)
+      front_matter = body[/\A---\s*\n(.*?)\n---\s*(?:\n|\z)/m, 1]
+      parsed = front_matter ? YAML.safe_load(front_matter, [Date], [], true) : {}
+      parsed ||= {}
+      parsed['__source_path'] = path
+      parsed
+    end
+  end
+
+  def grid_posts
+    all_post_front_matters.select { |post| post['grid-position'] }
+  end
+
   # ─────────────────────────────────────────────────────────────────────────────
   # 1. Build Artifacts
   # ─────────────────────────────────────────────────────────────────────────────
@@ -66,6 +82,35 @@ class SiteRegressionTest < Minitest::Test
     assert File.exist?(FEED_PATH), '_site/feed.xml must be generated'
     doc = REXML::Document.new(File.read(FEED_PATH))
     refute_nil doc.root, 'feed.xml must have a root element'
+  end
+
+  def test_feed_contains_required_channel_metadata
+    doc = REXML::Document.new(File.read(FEED_PATH))
+    if (channel = doc.elements['rss/channel'])
+      %w[title link description].each do |element_name|
+        node = channel.elements[element_name]
+        refute_nil node, "feed.xml channel must include <#{element_name}>"
+        refute_empty node.text.to_s.strip, "feed.xml channel <#{element_name}> must not be empty"
+      end
+      return
+    end
+
+    feed = doc.root
+    refute_nil feed, 'feed.xml must have a root element'
+    assert_equal 'feed', feed.name, 'feed.xml root should be <feed> when Atom is used'
+
+    title = feed.elements['title']
+    refute_nil title, 'Atom feed must include <title>'
+    refute_empty title.text.to_s.strip, 'Atom feed <title> must not be empty'
+
+    alternate_link = feed.elements.to_a('link').find { |link| link.attributes['rel'] == 'alternate' }
+    refute_nil alternate_link, 'Atom feed must include an alternate link'
+    refute_empty alternate_link.attributes['href'].to_s.strip,
+                 'Atom feed alternate link href must not be empty'
+
+    updated = feed.elements['updated']
+    refute_nil updated, 'Atom feed must include <updated>'
+    refute_empty updated.text.to_s.strip, 'Atom feed <updated> must not be empty'
   end
 
   # ─────────────────────────────────────────────────────────────────────────────
@@ -113,6 +158,23 @@ class SiteRegressionTest < Minitest::Test
     refute_nil node, 'RSS <link rel="alternate"> must be present in <head>'
   end
 
+  def test_font_resource_hints_are_present
+    preconnect_google = index_doc.at_css('head link[rel="preconnect"][href="https://fonts.googleapis.com"]')
+    refute_nil preconnect_google, 'head should include preconnect hint for fonts.googleapis.com'
+
+    preconnect_gstatic = index_doc.at_css('head link[rel="preconnect"][href="https://fonts.gstatic.com"]')
+    refute_nil preconnect_gstatic, 'head should include preconnect hint for fonts.gstatic.com'
+    assert preconnect_gstatic.key?('crossorigin'),
+           'fonts.gstatic.com preconnect should include crossorigin for optimal reuse'
+  end
+
+  def test_profile_image_preload_is_present
+    node = index_doc.at_css('head link[rel="preload"][as="image"]')
+    refute_nil node, 'head should include an image preload hint for the profile image'
+    assert_includes node['href'].to_s, 'img/profile.jpg',
+                    'image preload should point at the profile image asset'
+  end
+
   def test_stylesheet_link_present
     hrefs = index_doc.css('head link[rel="stylesheet"]').map { |l| l['href'].to_s }
     assert hrefs.any? { |href| href.include?('style.css') },
@@ -153,31 +215,37 @@ class SiteRegressionTest < Minitest::Test
   # ─────────────────────────────────────────────────────────────────────────────
 
   def test_portfolio_grid_card_count_matches_posts
-    expected = Dir.glob(File.join(ROOT, '_posts', '*.markdown')).count do |path|
-      File.read(path).match?(/^grid-position:\s*\d+/)
-    end
+    expected = grid_posts.length
     actual = index_doc.css('#portfolio .portfolio-flex-item').count
     assert_equal expected, actual, 'Portfolio card count must match posts with grid-position'
   end
 
   def test_no_duplicate_grid_positions
-    positions = Dir.glob(File.join(ROOT, '_posts', '*.markdown')).map do |path|
-      m = File.read(path).match(/^grid-position:\s*(\d+)/)
-      m && m[1].to_i
-    end.compact
+    positions = grid_posts.map { |post| post['grid-position'].to_i }
     assert_equal positions.uniq.length, positions.length,
                  'grid-position values must be unique across all posts'
   end
 
+  def test_grid_positions_are_positive_integers
+    grid_posts.each do |post|
+      source = File.basename(post['__source_path'])
+      value = post['grid-position']
+      assert value.to_s.match?(/\A\d+\z/),
+             "#{source} grid-position must be an integer-like value"
+      assert_operator value.to_i, :>, 0,
+                      "#{source} grid-position must be greater than zero"
+    end
+  end
+
   def test_all_grid_posts_have_required_front_matter
     required_keys = %w[grid-position card-title alt]
-    Dir.glob(File.join(ROOT, '_posts', '*.markdown')).each do |path|
-      content = File.read(path)
-      next unless content.match?(/^grid-position:\s*\d+/)
-
+    grid_posts.each do |post|
+      source = File.basename(post['__source_path'])
       required_keys.each do |key|
-        assert content.match?(/^#{Regexp.escape(key)}:/),
-               "#{File.basename(path)} must define front matter key '#{key}'"
+        assert post.key?(key),
+               "#{source} must define front matter key '#{key}'"
+        refute_empty post[key].to_s.strip,
+                     "#{source} front matter key '#{key}' must not be empty"
       end
     end
   end
@@ -210,13 +278,25 @@ class SiteRegressionTest < Minitest::Test
   # ─────────────────────────────────────────────────────────────────────────────
 
   def test_portfolio_modals_exist_for_each_grid_post
-    positions = Dir.glob(File.join(ROOT, '_posts', '*.markdown')).map do |path|
-      m = File.read(path).match(/^grid-position:\s*(\d+)/)
-      m && m[1]
-    end.compact
+    positions = grid_posts.map { |post| post['grid-position'].to_s }
     positions.each do |pos|
       refute_nil index_doc.at_css("#portfolioModal-#{pos}"),
                  "Modal #portfolioModal-#{pos} must be rendered for grid-position #{pos}"
+    end
+  end
+
+  def test_portfolio_modal_ids_are_unique
+    ids = index_doc.css('.portfolio-modal[id]').map { |modal| modal['id'] }
+    assert_equal ids.uniq.length, ids.length,
+                 'Portfolio modal IDs must be unique'
+  end
+
+  def test_portfolio_links_target_existing_modals
+    modal_ids = index_doc.css('.portfolio-modal[id]').map { |modal| "##{modal['id']}" }
+    index_doc.css('#portfolio .portfolio-link').each do |link|
+      href = link['href'].to_s
+      assert_includes modal_ids, href,
+                      "Portfolio link href=#{href.inspect} must target an existing modal"
     end
   end
 
@@ -272,6 +352,26 @@ class SiteRegressionTest < Minitest::Test
     end
   end
 
+  def test_core_scripts_load_in_dependency_order
+    srcs = index_doc.css('script[src]').map { |node| node['src'].to_s }
+    jquery_index = srcs.index('/js/jquery-1.11.0.js')
+    bootstrap_index = srcs.index('/js/bootstrap.min.js')
+    easing_index = srcs.index('/js/jquery.easing.min.js')
+    freelancer_index = srcs.index('/js/freelancer.js')
+
+    refute_nil jquery_index, 'jQuery script must be present'
+    refute_nil bootstrap_index, 'Bootstrap script must be present'
+    refute_nil easing_index, 'jQuery easing script must be present'
+    refute_nil freelancer_index, 'Freelancer script must be present'
+
+    assert_operator jquery_index, :<, bootstrap_index,
+                    'jQuery must load before Bootstrap'
+    assert_operator bootstrap_index, :<, freelancer_index,
+                    'Bootstrap must load before freelancer.js'
+    assert_operator easing_index, :<, freelancer_index,
+                    'jquery.easing.min.js must load before freelancer.js'
+  end
+
   # ─────────────────────────────────────────────────────────────────────────────
   # 7. Contact
   # ─────────────────────────────────────────────────────────────────────────────
@@ -291,6 +391,15 @@ class SiteRegressionTest < Minitest::Test
            'Static contact mode must not load jqBootstrapValidation.js'
     refute srcs.any? { |s| s.include?('contact_me.js') },
            'Static contact mode must not load contact_me.js'
+  end
+
+  def test_static_contact_mode_exposes_site_email
+    return unless config['contact'] == 'static'
+
+    mailto = index_doc.at_css('#contact a[href^="mailto:"]')
+    refute_nil mailto, 'Static contact mode must render a mailto contact link'
+    assert_equal "mailto:#{config['email']}", mailto['href'],
+                 'Static contact mode mailto must match site.email'
   end
 
   # ─────────────────────────────────────────────────────────────────────────────
@@ -315,6 +424,14 @@ class SiteRegressionTest < Minitest::Test
   def test_footer_github_link_present
     github_links = index_doc.css('footer a[href*="github.com"]')
     refute_empty github_links, 'Footer must contain at least one link to github.com'
+  end
+
+  def test_footer_social_links_are_http_or_https
+    index_doc.css('footer .btn-social[href]').each do |link|
+      href = link['href'].to_s
+      assert href.match?(/\Ahttps?:\/\//i),
+             "Footer social link href=#{href.inspect} must use http or https"
+    end
   end
 
   def test_scroll_to_top_button_present

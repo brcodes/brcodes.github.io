@@ -19,6 +19,9 @@ Run with `bundle exec rake test`. This executes three sequential stages.
 - `_site/style.css` is generated
 - Core JS assets exist: `jquery`, `bootstrap.min`, `freelancer`, `jquery.easing.min`
 - `_site/feed.xml` exists and parses as valid XML
+- Feed metadata is validated for generated format:
+	- RSS: non-empty channel `title`, `link`, `description`
+	- Atom: non-empty `title`, `updated`, and alternate `<link href=...>`
 
 ### 2. Head / SEO
 - `_config.yml` defines non-empty `title`, `url`, and `email`
@@ -30,6 +33,8 @@ Run with `bundle exec rake test`. This executes three sequential stages.
 - RSS `<link rel="alternate">` is present in `<head>`
 - `style.css` is referenced via `<link rel="stylesheet">`
 - Font Awesome stylesheet is **not** loaded (inline SVG icons are used instead)
+- Font performance hints are present (`preconnect` for Google Fonts + `crossorigin` for `fonts.gstatic.com`)
+- Profile image preload hint is present in `<head>`
 
 ### 3. Navigation
 - Sections `#portfolio`, `#about`, and `#contact` all exist in the document
@@ -39,6 +44,7 @@ Run with `bundle exec rake test`. This executes three sequential stages.
 ### 4. Portfolio Grid
 - Card count matches the number of posts with a `grid-position` front matter key
 - No two posts share the same `grid-position` value
+- Every `grid-position` is a positive integer
 - Every grid-positioned post defines `grid-position`, `card-title`, and `alt` in front matter
 - Portfolio images have `loading=lazy` and `decoding=async`
 - Portfolio images have a non-empty `alt` attribute
@@ -49,19 +55,24 @@ Run with `bundle exec rake test`. This executes three sequential stages.
 - Each modal has `tabindex` and `role="dialog"`
 - Each modal contains a non-empty `<h2>` title
 - Each modal has a `.close-modal[data-dismiss="modal"]` close button
+- Modal IDs are unique
+- Every portfolio card link points to an existing modal ID
 
 ### 6. Performance
 - Profile image has `decoding=async`, `fetchpriority=high`, `loading=eager`, and explicit `width`/`height`
 - Core scripts (`jquery`, `bootstrap.min`, `jquery.easing.min`, `freelancer`) use the `defer` attribute
+- Script order preserves dependencies (`jquery` before `bootstrap`, both before `freelancer`)
 
 ### 7. Contact
 - `#contact` section contains a `mailto:` link or a `<form>`
 - In `static` contact mode, `jqBootstrapValidation.js` and `contact_me.js` are **not** loaded
+- In `static` contact mode, `mailto:` href matches `site.email`
 
 ### 8. Footer
 - Footer text includes the copyright name from `_config.yml`
 - Every `.btn-social` link in the footer has a non-empty `aria-label`
 - Footer contains at least one link to `github.com`
+- Footer social links use `http`/`https` URLs
 - Scroll-to-top button exists and links to `#page-top`
 
 ### 9. Accessibility
