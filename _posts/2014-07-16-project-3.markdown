@@ -33,7 +33,7 @@ description: |
     - *Course sample*: Genetics, Physical Biochemistry, Organic Chemistry I/II, Inorganic Chemistry, Multivariate Calculus 
   
   Image credits:  
-  <span style="color:orange">Oregon State U.</span> photo by <a href="https://unsplash.com/@porterraab?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Porter Raab</a>     
-  <span style="color:green">Colorado State U. Fort Collins</span> photo by <a href="https://unsplash.com/@acton_crawford?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Acton Crawford</a>  
+  <span style="color:orange">OSU</span> photo by <a href="https://unsplash.com/@porterraab?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Porter Raab</a>     
+  <span style="color:green">CSU Fort Collins</span> photo by <a href="https://unsplash.com/@acton_crawford?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Acton Crawford</a>  
   <span style="color:purple">Tacoma, WA</span> photo by <a href="https://unsplash.com/@fotowei?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Wei Zeng</a>  
 ---
