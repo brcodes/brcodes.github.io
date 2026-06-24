@@ -186,3 +186,45 @@ Do items 1–3 first: they're independent, shippable immediately, and visibly im
 - Image used: `img/profile.jpg` (900×675). Not the ideal 1200×630 LinkedIn spec; platforms will letterbox/crop slightly. Explicit width/height tags added so platforms skip a prefetch request.
 - To upgrade: supply a dedicated 1200×630 share image and update the `og:image` path and dimension tags.
 - **To verify after deploy:** paste `https://brcodes.github.io` into [opengraph.xyz](https://www.opengraph.xyz) or the [LinkedIn Post Inspector](https://www.linkedin.com/post-inspector/). Local (`127.0.0.1`) is not reachable by these tools. Pre-deploy check: `grep -A1 "og:" _site/index.html` confirms Jekyll rendered the Liquid tags correctly.
+
+---
+
+## Remediation Step 4 (Address Item 1, Step 1.1: Swap CSS and JS bundle references)
+
+**Status: Complete**
+
+### Updated plan
+
+Original plan description was inaccurate about CSS loading. Corrected architecture and execution:
+
+- Bootstrap CSS was **not** a standalone CDN link — it was compiled into `style.css` via a Jekyll pipeline: `_layouts/style.css` concatenated `_includes/css/bootstrap.min.css` (Bootswatch Flatly v3.2.0) + `_includes/css/main.css`. The pipeline was changed to drop Bootstrap from compilation and load BS5 from CDN instead.
+- **jQuery kept** — `freelancer.js` and the inline slideshow script still depend on it; removal is deferred to Steps 1.6/1.7.
+- **`jqBootstrapValidation.js` kept** — removal deferred to Step 1.8.
+- **Expected state after this step:** site visually broken (BS5 CSS + BS3 markup mismatch). Resolved in Steps 1.2–1.5.
+
+### Changes made
+
+**`_layouts/style.css`**
+- Removed `{% include css/bootstrap.min.css %}` — `style.css` now compiles only `main.css`
+
+**`_includes/head.html`**
+- Added Bootstrap 5 CDN CSS link (`cdn.jsdelivr.net/npm/bootstrap@5.3.3`) before `style.css`
+- Removed IE8 `html5shiv` / `Respond.js` conditional comment shims
+
+**`_includes/js.html`**
+- Replaced local `bootstrap.min.js` (BS3) with Bootstrap 5 CDN bundle (`bootstrap.bundle.min.js`, includes Popper)
+- Removed `jquery.easing.min.js` (to be replaced by `scroll-behavior: smooth` in Step 1.6)
+
+**Verification suite**
+- `test/3wk_design_audit_remediation/bs5mig_1_1.rb` — 6-check TAP verification script
+- `test/3wk_design_audit_remediation/bs5mig_1_1.tap` — TAP output file
+
+### Notes
+- **Results: 6/6 checks passed**
+  - Jekyll build succeeds
+  - Bootstrap 5 CDN CSS link present in `_site/index.html`
+  - Bootstrap 3 local JS bundle absent from `_site/index.html`
+  - jQuery Easing plugin absent from `_site/index.html`
+  - IE8 html5shiv shim absent from `_site/index.html`
+  - Bootswatch source not compiled into `_site/style.css`
+- Full TAP output: `test/3wk_design_audit_remediation/bs5mig_1_1.tap`
