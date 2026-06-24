@@ -169,3 +169,20 @@ Do items 1–3 first: they're independent, shippable immediately, and visibly im
 ### Notes
 - SVG favicon is listed last so modern browsers use it; older browsers fall back to `.ico`.
 - Primary color `#18bc9c` sourced directly from `_config.yml` `color.primary`.
+
+---
+
+## Remediation Step 3 (Address Item 3: Add Open Graph and Twitter Card meta tags)
+
+**Status: Complete**
+
+### Changes made
+
+**`_includes/head.html`**
+- Added Open Graph block (`og:type`, `og:url`, `og:title`, `og:description`, `og:image`, `og:image:width`, `og:image:height`) after the `<meta name="description">` tag.
+- Added Twitter Card block (`twitter:card`, `twitter:title`, `twitter:description`, `twitter:image`).
+
+### Notes
+- Image used: `img/profile.jpg` (900×675). Not the ideal 1200×630 LinkedIn spec; platforms will letterbox/crop slightly. Explicit width/height tags added so platforms skip a prefetch request.
+- To upgrade: supply a dedicated 1200×630 share image and update the `og:image` path and dimension tags.
+- **To verify after deploy:** paste `https://brcodes.github.io` into [opengraph.xyz](https://www.opengraph.xyz) or the [LinkedIn Post Inspector](https://www.linkedin.com/post-inspector/). Local (`127.0.0.1`) is not reachable by these tools. Pre-deploy check: `grep -A1 "og:" _site/index.html` confirms Jekyll rendered the Liquid tags correctly.
