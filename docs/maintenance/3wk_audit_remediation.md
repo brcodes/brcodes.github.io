@@ -138,7 +138,7 @@ Do items 1–3 first: they're independent, shippable immediately, and visibly im
 ### Changes made
 
 **`_config.yml`**
-- Replaced placeholder `description:` with: `"Portfolio of Bryce Rogers, Ph.D. — computational scientist and developer with expertise in data science, modeling, and web development."`
+- Replaced placeholder `description:` with: `"Portfolio of Bryce Rogers, Ph.D. — computational scientist and developer with experience in data science, modeling, and web development."`
 - Removed `keywords:` field entirely — ignored by all major search engines; placeholder text was worse than omitting it.
 
 **`_includes/head.html`**
@@ -147,3 +147,25 @@ Do items 1–3 first: they're independent, shippable immediately, and visibly im
 ### Notes
 - Description now appears in Google search result snippets and the RSS feed subtitle via `feed.xml`.
 - Intentionally not keyword-optimized; written to legitimize the site without targeting search ranking.
+
+---
+
+## Remediation Step 2 (Address Item 4: Add a favicon)
+
+**Status: Complete**
+
+### Changes made
+
+**New files in repo root (Jekyll copies these to `_site/` on build)**
+- `favicon.svg` — source vector, 32×32 viewBox. Design: white filled circle; teal (`#18bc9c`) inner ring border (stroke at r=14.5, width=3, inset — does not extend circle boundary); dark blue (`#2c3e50`) Christian cross. Vertical arm: 6px wide, top corners rounded (rx=0.5), base curved to match the circle's arc geometry (SVG arc A 16,16). Horizontal bar: 20px wide × 6px tall, rounded ends (rx=0.5), positioned so all three free arm extents (left, right, top) are equal at 7px from the pole edge. Visual language matches the GitHub glyph button in the footer (white circle, dark glyph flush at bottom).
+- `favicon-16x16.png` — rasterized at 16×16 via cairosvg
+- `favicon-32x32.png` — rasterized at 32×32 via cairosvg
+- `apple-touch-icon.png` — rasterized at 180×180 via cairosvg (iOS home screen)
+- `favicon.ico` — multi-size ICO (16×16 + 32×32) via Pillow; fallback for older browsers
+
+**`_includes/head.html`**
+- Added five `<link>` tags: `.ico` fallback, two PNG sizes, Apple touch icon, and SVG favicon (preferred by modern browsers).
+
+### Notes
+- SVG favicon is listed last so modern browsers use it; older browsers fall back to `.ico`.
+- Primary color `#18bc9c` sourced directly from `_config.yml` `color.primary`.
