@@ -1,8 +1,11 @@
 <!-- jQuery Version 1.11.0 -->
 <script defer src="{{ '/js/jquery-1.11.0.js' | relative_url }}"></script>
 
-<!-- Bootstrap 5 Bundle (includes Popper) -->
-<script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+<!-- Bootstrap Core JavaScript -->
+<script defer src="{{ '/js/bootstrap.min.js' | relative_url }}"></script>
+
+<!-- Plugin JavaScript -->
+<script defer src="{{ '/js/jquery.easing.min.js' | relative_url }}"></script>
 
 <!-- Contact Form JavaScript -->
 {% unless site.contact == "static" %}

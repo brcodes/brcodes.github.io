@@ -1,8 +1,0 @@
-TAP version 13
-1..6
-ok 1 - Jekyll build succeeds
-ok 2 - Bootstrap 5 CDN CSS link present in index.html
-ok 3 - Bootstrap 3 local JS bundle absent from index.html
-ok 4 - jQuery Easing plugin absent from index.html
-ok 5 - IE8 html5shiv shim absent from index.html
-ok 6 - Bootstrap/Bootswatch source not compiled into style.css
