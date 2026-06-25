@@ -15,19 +15,19 @@
       {% assign thumb_path = '/img/portfolio/' | append: thumb_path %}
       {% endunless %}
       <div class="portfolio-flex-item portfolio-item">
-        <a href="#portfolioModal-{{ post['grid-position'] }}" class="portfolio-link" data-toggle="modal">
-          <div class="portfolio-thumb" style="background-color: {{ post['thumb-fill'] | default: '#f3f3f3' }}; --thumb-scale: {{ post['thumb-scale'] | default: 1 }}; --thumb-position: {{ post['thumb-position'] | default: 'center center' }};">
+        <a href="#portfolioModal-{{ post['grid-position'] }}" class="portfolio-link" data-bs-toggle="modal" data-bs-target="#portfolioModal-{{ post['grid-position'] }}">
+          <div class="portfolio-thumb" style="background-color: {{ post['thumb-fill'] | default: '#f3f3f3' }}; --thumb-scale: {{ post['thumb-scale'] | default: 1 }}; --thumb-position: {{ post['thumb-position'] | default: 'center center' }}; --thumb-padding: {{ post['thumb-padding'] | default: '0' }};">
             <img src="{{ thumb_path | relative_url }}" class="img-responsive" loading="lazy" decoding="async"
               alt="{{ post.alt }}">
           </div>
           <div class="caption-persistent" aria-hidden="true">
             <div class="caption-content">
-              <span class="caption-title"{% if post['caption-matte-height'] or post['caption-fade-height'] %} style="{% if post['caption-matte-height'] %}--caption-matte-height: {{ post['caption-matte-height'] }};{% endif %}{% if post['caption-fade-height'] %} --caption-fade-height: {{ post['caption-fade-height'] }};{% endif %}"{% endif %}>{{ post['card-title'] }}</span>
+              <span class="caption-title"{% if post['caption-matte-height'] or post['caption-fade-height'] %} style="{% if post['caption-matte-height'] %}--caption-matte-height: {{ post['caption-matte-height'] }};{% endif %}{% if post['caption-fade-height'] %}--caption-fade-height: {{ post['caption-fade-height'] }};{% endif %}"{% endif %}>{{ post['caption-title'] | default: post.title }}</span>
             </div>
           </div>
           <div class="caption">
             <div class="caption-content">
-              <span class="caption-title"{% if post['caption-matte-height'] or post['caption-fade-height'] %} style="{% if post['caption-matte-height'] %}--caption-matte-height: {{ post['caption-matte-height'] }};{% endif %}{% if post['caption-fade-height'] %} --caption-fade-height: {{ post['caption-fade-height'] }};{% endif %}"{% endif %}>{{ post['card-title'] }}</span>
+              <span class="caption-title"{% if post['caption-matte-height'] or post['caption-fade-height'] %} style="{% if post['caption-matte-height'] %}--caption-matte-height: {{ post['caption-matte-height'] }};{% endif %}{% if post['caption-fade-height'] %}--caption-fade-height: {{ post['caption-fade-height'] }};{% endif %}"{% endif %}>{{ post['caption-title'] | default: post.title }}</span>
             </div>
           </div>
         </a>
