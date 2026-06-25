@@ -280,3 +280,50 @@ BS3 navbar structure had an outer `navbar-header` wrapper div, `navbar-toggle` b
   - `data-bs-spy="scroll"` on `<body>`
   - BS3 `navbar-header` wrapper div absent
 - Full TAP output: `test/3wk_design_audit_remediation/bs5mig_1_2.tap`
+
+---
+
+## Remediation Step 6 (Address Item 1, Step 1.3: Update modal markup)
+
+**Status: Complete** _(plan audited before implementation)_
+
+### Updated plan
+
+Original plan said "BS3 omits [the modal-dialog] wrapper at the outer level" — corrected: BS3 had the wrapper but this theme's custom markup skipped it entirely. Other plan items were accurate.
+
+**Corrections and additions vs. original plan:**
+- `role="dialog"` removed from outer `.portfolio-modal` div — BS5 sets it programmatically via JS; leaving it causes duplicate role conflicts.
+- `btn-default` → `btn-secondary` — `btn-default` does not exist in BS5; plan did not mention this but it's in the same file.
+- Carousel `.item` → `.carousel-item` and `.carousel-control` changes deliberately left for Step 1.4 per plan scope.
+- `data-pause` and `data-wrap` replacements confirmed necessary (slideshow carousel only).
+
+### Changes made
+
+**`_includes/modals.html`**
+- Added `<div class="modal-dialog">` wrapper between `.portfolio-modal` and `.modal-content`; added matching closing `</div>`
+- Removed `role="dialog"` from outer `.portfolio-modal` div
+- `data-dismiss="modal"` → `data-bs-dismiss="modal"` on `.close-modal` div and close button
+- Slideshow carousel: `data-ride` → `data-bs-ride`; `data-interval` → `data-bs-interval`; `data-pause` → `data-bs-pause`; `data-wrap` → `data-bs-wrap`
+- Click-through carousel: `data-ride` → `data-bs-ride`; `data-interval` → `data-bs-interval`
+- `btn btn-default` → `btn btn-secondary` on modal close button
+
+**`_includes/portfolio_grid.html`**
+- Already updated with `data-bs-toggle="modal"` and `data-bs-target` on portfolio card links (pre-existing on this branch) ✅
+
+**Verification suite**
+- `test/3wk_design_audit_remediation/bs5mig_1_3.rb` — 10-check TAP verification script
+- `test/3wk_design_audit_remediation/bs5mig_1_3.tap` — TAP output file
+
+### Notes
+- **Results: 10/10 checks passed**
+  - Jekyll build succeeds
+  - `modal-dialog` wrapper present inside `.portfolio-modal`
+  - `modal-content` present inside `modal-dialog`
+  - BS3 `data-dismiss` absent
+  - `data-bs-dismiss="modal"` present on close controls
+  - BS3 `data-ride` absent
+  - `data-bs-ride` present on carousels
+  - BS3 `data-interval` absent
+  - `role="dialog"` absent from outer `.portfolio-modal` div
+  - BS3 `btn-default` absent from modal close button
+- Full TAP output: `test/3wk_design_audit_remediation/bs5mig_1_3.tap`

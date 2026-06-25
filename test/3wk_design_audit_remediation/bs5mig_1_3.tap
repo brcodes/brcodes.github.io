@@ -1,0 +1,12 @@
+TAP version 13
+1..10
+ok 1 - Jekyll build succeeds
+ok 2 - modal-dialog wrapper div present inside .portfolio-modal
+ok 3 - modal-content div present inside modal-dialog
+ok 4 - BS3 data-dismiss absent (replaced with data-bs-dismiss)
+ok 5 - data-bs-dismiss="modal" present on close controls
+ok 6 - BS3 data-ride absent (replaced with data-bs-ride)
+ok 7 - data-bs-ride present on carousel(s)
+ok 8 - BS3 data-interval absent (replaced with data-bs-interval)
+ok 9 - role="dialog" absent from outer .portfolio-modal div (handled by BS5 JS)
+ok 10 - BS3 btn-default absent from modal close button
