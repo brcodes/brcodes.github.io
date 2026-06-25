@@ -228,3 +228,55 @@ Original plan description was inaccurate about CSS loading. Corrected architectu
   - IE8 html5shiv shim absent from `_site/index.html`
   - Bootswatch source not compiled into `_site/style.css`
 - Full TAP output: `test/3wk_design_audit_remediation/bs5mig_1_1.tap`
+
+---
+
+## Remediation Step 5 (Address Item 1, Step 1.2: Update navbar markup)
+
+**Status: Complete** _(plan audited and corrected before finalising)_
+
+### Updated plan
+
+BS3 navbar structure had an outer `navbar-header` wrapper div, `navbar-toggle` button with `data-toggle`/`data-target`, and three `icon-bar` spans. BS5 eliminates the wrapper, uses `navbar-toggler` with `data-bs-*` attributes, and a single `navbar-toggler-icon` span. ScrollSpy moves from JS initialization to `data-bs-spy` on `<body>`.
+
+**Corrections vs. original plan (caught during audit):**
+- Original plan said `navbar-default` → `navbar-light bg-white`. Both were wrong: the BS3 Bootswatch theme set `.navbar-default { background-color: #{{ site.color.secondary }} }` (dark blue `#2c3e50`) with white text. Removing BS3's CSS in step 1.1 left the navbar with no background at all. Correct BS5 equivalent is `navbar-dark` (white toggler icon) with the background ported into `main.css`. `navbar-light` would have rendered a dark toggler on a dark background.
+- Original plan omitted `navbar-expand-md` — required in BS5 to control the responsive collapse breakpoint; without it the navbar never expands on desktop.
+- Original plan omitted `nav-item` / `nav-link` classes on `<li>` / `<a>` — required for BS5 nav styling.
+- Keeping `navbar-fixed-top` alongside `fixed-top` not mentioned — necessary for main.css scroll-shrink styles that still target `.navbar-fixed-top`.
+
+### Changes made
+
+**`_includes/nav.html`**
+- `navbar-default` → `navbar-dark navbar-expand-md fixed-top` (+ retained `navbar-fixed-top` for custom CSS)
+- Removed `navbar-header` wrapper div
+- `navbar-toggle` → `navbar-toggler`; `data-toggle` → `data-bs-toggle`; `data-target` → `data-bs-target`
+- Three `icon-bar` spans → single `navbar-toggler-icon` span
+- Added `aria-controls`, `aria-expanded`, `aria-label` to toggler button
+- `navbar-right` removed; `ms-auto` added to `<ul>`
+- `<li>` elements: added `nav-item` class; `<a>` elements: added `nav-link` class
+- Removed hidden `<li><a href="#page-top">` ScrollSpy placeholder
+
+**`_includes/css/main.css`**
+- Added `background-color: #{{ site.color.secondary }}` to `.navbar` rule — ports the dark blue navbar background that was previously provided by BS3's `.navbar-default` rule (now gone after step 1.1)
+
+**`_layouts/default.html`**
+- Added `data-bs-spy="scroll"`, `data-bs-target="#bs-example-navbar-collapse-1"`, `data-bs-offset="80"` to `<body>` tag
+
+**Verification suite**
+- `test/3wk_design_audit_remediation/bs5mig_1_2.rb` — 10-check TAP verification script (updated to include `navbar-dark` check)
+- `test/3wk_design_audit_remediation/bs5mig_1_2.tap` — TAP output file
+
+### Notes
+- **Results: 10/10 checks passed**
+  - Jekyll build succeeds
+  - BS3 `navbar-default` class absent from `<nav>`
+  - BS5 `navbar-dark` class present (white toggler icon, correct for dark background)
+  - BS5 `fixed-top` class present on `<nav>`
+  - BS5 `navbar-toggler` button present
+  - `data-bs-toggle="collapse"` present on toggler button
+  - `navbar-toggler-icon` span present
+  - `ms-auto` class present on nav `<ul>`
+  - `data-bs-spy="scroll"` on `<body>`
+  - BS3 `navbar-header` wrapper div absent
+- Full TAP output: `test/3wk_design_audit_remediation/bs5mig_1_2.tap`
