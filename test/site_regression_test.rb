@@ -44,7 +44,7 @@ class SiteRegressionTest < Minitest::Test
     @all_post_front_matters ||= Dir.glob(File.join(ROOT, '_posts', '*.markdown')).map do |path|
       body = File.read(path)
       front_matter = body[/\A---\s*\n(.*?)\n---\s*(?:\n|\z)/m, 1]
-      parsed = front_matter ? YAML.safe_load(front_matter, [Date], [], true) : {}
+      parsed = front_matter ? YAML.safe_load(front_matter, permitted_classes: [Date], aliases: true) : {}
       parsed ||= {}
       parsed['__source_path'] = path
       parsed
