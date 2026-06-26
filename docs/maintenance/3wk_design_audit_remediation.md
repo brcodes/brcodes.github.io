@@ -327,3 +327,61 @@ Original plan said "BS3 omits [the modal-dialog] wrapper at the outer level" —
   - `role="dialog"` absent from outer `.portfolio-modal` div
   - BS3 `btn-default` absent from modal close button
 - Full TAP output: `test/3wk_design_audit_remediation/bs5mig_1_3.tap`
+
+---
+
+## Remediation Step 7 (Address Item 1, Step 1.4: Update carousel markup)
+
+**Status: Complete** _(plan audited before implementation)_
+
+### Updated plan
+
+Original plan covered class renames and data attribute swaps but missed four items caught during audit.
+
+**Corrections and additions vs. original plan:**
+- `main.css` also required updates — `.carousel-control.left/.right` and `.carousel-fade .carousel-inner .item` selectors target the old BS3 class names. Plan omitted this entirely; without updating these selectors the slideshow fade and control positioning would break.
+- Indicator elements: BS5 expects `<div class="carousel-indicators">` with `<button>` children, not `<ol>/<li>`. Plan only mentioned changing data attributes; element types also needed to change.
+- Prev/next controls: BS5 recommends `<button>` elements (not `<a>`). `href` attribute replaced with `data-bs-target`; `role="button"` removed (superfluous on native button). Plan only mentioned class rename.
+- `role="listbox"` on `.carousel-inner` — not a valid ARIA role in this context; BS5 uses no role on carousel-inner. Plan did not mention this.
+- `sr-only` → `visually-hidden` — BS5 renamed this utility class. Plan did not mention this.
+
+**Test strategy note:** All current posts with multi-image carousels use `carousel-mode: slideshow`. The click-through carousel branch (indicators, prev/next controls, visually-hidden labels) never renders in `_site/index.html`. Tests 5–13 verify the source template `_includes/modals.html` directly rather than rendered HTML.
+
+### Changes made
+
+**`_includes/modals.html`**
+- Slideshow carousel-inner: removed `role="listbox"`
+- Both carousel branches: `class="item{% if forloop.first %} active{% endif %}"` → `class="carousel-item{% if forloop.first %} active{% endif %}"`
+- Click-through indicators: `<ol class="carousel-indicators">` + `<li data-target/data-slide-to>` → `<div class="carousel-indicators">` + `<button type="button" data-bs-target/data-bs-slide-to>`
+- Click-through carousel-inner: removed `role="listbox"`
+- Prev control: `<a class="left carousel-control" href="..." role="button" data-slide="prev">` → `<button class="carousel-control carousel-control-prev" type="button" data-bs-target="..." data-bs-slide="prev">`
+- Next control: `<a class="right carousel-control" href="..." role="button" data-slide="next">` → `<button class="carousel-control carousel-control-next" type="button" data-bs-target="..." data-bs-slide="next">`
+- `<span class="sr-only">` → `<span class="visually-hidden">` on both controls
+- Closing `</a>` → `</button>` on both controls
+
+**`_includes/css/main.css`**
+- `.portfolio-modal .carousel-control.left` → `.portfolio-modal .carousel-control-prev`
+- `.portfolio-modal .carousel-control.right` → `.portfolio-modal .carousel-control-next`
+- `.portfolio-modal .carousel-fade .carousel-inner .item` → `.portfolio-modal .carousel-fade .carousel-inner .carousel-item`
+- `.portfolio-modal .carousel-fade .carousel-inner .item.active` → `.portfolio-modal .carousel-fade .carousel-inner .carousel-item.active`
+
+**Verification suite**
+- `test/3wk_design_audit_remediation/bs5mig_1_4.rb` — 13-check TAP verification script
+- `test/3wk_design_audit_remediation/bs5mig_1_4.tap` — TAP output file
+
+### Notes
+- **Results: 13/13 checks passed**
+  - Jekyll build succeeds
+  - Rendered HTML: BS3 `.item` absent from slideshow slides
+  - Rendered HTML: `.carousel-item` present on slideshow slides
+  - Rendered HTML: `role="listbox"` absent from `.carousel-inner`
+  - Template: `<ol class="carousel-indicators">` absent (replaced with `<div>`)
+  - Template: `<div class="carousel-indicators">` present
+  - Template: `data-bs-slide-to` present on indicator buttons
+  - Template: BS3 `data-slide` absent
+  - Template: `data-bs-slide` present on controls
+  - Template: `carousel-control-prev` and `carousel-control-next` present
+  - Template: no `<a>` carousel-control elements (converted to `<button>`)
+  - Template: BS3 `.sr-only` absent
+  - Template: `.visually-hidden` present on control labels
+- Full TAP output: `test/3wk_design_audit_remediation/bs5mig_1_4.tap`

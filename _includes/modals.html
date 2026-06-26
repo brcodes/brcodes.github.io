@@ -22,13 +22,13 @@
             {% assign carousel_mode = post['carousel-mode'] | default: 'click-through' %}
             {% if carousel_mode == 'slideshow' %}
             <div id="portfolioCarousel-{{ post['grid-position'] }}" class="carousel carousel-fade" data-bs-ride="carousel" data-bs-interval="5000" data-bs-pause="false" data-bs-wrap="true">
-              <div class="carousel-inner" role="listbox">
+              <div class="carousel-inner">
                 {% for modal_image in post['modal-images'] %}
                 {% assign modal_image_path = modal_image %}
                 {% unless modal_image contains '/' %}
                 {% assign modal_image_path = '/img/portfolio/' | append: modal_image %}
                 {% endunless %}
-                <div class="item{% if forloop.first %} active{% endif %}">
+                <div class="carousel-item{% if forloop.first %} active{% endif %}">
                   <img src="{{ modal_image_path | relative_url }}" class="img-responsive img-centered" loading="lazy" decoding="async" alt="{{ post.alt }}">
                 </div>
                 {% endfor %}
@@ -36,30 +36,30 @@
             </div>
             {% else %}
             <div id="portfolioCarousel-{{ post['grid-position'] }}" class="carousel slide" data-bs-ride="carousel" data-bs-interval="false">
-              <ol class="carousel-indicators">
+              <div class="carousel-indicators">
                 {% for modal_image in post['modal-images'] %}
-                <li data-target="#portfolioCarousel-{{ post['grid-position'] }}" data-slide-to="{{ forloop.index0 }}"{% if forloop.first %} class="active"{% endif %}></li>
+                <button type="button" data-bs-target="#portfolioCarousel-{{ post['grid-position'] }}" data-bs-slide-to="{{ forloop.index0 }}"{% if forloop.first %} class="active"{% endif %}></button>
                 {% endfor %}
-              </ol>
-              <div class="carousel-inner" role="listbox">
+              </div>
+              <div class="carousel-inner">
                 {% for modal_image in post['modal-images'] %}
                 {% assign modal_image_path = modal_image %}
                 {% unless modal_image contains '/' %}
                 {% assign modal_image_path = '/img/portfolio/' | append: modal_image %}
                 {% endunless %}
-                <div class="item{% if forloop.first %} active{% endif %}">
+                <div class="carousel-item{% if forloop.first %} active{% endif %}">
                   <img src="{{ modal_image_path | relative_url }}" class="img-responsive img-centered" loading="lazy" decoding="async" alt="{{ post.alt }}">
                 </div>
                 {% endfor %}
               </div>
-              <a class="left carousel-control" href="#portfolioCarousel-{{ post['grid-position'] }}" role="button" data-slide="prev">
+              <button class="carousel-control carousel-control-prev" type="button" data-bs-target="#portfolioCarousel-{{ post['grid-position'] }}" data-bs-slide="prev">
                 <span class="carousel-arrow" aria-hidden="true">&#10094;</span>
-                <span class="sr-only">Previous</span>
-              </a>
-              <a class="right carousel-control" href="#portfolioCarousel-{{ post['grid-position'] }}" role="button" data-slide="next">
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control carousel-control-next" type="button" data-bs-target="#portfolioCarousel-{{ post['grid-position'] }}" data-bs-slide="next">
                 <span class="carousel-arrow" aria-hidden="true">&#10095;</span>
-                <span class="sr-only">Next</span>
-              </a>
+                <span class="visually-hidden">Next</span>
+              </button>
             </div>
             {% endif %}
             {% else %}

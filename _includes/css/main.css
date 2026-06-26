@@ -1099,11 +1099,11 @@ footer .footer-below .col-lg-12 {
     text-shadow: none;
 }
 
-.portfolio-modal .carousel-control.left {
+.portfolio-modal .carousel-control-prev {
     left: 12px;
 }
 
-.portfolio-modal .carousel-control.right {
+.portfolio-modal .carousel-control-next {
     right: 12px;
 }
 
@@ -1123,7 +1123,7 @@ footer .footer-below .col-lg-12 {
 /* Slideshow (fade) carousel mode — items are absolutely stacked;
    a custom JS timer toggles .active so only CSS opacity transitions fire,
    bypassing Bootstrap's slide mechanism entirely. */
-.portfolio-modal .carousel-fade .carousel-inner .item {
+.portfolio-modal .carousel-fade .carousel-inner .carousel-item {
     display: block !important;      /* always in DOM, never hidden by Bootstrap */
     position: absolute;
     top: 0;
@@ -1135,7 +1135,7 @@ footer .footer-below .col-lg-12 {
     -webkit-transition: opacity 1s ease-in-out;
     transition: opacity 1s ease-in-out;
 }
-.portfolio-modal .carousel-fade .carousel-inner .item.active {
+.portfolio-modal .carousel-fade .carousel-inner .carousel-item.active {
     position: relative;             /* anchors container height to visible image */
     opacity: 1;
 }

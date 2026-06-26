@@ -1,0 +1,15 @@
+TAP version 13
+1..13
+ok 1 - Jekyll build succeeds
+ok 2 - Rendered HTML: BS3 .item absent (slideshow uses .carousel-item)
+ok 3 - Rendered HTML: .carousel-item present on slideshow slides
+ok 4 - Rendered HTML: role="listbox" absent from .carousel-inner
+ok 5 - Template: <ol class="carousel-indicators"> absent (replaced with <div>)
+ok 6 - Template: <div class="carousel-indicators"> present (BS5 indicator wrapper)
+ok 7 - Template: data-bs-slide-to present on indicator buttons
+ok 8 - Template: BS3 data-slide absent (replaced with data-bs-slide)
+ok 9 - Template: data-bs-slide present on carousel controls
+ok 10 - Template: carousel-control-prev and carousel-control-next classes present
+ok 11 - Template: no <a> carousel-control elements (replaced with <button>)
+ok 12 - Template: BS3 .sr-only absent (replaced with .visually-hidden)
+ok 13 - Template: visually-hidden present on carousel control labels
