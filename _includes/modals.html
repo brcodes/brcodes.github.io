@@ -2,7 +2,7 @@
 {% assign ordered_posts = site.posts | sort: 'grid-position' %}
 {% for post in ordered_posts %}
 <div class="portfolio-modal modal fade" id="portfolioModal-{{ post['grid-position'] }}" tabindex="-1"
-  aria-hidden="true">
+  aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
   <div class="modal-dialog">
     <div class="modal-content">
     <div class="close-modal" data-bs-dismiss="modal">

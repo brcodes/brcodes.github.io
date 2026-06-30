@@ -72,23 +72,23 @@ $(function() {
 })();
 
 // Closes the Responsive Menu on Menu Item Click
-$('.navbar-collapse ul li a').click(function() {
-    $('.navbar-toggle:visible').click();
+document.querySelectorAll('.navbar-collapse ul li a').forEach(function(link) {
+    link.addEventListener('click', function() {
+        var toggler = document.querySelector('.navbar-toggler');
+        if (toggler && getComputedStyle(toggler).display !== 'none') {
+            toggler.click();
+        }
+    });
 });
 
 // Portfolio modal close policy:
 // - Close on modal image click
 // - Close on explicit close button (X)
-// - Do not close on backdrop click or keyboard (Esc)
-$(function() {
-    $('.portfolio-modal').modal({
-        backdrop: 'static',
-        keyboard: false,
-        show: false
-    });
-
-    $(document).on('click', '.portfolio-modal .modal-body img', function() {
-        $(this).closest('.modal').modal('hide');
-    });
+// - Do not close on backdrop click or keyboard (Esc) [set via data-bs-* in HTML]
+document.addEventListener('click', function(e) {
+    var img = e.target.closest('.portfolio-modal .modal-body img');
+    if (!img) return;
+    var modal = img.closest('.modal');
+    if (modal) bootstrap.Modal.getInstance(modal).hide();
 });
 

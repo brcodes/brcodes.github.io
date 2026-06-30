@@ -1,0 +1,17 @@
+TAP version 13
+1..15
+ok 1 - Jekyll build succeeds
+ok 2 - js.html: jQuery $('.portfolio-modal') removed from slideshow script
+ok 3 - js.html: stale .item selector removed (script now uses .carousel-item)
+ok 4 - js.html: $carousel.carousel() jQuery plugin call removed
+ok 5 - js.html: vanilla querySelectorAll + .carousel-item present in slideshow script
+ok 6 - js.html: bootstrap.Carousel.getOrCreateInstance().pause() present
+ok 7 - js.html: dataset.bsInterval used (reads data-bs-interval attribute)
+ok 8 - freelancer.js: $('.navbar-toggle') removed (BS3 class replaced with .navbar-toggler)
+ok 9 - freelancer.js: .modal({}) jQuery plugin call removed
+ok 10 - freelancer.js: vanilla navbar-toggler + getComputedStyle visibility check present
+ok 11 - freelancer.js: bootstrap.Modal.getInstance present for close-on-image-click
+ok 12 - modals.html: data-bs-backdrop="static" present on portfolio modal divs
+ok 13 - modals.html: data-bs-keyboard="false" present on portfolio modal divs
+ok 14 - Rendered HTML: .portfolio-modal has data-bs-backdrop="static"
+ok 15 - freelancer.js: floating-label handler still present (deferred to Step 1.8)

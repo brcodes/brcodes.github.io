@@ -482,3 +482,63 @@ Original plan said to "replace `$(window).scroll(...)` with a vanilla `addEventL
   - `freelancer.js`: vanilla rAF `navbar-shrink` handler still present
   - `freelancer.js`: `floating-label-form-group` handler still present (Step 1.8)
 - Full TAP output: `test/3wk_design_audit_remediation/bs5mig_1_6.tap`
+
+---
+
+## Remediation Step 10 (Address Item 1, Step 1.7: Replace inline slideshow script)
+
+**Status: Complete** _(plan audited before implementation)_
+
+### Updated plan
+
+Original plan scope was the inline `<script>` block in `js.html` only. Audit found two additional broken jQuery blocks in `freelancer.js` with no assigned plan step, so they were included here.
+
+**Corrections and additions vs. original plan:**
+- `.item` → `.carousel-item` in new script — old script used `.item` but Step 1.4 changed HTML to `.carousel-item`.
+- `$carousel.data('interval')` → `carousel.dataset.bsInterval` — data attribute renamed to `data-bs-interval` in Step 1.3.
+- `$carousel.carousel({ interval: false })` → `bootstrap.Carousel.getOrCreateInstance(carousel).pause()` — stop BS5's own cycling without jQuery.
+- Responsive menu close in `freelancer.js` was also broken — used `$('.navbar-toggle:visible')` (BS3 class `.navbar-toggle` renamed to `.navbar-toggler` in Step 1.2; jQuery not needed). Converted to vanilla JS with `getComputedStyle` visibility check. Not in original plan.
+- Portfolio modal init in `freelancer.js` was also broken — used `$('.portfolio-modal').modal({backdrop:'static', keyboard:false})` (BS3 jQuery modal API, not available in BS5). `backdrop` and `keyboard` settings moved to `data-bs-backdrop="static"` and `data-bs-keyboard="false"` HTML attributes; close-on-image-click rewritten with vanilla `document.addEventListener` + `bootstrap.Modal.getInstance`. Not in original plan.
+
+### Changes made
+
+**`_includes/js.html`**
+- Replaced jQuery inline slideshow script entirely with vanilla JS equivalent:
+  - `$('.portfolio-modal').each(...)` → `document.querySelectorAll('.portfolio-modal').forEach(...)`
+  - `$modal.on('shown.bs.modal', ...)` → `modal.addEventListener('shown.bs.modal', ...)`
+  - `.carousel-inner .item` → `.carousel-inner .carousel-item`
+  - `$carousel.carousel({ interval: false })` → `bootstrap.Carousel.getOrCreateInstance(carousel).pause()`
+  - `$carousel.data('interval')` → `carousel.dataset.bsInterval`
+  - `$items.eq(idx).addClass/removeClass('active')` → `items[idx].classList.add/remove('active')`
+  - `$carousel.data('slideshow-timer', timer)` → `carousel._slideshowTimer = timer`
+
+**`js/freelancer.js`**
+- Responsive menu close: `$('.navbar-collapse ul li a').click(...)` + `$('.navbar-toggle:visible').click()` → vanilla `querySelectorAll` + `addEventListener` + `getComputedStyle` visibility check on `.navbar-toggler`
+- Portfolio modal init: `$('.portfolio-modal').modal({backdrop:'static', keyboard:false, show:false})` and jQuery `$(document).on('click', '...img', ...)` → single `document.addEventListener('click', ...)` delegated handler using `e.target.closest()` and `bootstrap.Modal.getInstance(modal).hide()`
+
+**`_includes/modals.html`**
+- Added `data-bs-backdrop="static"` and `data-bs-keyboard="false"` to each `.portfolio-modal` div (previously set via jQuery `.modal()` init, which is not available in BS5)
+
+**Verification suite**
+- `test/3wk_design_audit_remediation/bs5mig_1_7.rb` — 15-check TAP verification script
+- `test/3wk_design_audit_remediation/bs5mig_1_7.tap` — TAP output file
+
+### Notes
+- **Results: 15/15 checks passed**
+  - Jekyll build succeeds
+  - `js.html`: `$('.portfolio-modal')` removed
+  - `js.html`: stale `.item` selector removed (now `.carousel-item`)
+  - `js.html`: `$carousel.carousel()` jQuery call removed
+  - `js.html`: vanilla `querySelectorAll` + `.carousel-item` present
+  - `js.html`: `bootstrap.Carousel.getOrCreateInstance().pause()` present
+  - `js.html`: `dataset.bsInterval` reads `data-bs-interval` attribute
+  - `freelancer.js`: `$('.navbar-toggle')` removed
+  - `freelancer.js`: `.modal({})` jQuery call removed
+  - `freelancer.js`: vanilla `.navbar-toggler` + `getComputedStyle` present
+  - `freelancer.js`: `bootstrap.Modal.getInstance` present
+  - `modals.html`: `data-bs-backdrop="static"` present
+  - `modals.html`: `data-bs-keyboard="false"` present
+  - Rendered HTML: `.portfolio-modal[data-bs-backdrop="static"]` present
+  - `freelancer.js`: floating-label handler preserved (Step 1.8)
+- Full TAP output: `test/3wk_design_audit_remediation/bs5mig_1_7.tap`
+- After this step, jQuery in `freelancer.js` is limited to the floating-label handler only (Step 1.8). `jqBootstrapValidation.js` and `contact_me.js` are not loaded (`contact: static`).
