@@ -1,0 +1,16 @@
+TAP version 13
+1..14
+ok 1 - Jekyll build succeeds
+ok 2 - Rendered HTML: jQuery script tag absent (jQuery removed from page)
+ok 3 - js.html: jQuery script tag absent
+ok 4 - js.html: jqBootstrapValidation script tag absent
+ok 5 - freelancer.js: zero jQuery $() calls remaining
+ok 6 - freelancer.js: vanilla floating-label handler present (uses .closest())
+ok 7 - freelancer.js: focusin/focusout event listeners present (bubble-capable focus events)
+ok 8 - contact.html: novalidate attribute removed (native HTML5 validation enabled)
+ok 9 - contact.html: control-group class removed (BS3 jQuery validation hook)
+ok 10 - contact.html: help-block class removed (BS3 jQuery validation feedback)
+ok 11 - contact.html: data-validation-required-message attributes removed (jQuery plugin artifacts)
+ok 12 - contact.html: id="success" AJAX placeholder div removed
+ok 13 - Rendered HTML: Bootstrap 5 bundle script tag present
+ok 14 - Rendered HTML: jquery-1.11.0.js script tag absent

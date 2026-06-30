@@ -542,3 +542,66 @@ Original plan scope was the inline `<script>` block in `js.html` only. Audit fou
   - `freelancer.js`: floating-label handler preserved (Step 1.8)
 - Full TAP output: `test/3wk_design_audit_remediation/bs5mig_1_7.tap`
 - After this step, jQuery in `freelancer.js` is limited to the floating-label handler only (Step 1.8). `jqBootstrapValidation.js` and `contact_me.js` are not loaded (`contact: static`).
+
+---
+
+## Remediation Step 11 (Address Item 1, Step 1.8: Remove jQuery; replace form validation)
+
+**Status: Complete** _(plan audited before implementation)_
+
+### Updated plan
+
+Original plan focused on removing `jqBootstrapValidation.js` and `contact_me.js`. Audit identified the floating-label handler in `freelancer.js` as the last remaining jQuery dependency (not mentioned in plan), and enumerated the BS3 form artifacts in `contact.html` that needed cleanup alongside the validation removal.
+
+**Corrections and additions vs. original plan:**
+- Floating-label handler in `freelancer.js` — the last jQuery dependency. Plan didn't mention it. Converted to vanilla JS here, enabling jQuery removal from the page entirely.
+- `jqBootstrapValidation.js` and `contact_me.js` files kept on disk — only the conditional load block removed from `js.html`. Files are not loaded by any deployment path.
+- `contact.html` BS3 artifact cleanup added to scope: `novalidate`, `control-group`, `controls`, `data-validation-required-message`, `help-block`, and `id="success"` AJAX div.
+- Native HTML5 validation (option 1) chosen for `contact.html` — simplest approach; `novalidate` removed so browser enforces `required` constraints natively. Form is not rendered (`contact: static`) so no visible change.
+- `propertychange` event (IE8) removed from floating-label handler — no longer relevant; vanilla handler uses `input` event only.
+- `focus`/`blur` delegation upgraded to `focusin`/`focusout` — these bubble, enabling proper event delegation on `document`.
+
+### Changes made
+
+**`js/freelancer.js`**
+- Replaced jQuery floating-label block with vanilla JS event delegation:
+  - `$(function() { $("body").on("input propertychange", ...) })` → `document.addEventListener('input', ...)`
+  - `.on("focus", ...)` → `document.addEventListener('focusin', ...)`
+  - `.on("blur", ...)` → `document.addEventListener('focusout', ...)`
+  - `$(this).toggleClass(...)` / `.addClass()` / `.removeClass()` → `group.classList.toggle/add/remove(...)`
+  - `e.target.closest('.floating-label-form-group')` used for delegation in all three handlers
+
+**`_includes/js.html`**
+- Removed `<!-- jQuery Version 1.11.0 -->` `<script>` tag
+- Removed `{% unless site.contact == "static" %}...{% endunless %}` conditional block loading `jqBootstrapValidation.js` and `contact_me.js`
+
+**`_includes/contact.html`** (not rendered — `contact: static`)
+- Removed `novalidate` from `<form>` tag (enables native HTML5 validation)
+- Removed `control-group` class from all 4 `.row` wrappers (BS3 jQuery validation hook)
+- Removed `controls` class from all 4 `.floating-label-form-group` divs
+- Removed `data-validation-required-message="..."` attribute from all 4 inputs/textarea
+- Removed 4× `<p class="help-block text-danger"></p>` (BS3 jQuery validation feedback)
+- Removed `<div id="success"></div>` (jQuery AJAX response placeholder)
+
+**Verification suite**
+- `test/3wk_design_audit_remediation/bs5mig_1_8.rb` — 14-check TAP verification script
+- `test/3wk_design_audit_remediation/bs5mig_1_8.tap` — TAP output file
+
+### Notes
+- **Results: 14/14 checks passed**
+  - Jekyll build succeeds
+  - Rendered HTML: jQuery script tag absent
+  - `js.html`: jQuery script tag absent
+  - `js.html`: `jqBootstrapValidation` script tag absent
+  - `freelancer.js`: zero `$()` calls remaining
+  - `freelancer.js`: vanilla floating-label handler with `.closest()` present
+  - `freelancer.js`: `focusin`/`focusout` event listeners present
+  - `contact.html`: `novalidate` removed
+  - `contact.html`: `control-group` removed
+  - `contact.html`: `help-block` removed
+  - `contact.html`: `data-validation-required-message` removed
+  - `contact.html`: `id="success"` removed
+  - Rendered HTML: Bootstrap 5 bundle still present
+  - Rendered HTML: `jquery-1.11.0.js` absent
+- Full TAP output: `test/3wk_design_audit_remediation/bs5mig_1_8.tap`
+- **jQuery fully eliminated from the page after this step.** The BS3 → BS5 migration (Item 1, Steps 1.1–1.8) is now complete. Step 1.9 (smoke test all breakpoints) remains.
