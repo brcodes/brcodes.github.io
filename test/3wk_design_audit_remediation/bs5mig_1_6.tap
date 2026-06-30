@@ -1,0 +1,13 @@
+TAP version 13
+1..11
+ok 1 - Jekyll build succeeds
+ok 2 - freelancer.js: .page-scroll click handler removed
+ok 3 - freelancer.js: easeInOutExpo reference removed (jQuery Easing dependency gone)
+ok 4 - freelancer.js: ScrollSpy freeze patch removed
+ok 5 - freelancer.js: jQuery scrollspy IIFE removed (BS5 uses data-bs-spy attribute)
+ok 6 - freelancer.js: $('body').scrollspy() call removed
+ok 7 - Built style.css: scroll-behavior: smooth present in compiled CSS
+ok 8 - Built style.css: scroll-padding-top present (offsets fixed navbar on anchor scroll)
+ok 9 - Rendered HTML: data-bs-spy="scroll" present on <body> (BS5 ScrollSpy auto-init)
+ok 10 - freelancer.js: vanilla rAF navbar-shrink handler still present
+ok 11 - freelancer.js: floating-label handler still present (deferred to Step 1.8)

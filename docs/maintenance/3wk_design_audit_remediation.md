@@ -441,3 +441,44 @@ Original plan listed `col-xs-12 → col-12`, `col-lg-offset-2 → offset-lg-2`, 
   - Template: `col-xs-12` absent from `contact.html`
   - `main.css`: custom `.btn-outline` class still present
 - Full TAP output: `test/3wk_design_audit_remediation/bs5mig_1_5.tap`
+
+---
+
+## Remediation Step 9 (Address Item 1, Step 1.6: Replace jQuery smooth scroll)
+
+**Status: Complete** _(plan audited before implementation)_
+
+### Updated plan
+
+Original plan said to "replace `$(window).scroll(...)` with a vanilla `addEventListener` handler" for navbar shrink. Audit found this was already done — `freelancer.js` already had a fully vanilla rAF-throttled shrink implementation. Three other corrections were needed.
+
+**Corrections and additions vs. original plan:**
+- Navbar shrink already vanilla JS — plan was out of date; no action required for that item.
+- jQuery scrollspy IIFE (the `applyScrollspy` block) also needed removal — it calls BS3's `$('body').scrollspy({...})` API which does not exist in BS5. Plan only named the `.page-scroll a` handler; this second block was also dead code.
+- `scroll-padding-top: 80px` needed alongside `scroll-behavior: smooth` — without it, CSS anchor scroll lands target sections under the fixed navbar. Value matches the existing `data-bs-offset="80"` on `<body>`.
+- The `easeInOutExpo` reference in the smooth-scroll block was already broken since Step 1.1 removed `jquery.easing.min.js`. The block was dead since then.
+
+### Changes made
+
+**`js/freelancer.js`**
+- Removed jQuery smooth scroll block (the `$(function() { ... $('.page-scroll a').bind('click', ...) })` IIFE including the BS3 ScrollSpy freeze patch)
+- Removed jQuery scrollspy initialization IIFE (`applyScrollspy`, `$('body').scrollspy(...)`, debounced resize handler)
+- Kept: floating-label form group handler (deferred to Step 1.8), vanilla rAF navbar-shrink handler, responsive menu close, portfolio modal init
+
+**`_includes/css/main.css`**
+- Added `html { scroll-behavior: smooth; scroll-padding-top: 80px; }` rule before `body {}` — native CSS smooth scroll with navbar-height offset
+
+### Notes
+- **Results: 11/11 checks passed**
+  - Jekyll build succeeds
+  - `freelancer.js`: `.page-scroll` click handler removed
+  - `freelancer.js`: `easeInOutExpo` reference removed
+  - `freelancer.js`: `_scrollspyFrozen` ScrollSpy patch removed
+  - `freelancer.js`: `applyScrollspy` jQuery scrollspy IIFE removed
+  - `freelancer.js`: `$('body').scrollspy()` call removed
+  - Built `style.css`: `scroll-behavior: smooth` present
+  - Built `style.css`: `scroll-padding-top` present
+  - Rendered HTML: `data-bs-spy="scroll"` on `<body>` (BS5 ScrollSpy auto-init)
+  - `freelancer.js`: vanilla rAF `navbar-shrink` handler still present
+  - `freelancer.js`: `floating-label-form-group` handler still present (Step 1.8)
+- Full TAP output: `test/3wk_design_audit_remediation/bs5mig_1_6.tap`

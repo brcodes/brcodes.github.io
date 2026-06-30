@@ -4,55 +4,6 @@
  * For details, see http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-// jQuery for page scrolling feature - requires jQuery Easing plugin
-$(function() {
-    // Patch ScrollSpy.activate once so it can be frozen during programmatic
-    // scrolls — prevents intermediate sections being highlighted mid-jump.
-    var ScrollSpy = $.fn.scrollspy.Constructor;
-    var _origActivate = ScrollSpy.prototype.activate;
-    var _scrollspyFrozen = false;
-    ScrollSpy.prototype.activate = function(target) {
-        if (_scrollspyFrozen) { return; }
-        _origActivate.call(this, target);
-    };
-
-    $('.page-scroll a').bind('click', function(event) {
-        var $anchor = $(this);
-        var $collapse = $('#bs-example-navbar-collapse-1');
-
-        function doScroll() {
-            var navbarHeight = $('.navbar-fixed-top').outerHeight() || 0;
-
-            // Immediately show the target as active and freeze scrollspy so
-            // passing through intermediate sections doesn't flicker highlights.
-            $('.navbar-nav>li').removeClass('active');
-            $anchor.closest('li').addClass('active');
-            _scrollspyFrozen = true;
-
-            $('html, body').stop().animate({
-                scrollTop: $($anchor.attr('href')).offset().top - navbarHeight
-            }, 700, 'easeInOutExpo', function() {
-                _scrollspyFrozen = false;
-            });
-        }
-
-        if ($collapse.hasClass('in')) {
-            // Menu fully open — collapse it first, then scroll.
-            $collapse.one('hidden.bs.collapse', doScroll);
-            $collapse.collapse('hide');
-        } else if ($collapse.hasClass('collapsing')) {
-            // Bootstrap already started collapsing (removed 'in' before our
-            // handler ran) — just wait for it to finish, then scroll.
-            $collapse.one('hidden.bs.collapse', doScroll);
-        } else {
-            // Menu is closed — scroll immediately.
-            doScroll();
-        }
-
-        event.preventDefault();
-    });
-});
-
 // Floating label headings for the contact form
 $(function() {
     $("body").on("input propertychange", ".floating-label-form-group", function(e) {
@@ -63,29 +14,6 @@ $(function() {
         $(this).removeClass("floating-label-form-group-with-focus");
     });
 });
-
-// Scrollspy: offset matches live navbar height so active item switches the
-// moment a section reaches the navbar bottom edge.
-(function() {
-    function applyScrollspy() {
-        $('body').scrollspy({
-            target: '.navbar-fixed-top',
-            offset: ($('.navbar-fixed-top').outerHeight() || 60) + 1
-        });
-    }
-    applyScrollspy();
-
-    // Debounced resize keeps the offset accurate across navbar shrink/grow
-    // without hammering scrollspy on every pixel of resize.
-    var _spyResizeTimer = null;
-    $(window).on('resize', function() {
-        clearTimeout(_spyResizeTimer);
-        _spyResizeTimer = setTimeout(function() {
-            applyScrollspy();
-            $('body').scrollspy('refresh');
-        }, 150);
-    });
-}());
 
 // Shrink navbar on scroll using a lightweight rAF-throttled handler.
 (function() {
