@@ -1,0 +1,13 @@
+TAP version 13
+1..11
+ok 1 - Jekyll build succeeds
+ok 2 - Rendered HTML: col-xs-* absent (xs infix dropped in BS5)
+ok 3 - Template: col-12 present in contact.html (contact.html uses contact: static, not rendered)
+ok 4 - Rendered HTML: col-lg-offset-* absent (BS5 uses offset-{bp}-{n} syntax)
+ok 5 - Rendered HTML: .offset-lg-2 present on centered content columns
+ok 6 - Rendered HTML: img-responsive absent (BS5 uses img-fluid)
+ok 7 - Rendered HTML: img.img-fluid present on portfolio thumbnails
+ok 8 - Templates: img-responsive absent from all _includes HTML sources
+ok 9 - Templates: col-lg-offset-2 absent from all _includes HTML sources
+ok 10 - Template: col-xs-12 absent from contact.html
+ok 11 - main.css: custom .btn-outline class still present (not accidentally removed)

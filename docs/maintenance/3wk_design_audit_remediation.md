@@ -385,3 +385,59 @@ Original plan covered class renames and data attribute swaps but missed four ite
   - Template: BS3 `.sr-only` absent
   - Template: `.visually-hidden` present on control labels
 - Full TAP output: `test/3wk_design_audit_remediation/bs5mig_1_4.tap`
+
+---
+
+## Remediation Step 8 (Address Item 1, Step 1.5: Update grid/utility classes)
+
+**Status: Complete** _(plan audited before implementation)_
+
+### Updated plan
+
+Original plan listed `col-xs-12 → col-12`, `col-lg-offset-2 → offset-lg-2`, and a `btn-outline` audit. Audit found two gaps and one misidentification.
+
+**Corrections and additions vs. original plan:**
+- `img-responsive` → `img-fluid` missed from plan entirely — BS5 renamed this responsive image utility. It appeared in `portfolio_grid.html` (1×) and all four image branches of `modals.html` (4×). Added to scope.
+- `btn-outline` is a **custom class** fully defined in `main.css` (lines 762–785) — not a BS3 class at all. Plan said to verify/migrate; no change needed, preserved as-is.
+- `btn-success` on the contact submit button is unchanged in BS5 — no action required.
+- `help-block` and `control-group` in `contact.html` are BS3 form validation helpers tightly coupled to `jqBootstrapValidation` — deferred to Step 1.8.
+- `main.css` selectors referencing BS5-compatible grid classes (`col-md-4`, `col-lg-8`, `col-lg-12`) need no changes — those class names are identical in BS5.
+- `contact: static` is set in `_config.yml`, so `contact.html` never renders to `_site/index.html`. Test check 3 verifies source template directly rather than rendered HTML.
+
+### Changes made
+
+**`_includes/contact.html`**
+- 5× `col-xs-12` → `col-12` (form field wrapper divs)
+- 1× `col-lg-offset-2` → `offset-lg-2` (outer content column)
+
+**`_includes/about.html`**
+- 2× `col-lg-offset-2` → `offset-lg-2` (bio copy column, resume button column)
+
+**`_includes/modals.html`**
+- 1× `col-lg-offset-2` → `offset-lg-2` (modal inner content column)
+- 4× `img-responsive` → `img-fluid` (slideshow carousel image, click-through carousel image, single-image fallback, modal-img fallback)
+
+**`_includes/contact_static.html`**
+- 1× `col-lg-offset-2` → `offset-lg-2` (centered content column)
+
+**`_includes/portfolio_grid.html`**
+- 1× `img-responsive` → `img-fluid` (portfolio thumbnail images)
+
+**Verification suite**
+- `test/3wk_design_audit_remediation/bs5mig_1_5.rb` — 11-check TAP verification script
+- `test/3wk_design_audit_remediation/bs5mig_1_5.tap` — TAP output file
+
+### Notes
+- **Results: 11/11 checks passed**
+  - Jekyll build succeeds
+  - Rendered HTML: `col-xs-*` absent
+  - Template: `col-12` present in `contact.html` (not rendered — `contact: static` mode)
+  - Rendered HTML: `col-lg-offset-*` absent
+  - Rendered HTML: `.offset-lg-2` present on centered columns
+  - Rendered HTML: `img-responsive` absent
+  - Rendered HTML: `img.img-fluid` present on portfolio thumbnails
+  - Templates: `img-responsive` absent from all `_includes` HTML sources
+  - Templates: `col-lg-offset-2` absent from all `_includes` HTML sources
+  - Template: `col-xs-12` absent from `contact.html`
+  - `main.css`: custom `.btn-outline` class still present
+- Full TAP output: `test/3wk_design_audit_remediation/bs5mig_1_5.tap`
