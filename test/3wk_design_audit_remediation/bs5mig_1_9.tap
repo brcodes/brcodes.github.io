@@ -1,0 +1,28 @@
+TAP version 13
+1..26
+ok 1 - [Load] Jekyll build succeeds
+ok 2 - [Load] Bootstrap 5 CSS CDN link present
+ok 3 - [Load] Bootstrap 5 JS bundle script present
+ok 4 - [Load] jQuery absent — page is jQuery-free
+ok 5 - [Navbar] fixed-top class on <nav>
+ok 6 - [Navbar] navbar-expand-md present (collapses below 768px)
+ok 7 - [Navbar] navbar-toggler button with data-bs-toggle="collapse" present
+ok 8 - [Navbar] #bs-example-navbar-collapse-1.collapse.navbar-collapse present
+ok 9 - [Scroll] data-bs-spy="scroll" on <body> (BS5 ScrollSpy auto-init)
+ok 10 - [Scroll] scroll-behavior: smooth in built style.css
+ok 11 - [Scroll] scroll-padding-top in built style.css (offsets fixed navbar)
+ok 12 - [Scroll] Section ids #portfolio, #about, #contact all present
+ok 13 - [Shrink] navbar-shrink CSS rule in built style.css
+ok 14 - [Shrink] vanilla rAF navbar-shrink handler in freelancer.js
+ok 15 - [Caption] .portfolio-item .portfolio-link elements present in rendered HTML
+ok 16 - [Caption] Portfolio thumbnails use img.img-fluid (BS5 responsive image)
+ok 17 - [Caption] .portfolio-link .caption CSS rule in built style.css
+ok 18 - [Modal] Portfolio card triggers with data-bs-toggle="modal" + data-bs-target present
+ok 19 - [Modal] .portfolio-modal divs with data-bs-backdrop="static" present
+ok 20 - [Modal] data-bs-dismiss="modal" present on close controls
+ok 21 - [Modal] bootstrap.Modal.getInstance in freelancer.js (close-on-image-click)
+ok 22 - [Slideshow] .carousel.carousel-fade[data-bs-ride] present in rendered HTML
+ok 23 - [Slideshow] .carousel-inner .carousel-item present (BS5 class, not BS3 .item)
+ok 24 - [Slideshow] bootstrap.Carousel.getOrCreateInstance in inline script
+ok 25 - [Carousel] carousel-control-prev + carousel-control-next in modals template
+ok 26 - [Carousel] data-bs-slide= on carousel control buttons in modals template

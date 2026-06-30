@@ -605,3 +605,59 @@ Original plan focused on removing `jqBootstrapValidation.js` and `contact_me.js`
   - Rendered HTML: `jquery-1.11.0.js` absent
 - Full TAP output: `test/3wk_design_audit_remediation/bs5mig_1_8.tap`
 - **jQuery fully eliminated from the page after this step.** The BS3 → BS5 migration (Item 1, Steps 1.1–1.8) is now complete. Step 1.9 (smoke test all breakpoints) remains.
+
+---
+
+## Remediation Step 12 (Address Item 1, Step 1.9: Smoke test all breakpoints and interactions)
+
+**Status: Complete** _(structural prerequisites verified; manual browser check required)_
+
+### Notes on approach
+
+Step 1.9 is inherently a manual browser test. This step provides a 26-check automated structural smoke test that verifies every prerequisite for each interaction to work. All 26 pass. Visual/interactive verification must be done in a browser with `bundle exec jekyll serve`.
+
+### Changes made
+
+No code changes — verification-only step.
+
+**Verification suite**
+- `test/3wk_design_audit_remediation/bs5mig_1_9.rb` — 26-check structural TAP verification script
+- `test/3wk_design_audit_remediation/bs5mig_1_9.tap` — TAP output file
+
+### Notes
+- **Results: 26/26 structural checks passed**
+  - **[Load]** Jekyll build succeeds; BS5 CSS CDN present; BS5 JS bundle present; jQuery absent
+  - **[Navbar]** `fixed-top`, `navbar-expand-md`, `navbar-toggler[data-bs-toggle="collapse"]`, collapse target div all present
+  - **[Scroll]** `data-bs-spy="scroll"` on `<body>`; `scroll-behavior: smooth` in CSS; `scroll-padding-top` in CSS; `#portfolio`, `#about`, `#contact` section ids present
+  - **[Shrink]** `navbar-shrink` CSS rule present; vanilla rAF handler in `freelancer.js`
+  - **[Caption]** `.portfolio-item .portfolio-link` elements present; `img.img-fluid` on thumbnails; `.portfolio-link .caption` CSS rule present
+  - **[Modal]** `data-bs-toggle="modal"` + `data-bs-target` on card triggers; `data-bs-backdrop="static"` on modals; `data-bs-dismiss="modal"` present; `bootstrap.Modal.getInstance` in `freelancer.js`
+  - **[Slideshow]** `.carousel.carousel-fade[data-bs-ride]` in rendered HTML; `.carousel-item` present; `bootstrap.Carousel.getOrCreateInstance` in inline script
+  - **[Carousel]** `carousel-control-prev`/`carousel-control-next` in template; `data-bs-slide=` on controls
+- Full TAP output: `test/3wk_design_audit_remediation/bs5mig_1_9.tap`
+
+### Manual browser checklist
+Run `bundle exec jekyll serve` and verify:
+- [ ] **Mobile (<768px):** navbar toggler opens/closes menu; nav links collapse menu after click; smooth scroll to sections
+- [ ] **Tablet (768–991px):** navbar visible without toggler; shrinks on scroll past 120px
+- [ ] **Desktop (≥1200px):** full navbar; hover captions appear on portfolio cards
+- [ ] **All breakpoints:** click portfolio card → modal opens; X / close button dismisses; Esc key does NOT close (static backdrop)
+- [ ] **Slideshow modal:** images fade automatically on interval; closing and reopening resets to first image
+
+---
+
+## BS3 → BS5 Migration Complete (Item 1, Steps 1.1–1.9)
+
+All automated verification suites pass:
+
+| Step | Description | Result |
+|---|---|---|
+| 1.1 | Swap CSS/JS bundle references | 6/6 ✓ |
+| 1.2 | Update navbar markup | 10/10 ✓ |
+| 1.3 | Update modal markup | 10/10 ✓ |
+| 1.4 | Update carousel markup + CSS | 13/13 ✓ |
+| 1.5 | Update grid/utility classes | 11/11 ✓ |
+| 1.6 | Replace jQuery smooth scroll | 11/11 ✓ |
+| 1.7 | Replace inline slideshow + remaining jQuery | 15/15 ✓ |
+| 1.8 | Remove jQuery; replace form validation | 14/14 ✓ |
+| 1.9 | Structural smoke test | 26/26 ✓ |
