@@ -14,7 +14,7 @@ date-range: 2026
 role: Developer
 field: Web Application Development
 description: |
-  Created and developed a Bible learning game, "<span style="color:#D4AF37">Iron: Sharpen Bible Knowledge</span>" 
-    - [iron-sharpen.com](https://www.iron-sharpen.com)
+  Created and developed a Bible learning game, "<span style="color:#D4AF37">Iron: Sharpen Bible Knowledge</span>"
     - Concept art / Design notes to stable, standalone web version with polished UI/UX in ~ 3 weeks (current version ~ 4 weeks)
+    - Available by request for live demonstration via Zoom screenshare 
 ---
